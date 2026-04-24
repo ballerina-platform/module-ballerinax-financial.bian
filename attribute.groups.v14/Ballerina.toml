@@ -16,133 +16,33 @@ name = "financial.bian.attribute.groups.common"
 export = true
 
 [[package.modules]]
-name = "financial.bian.attribute.groups.business_development_channel_management"
+name = "financial.bian.attribute.groups.business_development"
 export = true
 
 [[package.modules]]
-name = "financial.bian.attribute.groups.business_development_intellectual_property_and_knowledge"
+name = "financial.bian.attribute.groups.business_management"
 export = true
 
 [[package.modules]]
-name = "financial.bian.attribute.groups.business_development_models_and_analytics"
+name = "financial.bian.attribute.groups.channels"
 export = true
 
 [[package.modules]]
-name = "financial.bian.attribute.groups.business_development_product_management"
+name = "financial.bian.attribute.groups.customers"
 export = true
 
 [[package.modules]]
-name = "financial.bian.attribute.groups.business_development_solution_development"
+name = "financial.bian.attribute.groups.finance_risk_management"
 export = true
 
 [[package.modules]]
-name = "financial.bian.attribute.groups.business_management_business_direction"
+name = "financial.bian.attribute.groups.operations"
 export = true
 
 [[package.modules]]
-name = "financial.bian.attribute.groups.business_management_corporate_services"
+name = "financial.bian.attribute.groups.products"
 export = true
 
 [[package.modules]]
-name = "financial.bian.attribute.groups.channels_channel_specific"
-export = true
-
-[[package.modules]]
-name = "financial.bian.attribute.groups.channels_cross_channel"
-export = true
-
-[[package.modules]]
-name = "financial.bian.attribute.groups.channels_distribution"
-export = true
-
-[[package.modules]]
-name = "financial.bian.attribute.groups.channels_information_provider"
-export = true
-
-[[package.modules]]
-name = "financial.bian.attribute.groups.channels_servicing"
-export = true
-
-[[package.modules]]
-name = "financial.bian.attribute.groups.customers_customer_care"
-export = true
-
-[[package.modules]]
-name = "financial.bian.attribute.groups.customers_investment_services"
-export = true
-
-[[package.modules]]
-name = "financial.bian.attribute.groups.customers_party_reference"
-export = true
-
-[[package.modules]]
-name = "financial.bian.attribute.groups.customers_relationship_management"
-export = true
-
-[[package.modules]]
-name = "financial.bian.attribute.groups.customers_sales"
-export = true
-
-[[package.modules]]
-name = "financial.bian.attribute.groups.finance_risk_management_compliance"
-export = true
-
-[[package.modules]]
-name = "financial.bian.attribute.groups.operations_accounting_services"
-export = true
-
-[[package.modules]]
-name = "financial.bian.attribute.groups.operations_clearing_and_settlement"
-export = true
-
-[[package.modules]]
-name = "financial.bian.attribute.groups.operations_custody_collateral_and_documents"
-export = true
-
-[[package.modules]]
-name = "financial.bian.attribute.groups.operations_operational_services"
-export = true
-
-[[package.modules]]
-name = "financial.bian.attribute.groups.products_advisory_services"
-export = true
-
-[[package.modules]]
-name = "financial.bian.attribute.groups.products_cards"
-export = true
-
-[[package.modules]]
-name = "financial.bian.attribute.groups.products_consumer_banking"
-export = true
-
-[[package.modules]]
-name = "financial.bian.attribute.groups.products_corporate_banking"
-export = true
-
-[[package.modules]]
-name = "financial.bian.attribute.groups.products_corporate_finance"
-export = true
-
-[[package.modules]]
-name = "financial.bian.attribute.groups.products_loans_and_deposits"
-export = true
-
-[[package.modules]]
-name = "financial.bian.attribute.groups.products_market_operations"
-export = true
-
-[[package.modules]]
-name = "financial.bian.attribute.groups.products_market_trading"
-export = true
-
-[[package.modules]]
-name = "financial.bian.attribute.groups.products_trade_banking"
-export = true
-
-[[package.modules]]
-name = "financial.bian.attribute.groups.products_market_trading"
-export = true
-
-[[package.modules]]
-name = "financial.bian.attribute.groups.resource_management_platform_operations"
+name = "financial.bian.attribute.groups.resource_management"
 export = true

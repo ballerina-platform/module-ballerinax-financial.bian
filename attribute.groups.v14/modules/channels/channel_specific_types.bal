@@ -1,0 +1,2469 @@
+import ballerina/http;
+import financial.bian.attribute.groups.common as common;
+
+# Reference to the Safe Custody Operations
+public type PlannedAction record {
+    # ArrangementAction
+    common:Action ArrangementAction?;
+    # The date when the identifier became valid.
+    common:Datetime ArrangementStartDate?;
+    # The date when the identifier became valid.
+    common:Datetime ArrangementEndDate?;
+    # A characteristic of arrangement which refers to the LifecycleStatus of arrangement (e.g., requested, proposed, offered, accepted, cancelled, terminated, fulfilled, etc.)
+    common:Arrangementstatus ArrangementStatus?;
+    # ArrangementSubjectMatter
+    common:Subject ArrangementSubjectMatter?;
+    # >
+    # * `SweepArrangement` - An arrangement into which is promised for the set-up and execution of structured sweeps to and from the facility to a linked account.
+    # * `WithdrawalArrangement` - An arrangement into which is promised to deliver Withdraw Service  to take fund out of an account. 
+    # * `DepositArrangement` - An arrangement into which is promised to deliver Deposit Service  to place funds into an account for safekeeping. 
+    # * `InterestArrangement` - An arrangement into which is promised to apply a pricing element expressed in a percentage  to a principal amount.
+    # * `FeeArrangement` - An arrangement into which is promised to apply a charge for services rendered. 
+    # * `LienArrangement` - An arrangement into which is promised for placing a lien or block on the account for a specified purpose, amount, and period. 
+    # * `InformationArrangement` - An arrangement concerning the information the bank will provide about the agreement/account
+    # * `PaymentArrangement` - An arrangement into which is promised to deliver a specific payment service including regular payments, standing orders, direct debits and bill pay instructions. 
+    # * `EntitlementArrangement` - Right or obligation linked to the involvement of a party in an agreement
+    # * `PeriodArrangement` - 
+    # * `CollateralArrangement` - An arrangement into which is promised for handling the oversight of the allocation, valuation and administration of collateral associated with the facility. 
+    # * `LimitArrangement` - An arrangement to limit something
+    # e.g., the number of transaction per week, the amount of money allowed to withdraw per week/day and etc. 
+    # * `AccessArrangement` - An arrangement that allows or restricts the access to a service or product, channel or device through a specific access point
+    # * `CardPaymentArrangement` - An arrangement into which is promised to deliver Card payment Service to execute payment transactions through a payment card, including online payments. 
+    # * `StandingOrderArrangement` - An arrangement into which is promised to deliver Standing Order Service to make regular transfers on given dates to a named beneﬁciary. 
+    # * `OverdraftArrangement` - An arrangement into which is promised to deliver Overdraft Service  that allows fund transfer even if there is no provision on the account. 
+    # * `RepaymentArrangement` - An arrangement into which is promised for paying back money previously borrowed from a lender. 
+    # * `StatementArrangement` - An arrangement into which is promised to deliver a reporting service on payment transactions registered on an account. 
+    # * `CreditTransferArrangement` - An arrangement into which is promised to allow a payer to transfer fund to a beneficiary. 
+    # * `ProductAndServiceArrangement` - 
+    # * `FactoringArrangement` - 
+    # * `RolloverArrangement` - Arrangement stipulating the modalities for an automatic renewal of the agreement
+    #
+    # i.e. the replacement of the agreement with a new one without renewed negociation and witout explicit agreement of the customer 
+    # * `RestructuringArrangement` - 
+    # * `InsuranceArrangement` - 
+    # * `CollectionArrangement` - An arrangement into which is promised to collect past-due debts from borrowers
+    # * `UnderwritingArrangement` - A contractual agreement between parties that commits the underwriter to assuming risk.
+    # * `TerminationArrangement` - 
+    # * `MaturityArrangement` - 
+    # * `AdministrativeArrangement` - 
+    common:Arrangementtypevalues Arrangementtype?;
+    # The identifier of Condition
+    common:Identifier ArrangementIdentification?;
+};
+
+# The Safe Custody Operations is an activity that is performed as one aspect of carrying out the Branch Location Administrative Plan
+public type CashInventoryHandling record {
+    # The required status/situation before the routine can be undertaken
+    common:Condition Preconditions?;
+    # Reference to an entity that assigns and manages the identification.
+    # tReference to the organization or agency that issued the identifier (e.g., DMV, Passport Office).
+    common:Involvedparty BusinessUnitorEmployeeReference?;
+    # The timing and key actions/milestones involved in completing the routine
+    common:Schedule Schedule?;
+    # The <BQ> specific Business Service
+    common:BusinessService BusinessService?;
+    # The required status/situation before the routine can be undertaken
+    common:Condition Postconditions?;
+    # Reference to the Branch Location Administrative Plan
+    common:Plan BranchLocationAdministrationPlanReference?;
+    # Reference to the Safe Custody Operations
+    PlannedAction CashInventoryHandlingReference?;
+    # The type of Cash Inventory Handling
+    string CashInventoryHandlingType?;
+};
+
+# Handle and assign the day to day activities, capture time, costs and income for an operational unit within Branch Location Operations. 
+public type BranchLocationAdministrativePlan record {
+    # A Classification value that specifies the type of Budget
+    common:Budgettype BranchLocationAdministrativePlanBudgetType?;
+    # BranchLocationAdministrativePlanBudget
+    common:Amount BranchLocationAdministrativePlanBudget?;
+    # The assignment of a required activity to a responsibe party in Branch Location Administrative Plan
+    common:Assignment BranchLocationAdministrativePlanAssignment?;
+    # BranchLocationAdministrativePlanDuty
+    common:Arrangement BranchLocationAdministrativePlanDuty?;
+    # Reference to an entity that assigns and manages the identification.
+    # tReference to the organization or agency that issued the identifier (e.g., DMV, Passport Office).
+    common:Involvedparty BranchLocationAdministrativePlanAssociatedParty?;
+    # Balance of budget which is arranged whitin Branch Location Administrative Plan
+    common:Accountbalance BranchLocationAdministrativePlanBudgetBalance?;
+    # The subject matter of Branch Location Administrative Plan
+    BranchLocation BranchLocationAdministrativePlanSubjectMatter?;
+    # The type of Branch Location Administrative Plan
+    Plantype BranchLocationAdministrativePlanType?;
+    # Reference to the Branch Location Administrative Plan
+    common:Plan BranchLocationAdministrativePlanReference?;
+    # Documentation of Branch Location Administrative Plan
+    string BranchLocationAdministrativePlanDescription?;
+};
+
+# The type of Branch Location Administrative Plan
+public type Plantype record {
+    # The name of Condition
+    common:Name PlanTypeName?;
+    # >
+    # * `AdministrativePlan` - 
+    # * `ManagementPlan` - 
+    # * `StratgyPlan` - 
+    # * `FinancialPlan` - 
+    # * `DevelopmentPlan` - 
+    common:Plantypevalues PlanType?;
+};
+
+# The subject matter of Branch Location Administrative Plan
+public type BranchLocation record {
+    # BranchReference
+    common:Branch BranchReference?;
+    # LocationReference
+    common:Location LocationReference?;
+};
+
+public type BranchLocationAdministrativePlanOk record {|
+    *http:Ok;
+    # body
+    BranchLocationAdministrativePlan body;
+|};
+
+public type CardPOSDeviceAllocationOk record {|
+    *http:Ok;
+    # body
+    CardPOSDeviceAllocation body;
+|};
+
+# The configuration defines its operational characteristics/capabilities e.g. (PIN pad, transaction capture, tip handling, transaction descriptive, manual entry, security keys, balancing, receipt options/text, communication options, card types, currencies, etc.)
+public type DeviceArrangement record {
+    # The actions that can be taken by using the device(type) to which the arrangement refers to.
+    common:Action DeviceFunctionality?;
+    # The fee due for the reception and/or use of the device(type) to which the arrangement refers to.
+    Feearrangement DeviceRemuneration?;
+    # Date on which the agreement was signed by all parties. (ISO20022)
+    common:Date LoanOriginationDate?;
+    # Date on which the agreement was signed by all parties. (ISO20022)
+    common:Date LoanMaturityDate?;
+    # Date on which the agreement was signed by all parties. (ISO20022)
+    common:Date LoanEndDate?;
+    # Base amount that would be applied when the service is requested. 
+    common:Amount LoanAmount?;
+    # >
+    # * `SweepArrangement` - An arrangement into which is promised for the set-up and execution of structured sweeps to and from the facility to a linked account.
+    # * `WithdrawalArrangement` - An arrangement into which is promised to deliver Withdraw Service  to take fund out of an account. 
+    # * `DepositArrangement` - An arrangement into which is promised to deliver Deposit Service  to place funds into an account for safekeeping. 
+    # * `InterestArrangement` - An arrangement into which is promised to apply a pricing element expressed in a percentage  to a principal amount.
+    # * `FeeArrangement` - An arrangement into which is promised to apply a charge for services rendered. 
+    # * `LienArrangement` - An arrangement into which is promised for placing a lien or block on the account for a specified purpose, amount, and period. 
+    # * `InformationArrangement` - An arrangement concerning the information the bank will provide about the agreement/account
+    # * `PaymentArrangement` - An arrangement into which is promised to deliver a specific payment service including regular payments, standing orders, direct debits and bill pay instructions. 
+    # * `EntitlementArrangement` - Right or obligation linked to the involvement of a party in an agreement
+    # * `PeriodArrangement` - 
+    # * `CollateralArrangement` - An arrangement into which is promised for handling the oversight of the allocation, valuation and administration of collateral associated with the facility. 
+    # * `LimitArrangement` - An arrangement to limit something
+    # e.g., the number of transaction per week, the amount of money allowed to withdraw per week/day and etc. 
+    # * `AccessArrangement` - An arrangement that allows or restricts the access to a service or product, channel or device through a specific access point
+    # * `CardPaymentArrangement` - An arrangement into which is promised to deliver Card payment Service to execute payment transactions through a payment card, including online payments. 
+    # * `StandingOrderArrangement` - An arrangement into which is promised to deliver Standing Order Service to make regular transfers on given dates to a named beneﬁciary. 
+    # * `OverdraftArrangement` - An arrangement into which is promised to deliver Overdraft Service  that allows fund transfer even if there is no provision on the account. 
+    # * `RepaymentArrangement` - An arrangement into which is promised for paying back money previously borrowed from a lender. 
+    # * `StatementArrangement` - An arrangement into which is promised to deliver a reporting service on payment transactions registered on an account. 
+    # * `CreditTransferArrangement` - An arrangement into which is promised to allow a payer to transfer fund to a beneficiary. 
+    # * `ProductAndServiceArrangement` - 
+    # * `FactoringArrangement` - 
+    # * `RolloverArrangement` - Arrangement stipulating the modalities for an automatic renewal of the agreement
+    #
+    # i.e. the replacement of the agreement with a new one without renewed negociation and witout explicit agreement of the customer 
+    # * `RestructuringArrangement` - 
+    # * `InsuranceArrangement` - 
+    # * `CollectionArrangement` - An arrangement into which is promised to collect past-due debts from borrowers
+    # * `UnderwritingArrangement` - A contractual agreement between parties that commits the underwriter to assuming risk.
+    # * `TerminationArrangement` - 
+    # * `MaturityArrangement` - 
+    # * `AdministrativeArrangement` - 
+    common:Arrangementtypevalues LoanArrangementType?;
+    # The actions that can be taken by using the device(type) to which the arrangement refers to.
+    common:Action ArrangementAction?;
+    # Key dates associated with the directory entry (e.g. open date, refresh date).
+    common:Datetime ArrangementStartDate?;
+    # Key dates associated with the directory entry (e.g. open date, refresh date).
+    common:Datetime ArrangementEndDate?;
+    # A characteristic of arrangement which refers to the LifecycleStatus of arrangement (e.g., requested, proposed, offered, accepted, cancelled, terminated, fulfilled, etc.)
+    common:Arrangementstatus ArrangementStatus?;
+    # ArrangementSubjectMatter
+    common:Subject ArrangementSubjectMatter?;
+    # >
+    # * `SweepArrangement` - An arrangement into which is promised for the set-up and execution of structured sweeps to and from the facility to a linked account.
+    # * `WithdrawalArrangement` - An arrangement into which is promised to deliver Withdraw Service  to take fund out of an account. 
+    # * `DepositArrangement` - An arrangement into which is promised to deliver Deposit Service  to place funds into an account for safekeeping. 
+    # * `InterestArrangement` - An arrangement into which is promised to apply a pricing element expressed in a percentage  to a principal amount.
+    # * `FeeArrangement` - An arrangement into which is promised to apply a charge for services rendered. 
+    # * `LienArrangement` - An arrangement into which is promised for placing a lien or block on the account for a specified purpose, amount, and period. 
+    # * `InformationArrangement` - An arrangement concerning the information the bank will provide about the agreement/account
+    # * `PaymentArrangement` - An arrangement into which is promised to deliver a specific payment service including regular payments, standing orders, direct debits and bill pay instructions. 
+    # * `EntitlementArrangement` - Right or obligation linked to the involvement of a party in an agreement
+    # * `PeriodArrangement` - 
+    # * `CollateralArrangement` - An arrangement into which is promised for handling the oversight of the allocation, valuation and administration of collateral associated with the facility. 
+    # * `LimitArrangement` - An arrangement to limit something
+    # e.g., the number of transaction per week, the amount of money allowed to withdraw per week/day and etc. 
+    # * `AccessArrangement` - An arrangement that allows or restricts the access to a service or product, channel or device through a specific access point
+    # * `CardPaymentArrangement` - An arrangement into which is promised to deliver Card payment Service to execute payment transactions through a payment card, including online payments. 
+    # * `StandingOrderArrangement` - An arrangement into which is promised to deliver Standing Order Service to make regular transfers on given dates to a named beneﬁciary. 
+    # * `OverdraftArrangement` - An arrangement into which is promised to deliver Overdraft Service  that allows fund transfer even if there is no provision on the account. 
+    # * `RepaymentArrangement` - An arrangement into which is promised for paying back money previously borrowed from a lender. 
+    # * `StatementArrangement` - An arrangement into which is promised to deliver a reporting service on payment transactions registered on an account. 
+    # * `CreditTransferArrangement` - An arrangement into which is promised to allow a payer to transfer fund to a beneficiary. 
+    # * `ProductAndServiceArrangement` - 
+    # * `FactoringArrangement` - 
+    # * `RolloverArrangement` - Arrangement stipulating the modalities for an automatic renewal of the agreement
+    #
+    # i.e. the replacement of the agreement with a new one without renewed negociation and witout explicit agreement of the customer 
+    # * `RestructuringArrangement` - 
+    # * `InsuranceArrangement` - 
+    # * `CollectionArrangement` - An arrangement into which is promised to collect past-due debts from borrowers
+    # * `UnderwritingArrangement` - A contractual agreement between parties that commits the underwriter to assuming risk.
+    # * `TerminationArrangement` - 
+    # * `MaturityArrangement` - 
+    # * `AdministrativeArrangement` - 
+    common:Arrangementtypevalues Arrangementtype?;
+    # ArrangementIdentification
+    common:Identifier ArrangementIdentification?;
+    # PaymentCardArrangementIdentifier
+    common:Identifier PaymentCardArrangementIdentifier?;
+    # >
+    # * `SweepArrangement` - An arrangement into which is promised for the set-up and execution of structured sweeps to and from the facility to a linked account.
+    # * `WithdrawalArrangement` - An arrangement into which is promised to deliver Withdraw Service  to take fund out of an account. 
+    # * `DepositArrangement` - An arrangement into which is promised to deliver Deposit Service  to place funds into an account for safekeeping. 
+    # * `InterestArrangement` - An arrangement into which is promised to apply a pricing element expressed in a percentage  to a principal amount.
+    # * `FeeArrangement` - An arrangement into which is promised to apply a charge for services rendered. 
+    # * `LienArrangement` - An arrangement into which is promised for placing a lien or block on the account for a specified purpose, amount, and period. 
+    # * `InformationArrangement` - An arrangement concerning the information the bank will provide about the agreement/account
+    # * `PaymentArrangement` - An arrangement into which is promised to deliver a specific payment service including regular payments, standing orders, direct debits and bill pay instructions. 
+    # * `EntitlementArrangement` - Right or obligation linked to the involvement of a party in an agreement
+    # * `PeriodArrangement` - 
+    # * `CollateralArrangement` - An arrangement into which is promised for handling the oversight of the allocation, valuation and administration of collateral associated with the facility. 
+    # * `LimitArrangement` - An arrangement to limit something
+    # e.g., the number of transaction per week, the amount of money allowed to withdraw per week/day and etc. 
+    # * `AccessArrangement` - An arrangement that allows or restricts the access to a service or product, channel or device through a specific access point
+    # * `CardPaymentArrangement` - An arrangement into which is promised to deliver Card payment Service to execute payment transactions through a payment card, including online payments. 
+    # * `StandingOrderArrangement` - An arrangement into which is promised to deliver Standing Order Service to make regular transfers on given dates to a named beneﬁciary. 
+    # * `OverdraftArrangement` - An arrangement into which is promised to deliver Overdraft Service  that allows fund transfer even if there is no provision on the account. 
+    # * `RepaymentArrangement` - An arrangement into which is promised for paying back money previously borrowed from a lender. 
+    # * `StatementArrangement` - An arrangement into which is promised to deliver a reporting service on payment transactions registered on an account. 
+    # * `CreditTransferArrangement` - An arrangement into which is promised to allow a payer to transfer fund to a beneficiary. 
+    # * `ProductAndServiceArrangement` - 
+    # * `FactoringArrangement` - 
+    # * `RolloverArrangement` - Arrangement stipulating the modalities for an automatic renewal of the agreement
+    #
+    # i.e. the replacement of the agreement with a new one without renewed negociation and witout explicit agreement of the customer 
+    # * `RestructuringArrangement` - 
+    # * `InsuranceArrangement` - 
+    # * `CollectionArrangement` - An arrangement into which is promised to collect past-due debts from borrowers
+    # * `UnderwritingArrangement` - A contractual agreement between parties that commits the underwriter to assuming risk.
+    # * `TerminationArrangement` - 
+    # * `MaturityArrangement` - 
+    # * `AdministrativeArrangement` - 
+    common:Arrangementtypevalues CardPaymentArrangementType?;
+    # >
+    # * `SweepArrangement` - An arrangement into which is promised for the set-up and execution of structured sweeps to and from the facility to a linked account.
+    # * `WithdrawalArrangement` - An arrangement into which is promised to deliver Withdraw Service  to take fund out of an account. 
+    # * `DepositArrangement` - An arrangement into which is promised to deliver Deposit Service  to place funds into an account for safekeeping. 
+    # * `InterestArrangement` - An arrangement into which is promised to apply a pricing element expressed in a percentage  to a principal amount.
+    # * `FeeArrangement` - An arrangement into which is promised to apply a charge for services rendered. 
+    # * `LienArrangement` - An arrangement into which is promised for placing a lien or block on the account for a specified purpose, amount, and period. 
+    # * `InformationArrangement` - An arrangement concerning the information the bank will provide about the agreement/account
+    # * `PaymentArrangement` - An arrangement into which is promised to deliver a specific payment service including regular payments, standing orders, direct debits and bill pay instructions. 
+    # * `EntitlementArrangement` - Right or obligation linked to the involvement of a party in an agreement
+    # * `PeriodArrangement` - 
+    # * `CollateralArrangement` - An arrangement into which is promised for handling the oversight of the allocation, valuation and administration of collateral associated with the facility. 
+    # * `LimitArrangement` - An arrangement to limit something
+    # e.g., the number of transaction per week, the amount of money allowed to withdraw per week/day and etc. 
+    # * `AccessArrangement` - An arrangement that allows or restricts the access to a service or product, channel or device through a specific access point
+    # * `CardPaymentArrangement` - An arrangement into which is promised to deliver Card payment Service to execute payment transactions through a payment card, including online payments. 
+    # * `StandingOrderArrangement` - An arrangement into which is promised to deliver Standing Order Service to make regular transfers on given dates to a named beneﬁciary. 
+    # * `OverdraftArrangement` - An arrangement into which is promised to deliver Overdraft Service  that allows fund transfer even if there is no provision on the account. 
+    # * `RepaymentArrangement` - An arrangement into which is promised for paying back money previously borrowed from a lender. 
+    # * `StatementArrangement` - An arrangement into which is promised to deliver a reporting service on payment transactions registered on an account. 
+    # * `CreditTransferArrangement` - An arrangement into which is promised to allow a payer to transfer fund to a beneficiary. 
+    # * `ProductAndServiceArrangement` - 
+    # * `FactoringArrangement` - 
+    # * `RolloverArrangement` - Arrangement stipulating the modalities for an automatic renewal of the agreement
+    #
+    # i.e. the replacement of the agreement with a new one without renewed negociation and witout explicit agreement of the customer 
+    # * `RestructuringArrangement` - 
+    # * `InsuranceArrangement` - 
+    # * `CollectionArrangement` - An arrangement into which is promised to collect past-due debts from borrowers
+    # * `UnderwritingArrangement` - A contractual agreement between parties that commits the underwriter to assuming risk.
+    # * `TerminationArrangement` - 
+    # * `MaturityArrangement` - 
+    # * `AdministrativeArrangement` - 
+    common:Arrangementtypevalues SavingsAccountArrangementType?;
+    # Reference to the product feature applied in this arrangement 
+    common:Productfeaturetype SavingsAccountArrangementProductFeatureType?;
+    # >
+    # * `SweepArrangement` - An arrangement into which is promised for the set-up and execution of structured sweeps to and from the facility to a linked account.
+    # * `WithdrawalArrangement` - An arrangement into which is promised to deliver Withdraw Service  to take fund out of an account. 
+    # * `DepositArrangement` - An arrangement into which is promised to deliver Deposit Service  to place funds into an account for safekeeping. 
+    # * `InterestArrangement` - An arrangement into which is promised to apply a pricing element expressed in a percentage  to a principal amount.
+    # * `FeeArrangement` - An arrangement into which is promised to apply a charge for services rendered. 
+    # * `LienArrangement` - An arrangement into which is promised for placing a lien or block on the account for a specified purpose, amount, and period. 
+    # * `InformationArrangement` - An arrangement concerning the information the bank will provide about the agreement/account
+    # * `PaymentArrangement` - An arrangement into which is promised to deliver a specific payment service including regular payments, standing orders, direct debits and bill pay instructions. 
+    # * `EntitlementArrangement` - Right or obligation linked to the involvement of a party in an agreement
+    # * `PeriodArrangement` - 
+    # * `CollateralArrangement` - An arrangement into which is promised for handling the oversight of the allocation, valuation and administration of collateral associated with the facility. 
+    # * `LimitArrangement` - An arrangement to limit something
+    # e.g., the number of transaction per week, the amount of money allowed to withdraw per week/day and etc. 
+    # * `AccessArrangement` - An arrangement that allows or restricts the access to a service or product, channel or device through a specific access point
+    # * `CardPaymentArrangement` - An arrangement into which is promised to deliver Card payment Service to execute payment transactions through a payment card, including online payments. 
+    # * `StandingOrderArrangement` - An arrangement into which is promised to deliver Standing Order Service to make regular transfers on given dates to a named beneﬁciary. 
+    # * `OverdraftArrangement` - An arrangement into which is promised to deliver Overdraft Service  that allows fund transfer even if there is no provision on the account. 
+    # * `RepaymentArrangement` - An arrangement into which is promised for paying back money previously borrowed from a lender. 
+    # * `StatementArrangement` - An arrangement into which is promised to deliver a reporting service on payment transactions registered on an account. 
+    # * `CreditTransferArrangement` - An arrangement into which is promised to allow a payer to transfer fund to a beneficiary. 
+    # * `ProductAndServiceArrangement` - 
+    # * `FactoringArrangement` - 
+    # * `RolloverArrangement` - Arrangement stipulating the modalities for an automatic renewal of the agreement
+    #
+    # i.e. the replacement of the agreement with a new one without renewed negociation and witout explicit agreement of the customer 
+    # * `RestructuringArrangement` - 
+    # * `InsuranceArrangement` - 
+    # * `CollectionArrangement` - An arrangement into which is promised to collect past-due debts from borrowers
+    # * `UnderwritingArrangement` - A contractual agreement between parties that commits the underwriter to assuming risk.
+    # * `TerminationArrangement` - 
+    # * `MaturityArrangement` - 
+    # * `AdministrativeArrangement` - 
+    common:Arrangementtypevalues CurrentAccountArrangementType?;
+    # Reference to the product feature applied in this arrangement 
+    common:Productfeaturetype CurrentAccountArrangementProductFeatureType?;
+    # >
+    # * `SweepArrangement` - An arrangement into which is promised for the set-up and execution of structured sweeps to and from the facility to a linked account.
+    # * `WithdrawalArrangement` - An arrangement into which is promised to deliver Withdraw Service  to take fund out of an account. 
+    # * `DepositArrangement` - An arrangement into which is promised to deliver Deposit Service  to place funds into an account for safekeeping. 
+    # * `InterestArrangement` - An arrangement into which is promised to apply a pricing element expressed in a percentage  to a principal amount.
+    # * `FeeArrangement` - An arrangement into which is promised to apply a charge for services rendered. 
+    # * `LienArrangement` - An arrangement into which is promised for placing a lien or block on the account for a specified purpose, amount, and period. 
+    # * `InformationArrangement` - An arrangement concerning the information the bank will provide about the agreement/account
+    # * `PaymentArrangement` - An arrangement into which is promised to deliver a specific payment service including regular payments, standing orders, direct debits and bill pay instructions. 
+    # * `EntitlementArrangement` - Right or obligation linked to the involvement of a party in an agreement
+    # * `PeriodArrangement` - 
+    # * `CollateralArrangement` - An arrangement into which is promised for handling the oversight of the allocation, valuation and administration of collateral associated with the facility. 
+    # * `LimitArrangement` - An arrangement to limit something
+    # e.g., the number of transaction per week, the amount of money allowed to withdraw per week/day and etc. 
+    # * `AccessArrangement` - An arrangement that allows or restricts the access to a service or product, channel or device through a specific access point
+    # * `CardPaymentArrangement` - An arrangement into which is promised to deliver Card payment Service to execute payment transactions through a payment card, including online payments. 
+    # * `StandingOrderArrangement` - An arrangement into which is promised to deliver Standing Order Service to make regular transfers on given dates to a named beneﬁciary. 
+    # * `OverdraftArrangement` - An arrangement into which is promised to deliver Overdraft Service  that allows fund transfer even if there is no provision on the account. 
+    # * `RepaymentArrangement` - An arrangement into which is promised for paying back money previously borrowed from a lender. 
+    # * `StatementArrangement` - An arrangement into which is promised to deliver a reporting service on payment transactions registered on an account. 
+    # * `CreditTransferArrangement` - An arrangement into which is promised to allow a payer to transfer fund to a beneficiary. 
+    # * `ProductAndServiceArrangement` - 
+    # * `FactoringArrangement` - 
+    # * `RolloverArrangement` - Arrangement stipulating the modalities for an automatic renewal of the agreement
+    #
+    # i.e. the replacement of the agreement with a new one without renewed negociation and witout explicit agreement of the customer 
+    # * `RestructuringArrangement` - 
+    # * `InsuranceArrangement` - 
+    # * `CollectionArrangement` - An arrangement into which is promised to collect past-due debts from borrowers
+    # * `UnderwritingArrangement` - A contractual agreement between parties that commits the underwriter to assuming risk.
+    # * `TerminationArrangement` - 
+    # * `MaturityArrangement` - 
+    # * `AdministrativeArrangement` - 
+    common:Arrangementtypevalues ProductArrangementType?;
+    # >
+    # * `SweepArrangement` - An arrangement into which is promised for the set-up and execution of structured sweeps to and from the facility to a linked account.
+    # * `WithdrawalArrangement` - An arrangement into which is promised to deliver Withdraw Service  to take fund out of an account. 
+    # * `DepositArrangement` - An arrangement into which is promised to deliver Deposit Service  to place funds into an account for safekeeping. 
+    # * `InterestArrangement` - An arrangement into which is promised to apply a pricing element expressed in a percentage  to a principal amount.
+    # * `FeeArrangement` - An arrangement into which is promised to apply a charge for services rendered. 
+    # * `LienArrangement` - An arrangement into which is promised for placing a lien or block on the account for a specified purpose, amount, and period. 
+    # * `InformationArrangement` - An arrangement concerning the information the bank will provide about the agreement/account
+    # * `PaymentArrangement` - An arrangement into which is promised to deliver a specific payment service including regular payments, standing orders, direct debits and bill pay instructions. 
+    # * `EntitlementArrangement` - Right or obligation linked to the involvement of a party in an agreement
+    # * `PeriodArrangement` - 
+    # * `CollateralArrangement` - An arrangement into which is promised for handling the oversight of the allocation, valuation and administration of collateral associated with the facility. 
+    # * `LimitArrangement` - An arrangement to limit something
+    # e.g., the number of transaction per week, the amount of money allowed to withdraw per week/day and etc. 
+    # * `AccessArrangement` - An arrangement that allows or restricts the access to a service or product, channel or device through a specific access point
+    # * `CardPaymentArrangement` - An arrangement into which is promised to deliver Card payment Service to execute payment transactions through a payment card, including online payments. 
+    # * `StandingOrderArrangement` - An arrangement into which is promised to deliver Standing Order Service to make regular transfers on given dates to a named beneﬁciary. 
+    # * `OverdraftArrangement` - An arrangement into which is promised to deliver Overdraft Service  that allows fund transfer even if there is no provision on the account. 
+    # * `RepaymentArrangement` - An arrangement into which is promised for paying back money previously borrowed from a lender. 
+    # * `StatementArrangement` - An arrangement into which is promised to deliver a reporting service on payment transactions registered on an account. 
+    # * `CreditTransferArrangement` - An arrangement into which is promised to allow a payer to transfer fund to a beneficiary. 
+    # * `ProductAndServiceArrangement` - 
+    # * `FactoringArrangement` - 
+    # * `RolloverArrangement` - Arrangement stipulating the modalities for an automatic renewal of the agreement
+    #
+    # i.e. the replacement of the agreement with a new one without renewed negociation and witout explicit agreement of the customer 
+    # * `RestructuringArrangement` - 
+    # * `InsuranceArrangement` - 
+    # * `CollectionArrangement` - An arrangement into which is promised to collect past-due debts from borrowers
+    # * `UnderwritingArrangement` - A contractual agreement between parties that commits the underwriter to assuming risk.
+    # * `TerminationArrangement` - 
+    # * `MaturityArrangement` - 
+    # * `AdministrativeArrangement` - 
+    common:Arrangementtypevalues TermDepositArrangementType?;
+    # Reference to the product feature applied in this arrangement 
+    common:Productfeaturetype TermDepositArrangementProductFeatureType?;
+    # Key dates associated with the directory entry (e.g. open date, refresh date).
+    common:Datetime TermDepositMaturityDate?;
+    # Key dates associated with the directory entry (e.g. open date, refresh date).
+    common:Datetime TermDepositOpenDate?;
+    # Base amount that would be applied when the service is requested. 
+    common:Amount TermDepositAmount?;
+    # TermDepositDuration
+    common:Duration TermDepositDuration?;
+    # The Period for which the TermDepositAmount needs ti stay deposited with the Bank
+    string DepositTerm?;
+};
+
+public type AllocationOk record {|
+    *http:Ok;
+    # body
+    Allocation body;
+|};
+
+# >
+# * `Retailer` - 
+# * `Hotel` - 
+public type Merchanttypevalues "Retailer"|"Hotel";
+
+# Maintain an inventory or holding of some resource and make assignments/allocations as requested  within Card Terminal Administration. 
+# Example: Track the inventory and administer the distribution of central cash holdings throughout the branch & ATM network.
+public type CardPOSDeviceAllocation record {
+    # Reference identification for the POS device
+    common:Device CardPOSDeviceReference?;
+    # CardPOSDeviceIdentifier
+    common:Deviceidentification CardPOSDeviceIdentifier?;
+    # >
+    # * `Securecardreader` - Secure card reader attached to the customer device
+    # * `Nonsecurecardreader` - Non-secure card reader attached to the customer device.
+    # * `Mobile` - Mobile phone
+    # * `Tablet` - Tablet
+    # * `Personalcomputer` - Personal computer
+    # * `Othernational` - Other device defined at national level
+    # * `Otherprivate` - Other device defined in a private way.
+    # * `Wearable` - Wearable device.
+    # * `Vehicle` - Vehicle.
+    # * `Embedded` - Embedded in a device.
+    # * `Keyfob` - Key Fob
+    # * `Jewellery` - Jewellery
+    # * `Sticker` - Sticker
+    # * `Gamingdevice` - Gaming Device
+    # * `Watch` - Watch
+    # * `Unknown` - Device type unknown
+    # * `BiometricDevice` - A biometric device is a security identification and authentication device. Such devices use automated methods of verifying or recognising the identity of a living person based on a physiological or behavioral characteristic.
+    # https://en.wikipedia.org/wiki/Biometric_device
+    #
+    common:Devicetypevalues CardPOSDeviceType?;
+    # >
+    # * `Android` - Android operating system.
+    # * `Ios` - iOS operating system.
+    # * `Windows` - Windows operating system.
+    # * `Blackberry` - Blackberry operating system.
+    # * `Tizen` - Tizen operating system.
+    # * `Othernational` - Other nationally defined code.
+    # * `Otherprivate` - Other privately defined code.
+    common:Deviceoperatingsystemtypevalues CardPOSDeviceSoftwareType?;
+    # >
+    # * `Android` - Android operating system.
+    # * `Ios` - iOS operating system.
+    # * `Windows` - Windows operating system.
+    # * `Blackberry` - Blackberry operating system.
+    # * `Tizen` - Tizen operating system.
+    # * `Othernational` - Other nationally defined code.
+    # * `Otherprivate` - Other privately defined code.
+    common:Deviceoperatingsystemtypevalues CardPOSDeviceSoftwareVersion?;
+    # Date on which the agreement was signed by all parties. (ISO20022)
+    common:Date CardPOSDeviceAcquiredDate?;
+    # Record of the maintenance/repair history of the device
+    string CardPOSRepairRecord?;
+    # Description of the repair or maintenance work done (includes costs as appropriate)
+    string CardPOSRepairDetails?;
+    # Key dates associated with the directory entry (e.g. open date, refresh date).
+    common:Datetime CardPOSRepairDates?;
+    # The tracked status (e.g. under construction or repair, inhabited, vacant).
+    common:Status CardPOSDeviceStatus?;
+};
+
+# Set of rules for the purpose of deciding if or if not something is applicable
+#
+# Examples: Staff assignment, Facility allocation.
+public type Allocation record {
+    # Reference to the Card merchant registered with the device
+    common:Involvedparty MerchantReference?;
+    # >
+    # * `Retailer` - 
+    # * `Hotel` - 
+    Merchanttypevalues MerchantType?;
+    # The physical location/address of the retailer and the device
+    common:Location MerchantLocation?;
+    # The configuration defines its operational characteristics/capabilities e.g. (PIN pad, transaction capture, tip handling, transaction descriptive, manual entry, security keys, balancing, receipt options/text, communication options, card types, currencies, etc.)
+    DeviceArrangement CardPOSDeviceConfiguration?;
+    # Defines the type of allocation (e.g. next available, qualification based, future reservation)
+    string AllocationRequestType?;
+    # Contains details of servicing resource request. This can be simple for next available agent, or detail specific required qualifications and expertise
+    common:Instruction CustomerServicingRequestRecord?;
+    # Extracts from the active contact can be used to support more advance selection logic to identify the best available servicing specialist resource
+    common:CustomerContact CustomerContactRecord?;
+    # The result of the allocation task
+    common:Task AllocationTaskResult?;
+};
+
+# The fee due for the reception and/or use of the device(type) to which the arrangement refers to.
+public type Feearrangement record {
+    # >
+    # * `Accountingfee` - Fee paid for accounting services rendered.
+    # * `Adrfee` - Charge linked to an ADR (American Depositary Receipt).
+    # * `Advisoryfee` - Fee paid for advisory services rendered.
+    # * `Airwaybillfee` - Charge is an airway bill fee.
+    # * `Backendload` - Sales charge paid by the investor when redeeming an investment such as an investment fund.
+    # * `Brokeragefee` - Fee paid to a broker for services provided.
+    # * `Clearanceandhandlingatdestination` - Charge is for clearance and handling of goods at destination.
+    # * `Clearanceandhandlingatorigin` - Charge is for clearance and handling of goods at origin.
+    # * `Collectfreight` - Charge is for the collection of the freight.
+    # * `Commission` - Fee paid for services provided.
+    # * `Contingencydeferredsalescharge` - Deferred sales charge.
+    # * `Correspondentbankcharge` - In investment funds, the charge of the correspondent bank for transferring money.
+    # * `Custodyfee` - Fee paid to a custodian in respect of custodial services.
+    # * `Dangerousgoodsfee` - Charge is for dangerous goods.
+    # * `Dilutionlevy` - In investment funds, a charge payable by the investor covering bid-offer spreads and dealing charges for the underlying investments. The dilution levy is paid to the fund for the benefit of other unit holders.
+    # * `Discount` - Charge that has been reduced from the standard initial charge levied by a fund, eg, during a launch period or as negotiated by a funds supermarket / discount broker.
+    # * `Equalisation` - The part of an investor's subscription amount that is held by the fund in order to pay incentive or performance fees at the end of the fiscal year.
+    # * `Frontendload` - Sales charge paid immediately by the investor when subscribing to an investment such as an investment fund.
+    # * `Initial` - Charge paid at the time of the first subscription.
+    # * `Insurancepremium` - Charge is a premium for insurance.
+    # * `Issuancecancellationfee` - Fee linked to the cancellation of an issuance.
+    # * `Issuancefee` - Charge linked to the issuance of security.
+    # * `Managementfee` - Fee paid to an investment manager for services. The fee usually includes fund administration costs and investor relationship management. Typically, the amount paid is a percentage of the assets under management.
+    # * `Matchingfees` - Fee charged for matching and/or confirmation.
+    # * `Miscellaneousfee` - Miscellaneous fee.
+    # * `Other` - Another type of charge.
+    # * `Packaging` - Charge is for packaging of goods.
+    # * `Partacquis` - Portion of charge that the fund is entitled to receive, that cannot be reduced by an intermediary.
+    # * `Penalty` - Fee charged to the investor for early redemption of the fund.
+    # * `Pickup` - Charge is for pick-up of goods.
+    # * `Postagecharge` - Charge paid for the postage.
+    # * `Premium` - In investment funds, pre-arranged addition to the trade amount based on the published net asset value.
+    # * `Publicationfee` - Fee paid in respect of publications made.
+    # * `Regulatoryfee` - Fee charged by a regulatory authority, eg, Securities and Exchange fees.
+    # * `Securitycharge` - Charge is for security.
+    # * `Serviceprovisionfee` - Fee paid for the provision of financial services.
+    # * `Shippingcharge` - Charge for shipping, including the insurance of securities.
+    # * `Signatureservice` - Charge is for signature services.
+    # * `Specialconcessions` - Charges, drawdown, or other reduction from or in addition to the deal price.
+    # * `Speciallyagreedfrontendload` - Specially agreed front-end load.
+    # * `Storageatdestination` - Charge is for storage of goods at destination.
+    # * `Storageatorigin` - Charge is for storage of goods at origin.
+    # * `Switch` - In investment funds, charge related to a switch transaction.
+    # * `Transferfee` - In investment funds, a fee charged for the transfer of ownership of an investment fund.
+    # * `Transportcharges` - Charge is for transport.
+    # * `Ucitscommission` - Charges paid by the investor to the Fund Company for subscription and redemption orders.
+    # * `ChequeRelatedFee` - 
+    common:Feetypevalues FeeType?;
+    # Base amount that would be applied when the service is requested. 
+    common:Amount FeeAmount?;
+    # Rate used to calculate the amount of the adjustment, allowance, charge or fee. (ISO20022)
+    common:Rate FeeRate?;
+    # Period of time during which the status is valid.
+    common:Datetimeperiod FeeEffectivePeriod?;
+    # Key dates associated with the directory entry (e.g. open date, refresh date).
+    common:Datetime FeeDueDate?;
+    # An arranged FeeRatePlan
+    common:Feeplan FeePlan?;
+    # >
+    # * `Debit` - Transaction is a debt entry
+    # * `Credit` - Transaction is a credit entry
+    common:Debitcreditindicatortvalues FeeCreditDebitIndicator?;
+    # Reason for the amount adjustment (fee). 
+    string FeeReason?;
+    # >
+    # * `Added` - Adjustment amount must be added to the total amount.
+    # * `Substracted` - Adjustment amount must be substracted from the total amount.
+    common:Adjustmentdirectiontypevalues FeeDirection?;
+    # >
+    # * `Bornebydebtor` - All transaction charges are to be borne by the debtor.
+    # * `Bornebycreditor` - All transaction charges are to be borne by the creditor.
+    # * `Shared` - In a credit transfer context, means that transaction charges on the sender side are to be borne by the debtor, transaction charges on the receiver side are to be borne by the creditor. In a direct debit context, means that transaction charges on the sender side are to be borne by the creditor, transaction charges on the receiver side are to be borne by the debtor.
+    # * `Followingservicelevel` - Charges are to be applied following the rules agreed in the service level and/or scheme.
+    common:Chargebearertypevalues FeeBearerType?;
+    # Frequency at which the fee is charged
+    common:Frequency FeeChargingFrequency?;
+    # >
+    # * `Cash` - Payment is with cash.
+    # * `Unit` - Units are redeemed to cover payment.
+    common:Feepaymentmethodtypevalues FeePaymentMethodType?;
+    # Date on which the agreement was signed by all parties. (ISO20022)
+    common:Date LoanOriginationDate?;
+    # Date on which the agreement was signed by all parties. (ISO20022)
+    common:Date LoanMaturityDate?;
+    # Date on which the agreement was signed by all parties. (ISO20022)
+    common:Date LoanEndDate?;
+    # Base amount that would be applied when the service is requested. 
+    common:Amount LoanAmount?;
+    # >
+    # * `SweepArrangement` - An arrangement into which is promised for the set-up and execution of structured sweeps to and from the facility to a linked account.
+    # * `WithdrawalArrangement` - An arrangement into which is promised to deliver Withdraw Service  to take fund out of an account. 
+    # * `DepositArrangement` - An arrangement into which is promised to deliver Deposit Service  to place funds into an account for safekeeping. 
+    # * `InterestArrangement` - An arrangement into which is promised to apply a pricing element expressed in a percentage  to a principal amount.
+    # * `FeeArrangement` - An arrangement into which is promised to apply a charge for services rendered. 
+    # * `LienArrangement` - An arrangement into which is promised for placing a lien or block on the account for a specified purpose, amount, and period. 
+    # * `InformationArrangement` - An arrangement concerning the information the bank will provide about the agreement/account
+    # * `PaymentArrangement` - An arrangement into which is promised to deliver a specific payment service including regular payments, standing orders, direct debits and bill pay instructions. 
+    # * `EntitlementArrangement` - Right or obligation linked to the involvement of a party in an agreement
+    # * `PeriodArrangement` - 
+    # * `CollateralArrangement` - An arrangement into which is promised for handling the oversight of the allocation, valuation and administration of collateral associated with the facility. 
+    # * `LimitArrangement` - An arrangement to limit something
+    # e.g., the number of transaction per week, the amount of money allowed to withdraw per week/day and etc. 
+    # * `AccessArrangement` - An arrangement that allows or restricts the access to a service or product, channel or device through a specific access point
+    # * `CardPaymentArrangement` - An arrangement into which is promised to deliver Card payment Service to execute payment transactions through a payment card, including online payments. 
+    # * `StandingOrderArrangement` - An arrangement into which is promised to deliver Standing Order Service to make regular transfers on given dates to a named beneﬁciary. 
+    # * `OverdraftArrangement` - An arrangement into which is promised to deliver Overdraft Service  that allows fund transfer even if there is no provision on the account. 
+    # * `RepaymentArrangement` - An arrangement into which is promised for paying back money previously borrowed from a lender. 
+    # * `StatementArrangement` - An arrangement into which is promised to deliver a reporting service on payment transactions registered on an account. 
+    # * `CreditTransferArrangement` - An arrangement into which is promised to allow a payer to transfer fund to a beneficiary. 
+    # * `ProductAndServiceArrangement` - 
+    # * `FactoringArrangement` - 
+    # * `RolloverArrangement` - Arrangement stipulating the modalities for an automatic renewal of the agreement
+    #
+    # i.e. the replacement of the agreement with a new one without renewed negociation and witout explicit agreement of the customer 
+    # * `RestructuringArrangement` - 
+    # * `InsuranceArrangement` - 
+    # * `CollectionArrangement` - An arrangement into which is promised to collect past-due debts from borrowers
+    # * `UnderwritingArrangement` - A contractual agreement between parties that commits the underwriter to assuming risk.
+    # * `TerminationArrangement` - 
+    # * `MaturityArrangement` - 
+    # * `AdministrativeArrangement` - 
+    common:Arrangementtypevalues LoanArrangementType?;
+    # The actions that can be taken by using the device(type) to which the arrangement refers to.
+    common:Action ArrangementAction?;
+    # Key dates associated with the directory entry (e.g. open date, refresh date).
+    common:Datetime ArrangementStartDate?;
+    # Key dates associated with the directory entry (e.g. open date, refresh date).
+    common:Datetime ArrangementEndDate?;
+    # A characteristic of arrangement which refers to the LifecycleStatus of arrangement (e.g., requested, proposed, offered, accepted, cancelled, terminated, fulfilled, etc.)
+    common:Arrangementstatus ArrangementStatus?;
+    # ArrangementSubjectMatter
+    common:Subject ArrangementSubjectMatter?;
+    # >
+    # * `SweepArrangement` - An arrangement into which is promised for the set-up and execution of structured sweeps to and from the facility to a linked account.
+    # * `WithdrawalArrangement` - An arrangement into which is promised to deliver Withdraw Service  to take fund out of an account. 
+    # * `DepositArrangement` - An arrangement into which is promised to deliver Deposit Service  to place funds into an account for safekeeping. 
+    # * `InterestArrangement` - An arrangement into which is promised to apply a pricing element expressed in a percentage  to a principal amount.
+    # * `FeeArrangement` - An arrangement into which is promised to apply a charge for services rendered. 
+    # * `LienArrangement` - An arrangement into which is promised for placing a lien or block on the account for a specified purpose, amount, and period. 
+    # * `InformationArrangement` - An arrangement concerning the information the bank will provide about the agreement/account
+    # * `PaymentArrangement` - An arrangement into which is promised to deliver a specific payment service including regular payments, standing orders, direct debits and bill pay instructions. 
+    # * `EntitlementArrangement` - Right or obligation linked to the involvement of a party in an agreement
+    # * `PeriodArrangement` - 
+    # * `CollateralArrangement` - An arrangement into which is promised for handling the oversight of the allocation, valuation and administration of collateral associated with the facility. 
+    # * `LimitArrangement` - An arrangement to limit something
+    # e.g., the number of transaction per week, the amount of money allowed to withdraw per week/day and etc. 
+    # * `AccessArrangement` - An arrangement that allows or restricts the access to a service or product, channel or device through a specific access point
+    # * `CardPaymentArrangement` - An arrangement into which is promised to deliver Card payment Service to execute payment transactions through a payment card, including online payments. 
+    # * `StandingOrderArrangement` - An arrangement into which is promised to deliver Standing Order Service to make regular transfers on given dates to a named beneﬁciary. 
+    # * `OverdraftArrangement` - An arrangement into which is promised to deliver Overdraft Service  that allows fund transfer even if there is no provision on the account. 
+    # * `RepaymentArrangement` - An arrangement into which is promised for paying back money previously borrowed from a lender. 
+    # * `StatementArrangement` - An arrangement into which is promised to deliver a reporting service on payment transactions registered on an account. 
+    # * `CreditTransferArrangement` - An arrangement into which is promised to allow a payer to transfer fund to a beneficiary. 
+    # * `ProductAndServiceArrangement` - 
+    # * `FactoringArrangement` - 
+    # * `RolloverArrangement` - Arrangement stipulating the modalities for an automatic renewal of the agreement
+    #
+    # i.e. the replacement of the agreement with a new one without renewed negociation and witout explicit agreement of the customer 
+    # * `RestructuringArrangement` - 
+    # * `InsuranceArrangement` - 
+    # * `CollectionArrangement` - An arrangement into which is promised to collect past-due debts from borrowers
+    # * `UnderwritingArrangement` - A contractual agreement between parties that commits the underwriter to assuming risk.
+    # * `TerminationArrangement` - 
+    # * `MaturityArrangement` - 
+    # * `AdministrativeArrangement` - 
+    common:Arrangementtypevalues Arrangementtype?;
+    # ArrangementIdentification
+    common:Identifier ArrangementIdentification?;
+    # PaymentCardArrangementIdentifier
+    common:Identifier PaymentCardArrangementIdentifier?;
+    # >
+    # * `SweepArrangement` - An arrangement into which is promised for the set-up and execution of structured sweeps to and from the facility to a linked account.
+    # * `WithdrawalArrangement` - An arrangement into which is promised to deliver Withdraw Service  to take fund out of an account. 
+    # * `DepositArrangement` - An arrangement into which is promised to deliver Deposit Service  to place funds into an account for safekeeping. 
+    # * `InterestArrangement` - An arrangement into which is promised to apply a pricing element expressed in a percentage  to a principal amount.
+    # * `FeeArrangement` - An arrangement into which is promised to apply a charge for services rendered. 
+    # * `LienArrangement` - An arrangement into which is promised for placing a lien or block on the account for a specified purpose, amount, and period. 
+    # * `InformationArrangement` - An arrangement concerning the information the bank will provide about the agreement/account
+    # * `PaymentArrangement` - An arrangement into which is promised to deliver a specific payment service including regular payments, standing orders, direct debits and bill pay instructions. 
+    # * `EntitlementArrangement` - Right or obligation linked to the involvement of a party in an agreement
+    # * `PeriodArrangement` - 
+    # * `CollateralArrangement` - An arrangement into which is promised for handling the oversight of the allocation, valuation and administration of collateral associated with the facility. 
+    # * `LimitArrangement` - An arrangement to limit something
+    # e.g., the number of transaction per week, the amount of money allowed to withdraw per week/day and etc. 
+    # * `AccessArrangement` - An arrangement that allows or restricts the access to a service or product, channel or device through a specific access point
+    # * `CardPaymentArrangement` - An arrangement into which is promised to deliver Card payment Service to execute payment transactions through a payment card, including online payments. 
+    # * `StandingOrderArrangement` - An arrangement into which is promised to deliver Standing Order Service to make regular transfers on given dates to a named beneﬁciary. 
+    # * `OverdraftArrangement` - An arrangement into which is promised to deliver Overdraft Service  that allows fund transfer even if there is no provision on the account. 
+    # * `RepaymentArrangement` - An arrangement into which is promised for paying back money previously borrowed from a lender. 
+    # * `StatementArrangement` - An arrangement into which is promised to deliver a reporting service on payment transactions registered on an account. 
+    # * `CreditTransferArrangement` - An arrangement into which is promised to allow a payer to transfer fund to a beneficiary. 
+    # * `ProductAndServiceArrangement` - 
+    # * `FactoringArrangement` - 
+    # * `RolloverArrangement` - Arrangement stipulating the modalities for an automatic renewal of the agreement
+    #
+    # i.e. the replacement of the agreement with a new one without renewed negociation and witout explicit agreement of the customer 
+    # * `RestructuringArrangement` - 
+    # * `InsuranceArrangement` - 
+    # * `CollectionArrangement` - An arrangement into which is promised to collect past-due debts from borrowers
+    # * `UnderwritingArrangement` - A contractual agreement between parties that commits the underwriter to assuming risk.
+    # * `TerminationArrangement` - 
+    # * `MaturityArrangement` - 
+    # * `AdministrativeArrangement` - 
+    common:Arrangementtypevalues CardPaymentArrangementType?;
+    # >
+    # * `FeeArrangement` - An arrangement which specifies to charge fees when banking transactions did take place, accompanied by the modalities to calculate and charge the fees and the related terms and conditions. 
+    # * `FinancialPlanningArrangement` - An arrangement that specifies obligations/rights engaged in the financial advisory service agreement to deliver the Financial Planning Advisory Service
+    #
+    # Financial Planning Advisory Service is a financial advisory service that provides basic financial advice for short and long term investment and financing options
+    # * `TaxOptimizationArrangement` - An arrangement that specifies obligations/rights engaged in the financial advisory service agreement for providing a tax related advice like:
+    # - Engaging a product tax specialist to liaise with the customer
+    # -The service charge to be made to the customer for the specialist support
+    #
+    # Tax Optimization Advisory Service is a financial advisory service that provides tax (and compliance) related advice for product and service optimization
+    # * `StrategicFundingArrangement` - 
+    # * `TacticalFundingArrangement` - 
+    # * `CapitalStructuringArrangement` - 
+    # * `ProductGuidanceArrangement` - An arrangement that specifies obligations/rights engaged in the financial advisory service agreement to deliver the ProductGuidanceAdvisoryService
+    #
+    # Product Guidance Advisory Service is a financial advisory service that provides product and service specific guidance and insights
+    common:Financialadvisoryservicearrangementtype FinancialAdvisoryServiceArrangementType?;
+    # >
+    # * `SweepArrangement` - An arrangement into which is promised for the set-up and execution of structured sweeps to and from the facility to a linked account.
+    # * `WithdrawalArrangement` - An arrangement into which is promised to deliver Withdraw Service  to take fund out of an account. 
+    # * `DepositArrangement` - An arrangement into which is promised to deliver Deposit Service  to place funds into an account for safekeeping. 
+    # * `InterestArrangement` - An arrangement into which is promised to apply a pricing element expressed in a percentage  to a principal amount.
+    # * `FeeArrangement` - An arrangement into which is promised to apply a charge for services rendered. 
+    # * `LienArrangement` - An arrangement into which is promised for placing a lien or block on the account for a specified purpose, amount, and period. 
+    # * `InformationArrangement` - An arrangement concerning the information the bank will provide about the agreement/account
+    # * `PaymentArrangement` - An arrangement into which is promised to deliver a specific payment service including regular payments, standing orders, direct debits and bill pay instructions. 
+    # * `EntitlementArrangement` - Right or obligation linked to the involvement of a party in an agreement
+    # * `PeriodArrangement` - 
+    # * `CollateralArrangement` - An arrangement into which is promised for handling the oversight of the allocation, valuation and administration of collateral associated with the facility. 
+    # * `LimitArrangement` - An arrangement to limit something
+    # e.g., the number of transaction per week, the amount of money allowed to withdraw per week/day and etc. 
+    # * `AccessArrangement` - An arrangement that allows or restricts the access to a service or product, channel or device through a specific access point
+    # * `CardPaymentArrangement` - An arrangement into which is promised to deliver Card payment Service to execute payment transactions through a payment card, including online payments. 
+    # * `StandingOrderArrangement` - An arrangement into which is promised to deliver Standing Order Service to make regular transfers on given dates to a named beneﬁciary. 
+    # * `OverdraftArrangement` - An arrangement into which is promised to deliver Overdraft Service  that allows fund transfer even if there is no provision on the account. 
+    # * `RepaymentArrangement` - An arrangement into which is promised for paying back money previously borrowed from a lender. 
+    # * `StatementArrangement` - An arrangement into which is promised to deliver a reporting service on payment transactions registered on an account. 
+    # * `CreditTransferArrangement` - An arrangement into which is promised to allow a payer to transfer fund to a beneficiary. 
+    # * `ProductAndServiceArrangement` - 
+    # * `FactoringArrangement` - 
+    # * `RolloverArrangement` - Arrangement stipulating the modalities for an automatic renewal of the agreement
+    #
+    # i.e. the replacement of the agreement with a new one without renewed negociation and witout explicit agreement of the customer 
+    # * `RestructuringArrangement` - 
+    # * `InsuranceArrangement` - 
+    # * `CollectionArrangement` - An arrangement into which is promised to collect past-due debts from borrowers
+    # * `UnderwritingArrangement` - A contractual agreement between parties that commits the underwriter to assuming risk.
+    # * `TerminationArrangement` - 
+    # * `MaturityArrangement` - 
+    # * `AdministrativeArrangement` - 
+    common:Arrangementtypevalues SavingsAccountArrangementType?;
+    # Reference to the product feature applied in this arrangement 
+    common:Productfeaturetype SavingsAccountArrangementProductFeatureType?;
+    # >
+    # * `SweepArrangement` - An arrangement into which is promised for the set-up and execution of structured sweeps to and from the facility to a linked account.
+    # * `WithdrawalArrangement` - An arrangement into which is promised to deliver Withdraw Service  to take fund out of an account. 
+    # * `DepositArrangement` - An arrangement into which is promised to deliver Deposit Service  to place funds into an account for safekeeping. 
+    # * `InterestArrangement` - An arrangement into which is promised to apply a pricing element expressed in a percentage  to a principal amount.
+    # * `FeeArrangement` - An arrangement into which is promised to apply a charge for services rendered. 
+    # * `LienArrangement` - An arrangement into which is promised for placing a lien or block on the account for a specified purpose, amount, and period. 
+    # * `InformationArrangement` - An arrangement concerning the information the bank will provide about the agreement/account
+    # * `PaymentArrangement` - An arrangement into which is promised to deliver a specific payment service including regular payments, standing orders, direct debits and bill pay instructions. 
+    # * `EntitlementArrangement` - Right or obligation linked to the involvement of a party in an agreement
+    # * `PeriodArrangement` - 
+    # * `CollateralArrangement` - An arrangement into which is promised for handling the oversight of the allocation, valuation and administration of collateral associated with the facility. 
+    # * `LimitArrangement` - An arrangement to limit something
+    # e.g., the number of transaction per week, the amount of money allowed to withdraw per week/day and etc. 
+    # * `AccessArrangement` - An arrangement that allows or restricts the access to a service or product, channel or device through a specific access point
+    # * `CardPaymentArrangement` - An arrangement into which is promised to deliver Card payment Service to execute payment transactions through a payment card, including online payments. 
+    # * `StandingOrderArrangement` - An arrangement into which is promised to deliver Standing Order Service to make regular transfers on given dates to a named beneﬁciary. 
+    # * `OverdraftArrangement` - An arrangement into which is promised to deliver Overdraft Service  that allows fund transfer even if there is no provision on the account. 
+    # * `RepaymentArrangement` - An arrangement into which is promised for paying back money previously borrowed from a lender. 
+    # * `StatementArrangement` - An arrangement into which is promised to deliver a reporting service on payment transactions registered on an account. 
+    # * `CreditTransferArrangement` - An arrangement into which is promised to allow a payer to transfer fund to a beneficiary. 
+    # * `ProductAndServiceArrangement` - 
+    # * `FactoringArrangement` - 
+    # * `RolloverArrangement` - Arrangement stipulating the modalities for an automatic renewal of the agreement
+    #
+    # i.e. the replacement of the agreement with a new one without renewed negociation and witout explicit agreement of the customer 
+    # * `RestructuringArrangement` - 
+    # * `InsuranceArrangement` - 
+    # * `CollectionArrangement` - An arrangement into which is promised to collect past-due debts from borrowers
+    # * `UnderwritingArrangement` - A contractual agreement between parties that commits the underwriter to assuming risk.
+    # * `TerminationArrangement` - 
+    # * `MaturityArrangement` - 
+    # * `AdministrativeArrangement` - 
+    common:Arrangementtypevalues CurrentAccountArrangementType?;
+    # Reference to the product feature applied in this arrangement 
+    common:Productfeaturetype CurrentAccountArrangementProductFeatureType?;
+    # >
+    # * `SweepArrangement` - An arrangement into which is promised for the set-up and execution of structured sweeps to and from the facility to a linked account.
+    # * `WithdrawalArrangement` - An arrangement into which is promised to deliver Withdraw Service  to take fund out of an account. 
+    # * `DepositArrangement` - An arrangement into which is promised to deliver Deposit Service  to place funds into an account for safekeeping. 
+    # * `InterestArrangement` - An arrangement into which is promised to apply a pricing element expressed in a percentage  to a principal amount.
+    # * `FeeArrangement` - An arrangement into which is promised to apply a charge for services rendered. 
+    # * `LienArrangement` - An arrangement into which is promised for placing a lien or block on the account for a specified purpose, amount, and period. 
+    # * `InformationArrangement` - An arrangement concerning the information the bank will provide about the agreement/account
+    # * `PaymentArrangement` - An arrangement into which is promised to deliver a specific payment service including regular payments, standing orders, direct debits and bill pay instructions. 
+    # * `EntitlementArrangement` - Right or obligation linked to the involvement of a party in an agreement
+    # * `PeriodArrangement` - 
+    # * `CollateralArrangement` - An arrangement into which is promised for handling the oversight of the allocation, valuation and administration of collateral associated with the facility. 
+    # * `LimitArrangement` - An arrangement to limit something
+    # e.g., the number of transaction per week, the amount of money allowed to withdraw per week/day and etc. 
+    # * `AccessArrangement` - An arrangement that allows or restricts the access to a service or product, channel or device through a specific access point
+    # * `CardPaymentArrangement` - An arrangement into which is promised to deliver Card payment Service to execute payment transactions through a payment card, including online payments. 
+    # * `StandingOrderArrangement` - An arrangement into which is promised to deliver Standing Order Service to make regular transfers on given dates to a named beneﬁciary. 
+    # * `OverdraftArrangement` - An arrangement into which is promised to deliver Overdraft Service  that allows fund transfer even if there is no provision on the account. 
+    # * `RepaymentArrangement` - An arrangement into which is promised for paying back money previously borrowed from a lender. 
+    # * `StatementArrangement` - An arrangement into which is promised to deliver a reporting service on payment transactions registered on an account. 
+    # * `CreditTransferArrangement` - An arrangement into which is promised to allow a payer to transfer fund to a beneficiary. 
+    # * `ProductAndServiceArrangement` - 
+    # * `FactoringArrangement` - 
+    # * `RolloverArrangement` - Arrangement stipulating the modalities for an automatic renewal of the agreement
+    #
+    # i.e. the replacement of the agreement with a new one without renewed negociation and witout explicit agreement of the customer 
+    # * `RestructuringArrangement` - 
+    # * `InsuranceArrangement` - 
+    # * `CollectionArrangement` - An arrangement into which is promised to collect past-due debts from borrowers
+    # * `UnderwritingArrangement` - A contractual agreement between parties that commits the underwriter to assuming risk.
+    # * `TerminationArrangement` - 
+    # * `MaturityArrangement` - 
+    # * `AdministrativeArrangement` - 
+    common:Arrangementtypevalues ArrangementType?;
+    # >
+    # * `SweepArrangement` - An arrangement into which is promised for the set-up and execution of structured sweeps to and from the facility to a linked account.
+    # * `WithdrawalArrangement` - An arrangement into which is promised to deliver Withdraw Service  to take fund out of an account. 
+    # * `DepositArrangement` - An arrangement into which is promised to deliver Deposit Service  to place funds into an account for safekeeping. 
+    # * `InterestArrangement` - An arrangement into which is promised to apply a pricing element expressed in a percentage  to a principal amount.
+    # * `FeeArrangement` - An arrangement into which is promised to apply a charge for services rendered. 
+    # * `LienArrangement` - An arrangement into which is promised for placing a lien or block on the account for a specified purpose, amount, and period. 
+    # * `InformationArrangement` - An arrangement concerning the information the bank will provide about the agreement/account
+    # * `PaymentArrangement` - An arrangement into which is promised to deliver a specific payment service including regular payments, standing orders, direct debits and bill pay instructions. 
+    # * `EntitlementArrangement` - Right or obligation linked to the involvement of a party in an agreement
+    # * `PeriodArrangement` - 
+    # * `CollateralArrangement` - An arrangement into which is promised for handling the oversight of the allocation, valuation and administration of collateral associated with the facility. 
+    # * `LimitArrangement` - An arrangement to limit something
+    # e.g., the number of transaction per week, the amount of money allowed to withdraw per week/day and etc. 
+    # * `AccessArrangement` - An arrangement that allows or restricts the access to a service or product, channel or device through a specific access point
+    # * `CardPaymentArrangement` - An arrangement into which is promised to deliver Card payment Service to execute payment transactions through a payment card, including online payments. 
+    # * `StandingOrderArrangement` - An arrangement into which is promised to deliver Standing Order Service to make regular transfers on given dates to a named beneﬁciary. 
+    # * `OverdraftArrangement` - An arrangement into which is promised to deliver Overdraft Service  that allows fund transfer even if there is no provision on the account. 
+    # * `RepaymentArrangement` - An arrangement into which is promised for paying back money previously borrowed from a lender. 
+    # * `StatementArrangement` - An arrangement into which is promised to deliver a reporting service on payment transactions registered on an account. 
+    # * `CreditTransferArrangement` - An arrangement into which is promised to allow a payer to transfer fund to a beneficiary. 
+    # * `ProductAndServiceArrangement` - 
+    # * `FactoringArrangement` - 
+    # * `RolloverArrangement` - Arrangement stipulating the modalities for an automatic renewal of the agreement
+    #
+    # i.e. the replacement of the agreement with a new one without renewed negociation and witout explicit agreement of the customer 
+    # * `RestructuringArrangement` - 
+    # * `InsuranceArrangement` - 
+    # * `CollectionArrangement` - An arrangement into which is promised to collect past-due debts from borrowers
+    # * `UnderwritingArrangement` - A contractual agreement between parties that commits the underwriter to assuming risk.
+    # * `TerminationArrangement` - 
+    # * `MaturityArrangement` - 
+    # * `AdministrativeArrangement` - 
+    common:Arrangementtypevalues TermDepositArrangementType?;
+    # Reference to the product feature applied in this arrangement 
+    common:Productfeaturetype TermDepositArrangementProductFeatureType?;
+    # Key dates associated with the directory entry (e.g. open date, refresh date).
+    common:Datetime TermDepositMaturityDate?;
+    # Key dates associated with the directory entry (e.g. open date, refresh date).
+    common:Datetime TermDepositOpenDate?;
+    # Base amount that would be applied when the service is requested. 
+    common:Amount TermDepositAmount?;
+    # TermDepositDuration
+    common:Duration TermDepositDuration?;
+    # The Period for which the TermDepositAmount needs ti stay deposited with the Bank
+    string DepositTerm?;
+    # VirtualAccountArrangementType
+    string VirtualAccountArrangementType?;
+    # >
+    # * `SweepArrangement` - An arrangement into which is promised for the set-up and execution of structured sweeps to and from the facility to a linked account.
+    # * `WithdrawalArrangement` - An arrangement into which is promised to deliver Withdraw Service  to take fund out of an account. 
+    # * `DepositArrangement` - An arrangement into which is promised to deliver Deposit Service  to place funds into an account for safekeeping. 
+    # * `InterestArrangement` - An arrangement into which is promised to apply a pricing element expressed in a percentage  to a principal amount.
+    # * `FeeArrangement` - An arrangement into which is promised to apply a charge for services rendered. 
+    # * `LienArrangement` - An arrangement into which is promised for placing a lien or block on the account for a specified purpose, amount, and period. 
+    # * `InformationArrangement` - An arrangement concerning the information the bank will provide about the agreement/account
+    # * `PaymentArrangement` - An arrangement into which is promised to deliver a specific payment service including regular payments, standing orders, direct debits and bill pay instructions. 
+    # * `EntitlementArrangement` - Right or obligation linked to the involvement of a party in an agreement
+    # * `PeriodArrangement` - 
+    # * `CollateralArrangement` - An arrangement into which is promised for handling the oversight of the allocation, valuation and administration of collateral associated with the facility. 
+    # * `LimitArrangement` - An arrangement to limit something
+    # e.g., the number of transaction per week, the amount of money allowed to withdraw per week/day and etc. 
+    # * `AccessArrangement` - An arrangement that allows or restricts the access to a service or product, channel or device through a specific access point
+    # * `CardPaymentArrangement` - An arrangement into which is promised to deliver Card payment Service to execute payment transactions through a payment card, including online payments. 
+    # * `StandingOrderArrangement` - An arrangement into which is promised to deliver Standing Order Service to make regular transfers on given dates to a named beneﬁciary. 
+    # * `OverdraftArrangement` - An arrangement into which is promised to deliver Overdraft Service  that allows fund transfer even if there is no provision on the account. 
+    # * `RepaymentArrangement` - An arrangement into which is promised for paying back money previously borrowed from a lender. 
+    # * `StatementArrangement` - An arrangement into which is promised to deliver a reporting service on payment transactions registered on an account. 
+    # * `CreditTransferArrangement` - An arrangement into which is promised to allow a payer to transfer fund to a beneficiary. 
+    # * `ProductAndServiceArrangement` - 
+    # * `FactoringArrangement` - 
+    # * `RolloverArrangement` - Arrangement stipulating the modalities for an automatic renewal of the agreement
+    #
+    # i.e. the replacement of the agreement with a new one without renewed negociation and witout explicit agreement of the customer 
+    # * `RestructuringArrangement` - 
+    # * `InsuranceArrangement` - 
+    # * `CollectionArrangement` - An arrangement into which is promised to collect past-due debts from borrowers
+    # * `UnderwritingArrangement` - A contractual agreement between parties that commits the underwriter to assuming risk.
+    # * `TerminationArrangement` - 
+    # * `MaturityArrangement` - 
+    # * `AdministrativeArrangement` - 
+    common:Arrangementtypevalues BankPlanArrangementType?;
+    # Key dates associated with the directory entry (e.g. open date, refresh date).
+    common:Datetime CreditFacilityDataTime?;
+    # >
+    # * `Revolving` - 
+    # * `FixedAmount` - 
+    # * `Decreasing` - 
+    common:Creditfacilitytypevalues CreditFacilityType?;
+    # >
+    # * `AvailabilityCommission` - 
+    common:Creditfacilityratetypevalues CreditFacilityRateType?;
+    # CreditFacilityNumber
+    common:Identifier CreditFacilityNumber?;
+    # Base amount that would be applied when the service is requested. 
+    common:Amount CreditFacilityAmount?;
+    # Frequency at which the fee is charged
+    common:Frequency StandingOrderFrequency?;
+    # The purpose of a standing order
+    string StandingOrderPurpose?;
+    # Base amount that would be applied when the service is requested. 
+    common:Amount StandingOrderAmount?;
+    # StandingOrderCurrency
+    common:Currencycode StandingOrderCurrency?;
+    # Reference to the Card merchant registered with the device
+    common:Involvedparty StandingOrderTargetAccountOwner?;
+    # The identification of the target account of a standing order.
+    common:Accountidentification StandingOrderTargetAccountIdentification?;
+    # Reference to the Card merchant registered with the device
+    common:Involvedparty StandingOrderTargetAccountBank?;
+    # StandingOrderSourceAccount
+    common:Account StandingOrderSourceAccount?;
+    # Period of time during which the status is valid.
+    common:Datetimeperiod StandingOrderValidityPeriod?;
+    # Key dates associated with the directory entry (e.g. open date, refresh date).
+    common:Datetime StandingOrderDay?;
+    # >
+    # * `UserDefinedStandingOrder` - Liquidity transfer standing order type, that has been customised or defined to the specific need of the user.(ISO20022)
+    # * `PredefinedStandingOrder` - Liquidity transfer standing order type, as predefined in the system. (ISO20022)
+    common:Standingordertypevalues StandingOrderType?;
+    # StandingOrderIdentification
+    common:Identifier StandingOrderIdentification?;
+    # >
+    # * `SweepArrangement` - An arrangement into which is promised for the set-up and execution of structured sweeps to and from the facility to a linked account.
+    # * `WithdrawalArrangement` - An arrangement into which is promised to deliver Withdraw Service  to take fund out of an account. 
+    # * `DepositArrangement` - An arrangement into which is promised to deliver Deposit Service  to place funds into an account for safekeeping. 
+    # * `InterestArrangement` - An arrangement into which is promised to apply a pricing element expressed in a percentage  to a principal amount.
+    # * `FeeArrangement` - An arrangement into which is promised to apply a charge for services rendered. 
+    # * `LienArrangement` - An arrangement into which is promised for placing a lien or block on the account for a specified purpose, amount, and period. 
+    # * `InformationArrangement` - An arrangement concerning the information the bank will provide about the agreement/account
+    # * `PaymentArrangement` - An arrangement into which is promised to deliver a specific payment service including regular payments, standing orders, direct debits and bill pay instructions. 
+    # * `EntitlementArrangement` - Right or obligation linked to the involvement of a party in an agreement
+    # * `PeriodArrangement` - 
+    # * `CollateralArrangement` - An arrangement into which is promised for handling the oversight of the allocation, valuation and administration of collateral associated with the facility. 
+    # * `LimitArrangement` - An arrangement to limit something
+    # e.g., the number of transaction per week, the amount of money allowed to withdraw per week/day and etc. 
+    # * `AccessArrangement` - An arrangement that allows or restricts the access to a service or product, channel or device through a specific access point
+    # * `CardPaymentArrangement` - An arrangement into which is promised to deliver Card payment Service to execute payment transactions through a payment card, including online payments. 
+    # * `StandingOrderArrangement` - An arrangement into which is promised to deliver Standing Order Service to make regular transfers on given dates to a named beneﬁciary. 
+    # * `OverdraftArrangement` - An arrangement into which is promised to deliver Overdraft Service  that allows fund transfer even if there is no provision on the account. 
+    # * `RepaymentArrangement` - An arrangement into which is promised for paying back money previously borrowed from a lender. 
+    # * `StatementArrangement` - An arrangement into which is promised to deliver a reporting service on payment transactions registered on an account. 
+    # * `CreditTransferArrangement` - An arrangement into which is promised to allow a payer to transfer fund to a beneficiary. 
+    # * `ProductAndServiceArrangement` - 
+    # * `FactoringArrangement` - 
+    # * `RolloverArrangement` - Arrangement stipulating the modalities for an automatic renewal of the agreement
+    #
+    # i.e. the replacement of the agreement with a new one without renewed negociation and witout explicit agreement of the customer 
+    # * `RestructuringArrangement` - 
+    # * `InsuranceArrangement` - 
+    # * `CollectionArrangement` - An arrangement into which is promised to collect past-due debts from borrowers
+    # * `UnderwritingArrangement` - A contractual agreement between parties that commits the underwriter to assuming risk.
+    # * `TerminationArrangement` - 
+    # * `MaturityArrangement` - 
+    # * `AdministrativeArrangement` - 
+    common:Arrangementtypevalues StandingOrderArrangementType?;
+    # >
+    # * `FirstPaymentDateTime` - The date on which the first payment for a Standing Order schedule will be made. (Open Banking)
+    # * `NextPaymentDateTime` - The date on which the next payment for a Standing Order schedule will be made. (Open Banking)
+    # * `LastPaymentDateTime` - The date on which the last (most recent) payment for a Standing Order schedule was made. (Open Banking)
+    # * `FinalPaymentDateTime` - The date on which the final payment for a Standing Order schedule will be made. (Open Banking)
+    common:Standingorderdatetimetypevalues StandingOrderDateType?;
+    # Number of the payments that will be made in completing this frequency sequence including any executed since the sequence start date. (Open Banking)
+    string StandingOrderNumberOfPayments?;
+    # Key dates associated with the directory entry (e.g. open date, refresh date).
+    common:Datetime StandingOrderDate?;
+    # The tracked status (e.g. under construction or repair, inhabited, vacant).
+    common:Status StandingOrderStatus?;
+    # A schedule which is specified the first payment, last payment, next payment, etc. for a standing orde.
+    common:Schedule StandingOrderSchedule?;
+    # >
+    # * `CreditTransferService` - A payment service allowing a payer to transfer fund to a beneficiary. (a proposed definition for BIAN BOM adapted from ECB)
+    # * `StandingOrderService` - A credit transfer service to make regular transfers on given dates to a named beneﬁciary. (a proposed definition for BIAN BOM adapted from ISO20022)
+    # * `DirectDebitService` - A payment service for debiting a payer's payment account, where a payment transaction is initiated by the payee on the basis of the payer's consent given to the payee, to the payee's payment service provider or to the payer's own payment service provider. (a proposed definition for BIAN BOM adapted from PSD)
+    # * `CardPaymentService` - A payment service to execute payment transactions through a payment card, including online payments. (a proposed definition for BIAN BOM adapted from PSD)
+    # * `WithdrawService` - A payment service to take fund out of an account. (a proposed definition for BIAN BOM)
+    # * `DepositService` - A payment service to place funds into an account for safekeeping. (a proposed definition for BIAN BOM)
+    # * `OverdraftService` - A payment service that allows fund transfer even if there is no provision on the account. (a proposed definition for BIAN BOM)
+    # * `MoneyRemittanceService` - A payment service where funds are received from a payer, without any payment accounts being created in the name of the payer or the payee, for the sole purpose of transferring a corresponding amount to a payee or to another payment service provider acting on behalf of the payee, and/or where such funds are received on behalf of and made available to the payee. (a proposed definition for BIAN BOM adapted from PSD)
+    # * `StatementService` - A reporting service on payment transactions registered on an account. (a proposed definition for BIAN BOM)
+    common:Paymentservicetypevalues ServiceType?;
+    # Key dates related to the payment. 
+    common:Paymentdatetime PaymentDate?;
+    # Period of time during which the status is valid.
+    common:Datetimeperiod PaymentPeriod?;
+    # >
+    # * `Salarypayment` - Transaction is the payment of salaries.
+    # * `Treasurypayment` - Transaction is related to treasury operations.
+    # * `Advancepayment` - Transaction is an advance payment.
+    # * `Agriculturaltransfer` - Transaction is related to the agricultural domain.
+    # * `Alimonypayment` - Transaction is the payment of alimony.
+    # * `Childbenefit` - Transaction is related to a payment made to assist parent/guardian to maintain child.
+    # * `Unemploymentdisabilitybenefit` - Transaction is related to a payment to a person who is unemployed/disabled.
+    # * `Bonuspayment.` - Transaction is related to payment of a bonus.
+    # * `Cashmanagementtransfer` - Transaction is a general cash management instruction.
+    # * `Capitalbuilding` - Transaction is related to capital building fringe fortune, ie capital building for retirement.
+    # * `Charitypayment` - Transaction is a payment for charity reasons.
+    # * `Collectionpayment` - Transaction is a collection of funds initiated via a credit transfer or direct debit.
+    # * `Commoditytransfer` - Transaction is payment of commodities.
+    # * `Commercialpayment` - Transaction is related to a payment of commercial credit or debit. (formerly CommercialCredit).
+    # * `Commission` - Transaction is payment of commission.
+    # * `Costs` - Transaction is related to payment of costs.
+    # * `Copyright` - Transaction is payment of copyright.
+    # * `Dividend` - Transaction is payment of dividends.
+    # * `Foreignexchange` - Transaction is related to a foreign exchange operation.
+    # * `Purchasesaleofgoods` - Transaction is related to purchase and sale of goods.
+    # * `Governmentpayment` - Transaction is a payment to or from a government department.
+    # * `Instalmenthirepurchaseagreement` - Transaction is payment for an installment/hire-purchase agreement.
+    # * `Intracompanypayment` - Transaction is an intra-company payment, ie, a payment between two companies belonging to the same group.
+    # * `Insurancepremium` - Transaction is payment of an insurance premium.
+    # * `Interest` - Transaction is payment of interest.
+    # * `Licensefee` - Transaction is payment of a license fee.
+    # * `Loan` - Transaction is related to transfer of loan to borrower.
+    # * `Loanrepayment` - Transaction is related to repayment of loan to lender.
+    # * `Netting` - Transaction is related to a netting operation.
+    # * `Payroll` - Transaction is related to the payment of payroll.
+    # * `Pensionpayment` - Transaction is the payment of pension.
+    # * `Refund` - Transaction is the payment of a refund.
+    # * `Rent` - Transaction is the payment of rent.
+    # * `Royalties` - Transaction is the payment of royalties.
+    # * `Purchasesaleofservices` - Transaction is related to purchase and sale of services.
+    # * `Securities` - Transaction is the payment of securities.
+    # * `Socialsecuritybenefit` - Transaction is a social security benefit, ie payment made by a government to support individuals.
+    # * `Subscription` - Transaction is related to a payment of information or entertainment services either in printed or electronic form.
+    # * `Taxpayment` - Transaction is the payment of taxes.
+    # * `Valueaddedtaxpayment` - Transaction is the payment of value added tax.
+    # * `Consumerthirdpartyconsolidatedpayment` - Transaction is a payment used by a third party who can collect funds to pay on behalf of consumers, ie credit counseling or bill payment companies.
+    # * `Debitcollectionpayment` - Collection of funds initiated via a debit transfer.
+    # * `Supplierpayment` - Transaction is related to a payment to a supplier.
+    # * `Hedging` - Transaction is related to a hedging operation.
+    # * `Multipleservicetypes` - Transaction is related to a payment for multiple service types.
+    # * `Nototherwisespecified` - Transaction is related to a payment for type of services not specified elsewhere.
+    # * `Cardpayment` - Transaction is related to a payment of credit card account.
+    # * `Creditcardbill` - Transaction is related to a payment of credit card bill.
+    # * `Ferry` - Transaction is a payment for ferry related business.
+    # * `Air` - Transaction is a payment for air transport related business.
+    # * `Bus` - Transaction is a payment for bus transport related business.
+    # * `Railway` - Transaction is a payment for railway transport related business.
+    # * `Convalescentcarefacility` - Transaction is a payment for convalescence care facility services.
+    # * `Dentalservices` - Transaction is a payment for dental services.
+    # * `Anesthesiaservices` - Transaction is a payment for anesthesia services.
+    # * `Homehealthcare` - Transaction is a payment for home health care services.
+    # * `Hospitalcare` - Transaction is a payment for hospital care services.
+    # * `Intermediatecarefacility` - Transaction is a payment for intermediate care facility services.
+    # * `Longtermcarefacility` - Transaction is a payment for long-term care facility services.
+    # * `Medicalservices` - Transaction is a payment for medical care services.
+    # * `Visioncare` - Transaction is a payment for vision care services.
+    # * `Durablemedicaleequipment` - Transaction is a payment is for use of durable medical equipment.
+    # * `Cabletvbill` - Transaction is related to a payment of cable TV bill.
+    # * `Electricitybill` - Transaction is related to a payment of electricity bill.
+    # * `Gasbill` - Transaction is related to a payment of gas bill.
+    # * `Telephonebill` - Transaction is related to a payment of telephone bill.
+    # * `Othertelecomrelatedbill` - Transaction is related to a payment of other telecom related bill.
+    # * `Waterbill` - Transaction is related to a payment of water bill.
+    # * `Study` - Transaction is related to a payment of study/tuition costs.
+    # * `Pricepayment` - Transaction is related to a payment of a price.
+    # * `Installment` - Transaction is related to a payment of an installment.
+    # * `Recurringinstallmentpayment` - Transaction is related to a payment of a recurring installment made at regular intervals.
+    # * `Openingfee` - Transaction is related to a payment of opening fee.
+    # * `Cancellationfee` - Transaction is related to a payment of cancellation fee.
+    # * `Governmentinsurance` - Transaction is related to a payment of government insurance.
+    # * `Insurancepremiumcar` - Transaction is a payment of car insurance premium.
+    # * `Laborinsurance` - Transaction is a payment of labor insurance.
+    # * `Lifeinsurance` - Transaction is a payment of life insurance.
+    # * `Propertyinsurance` - Transaction is a payment of property insurance.
+    # * `Healthinsurance` - Transaction is a payment of health insurance.
+    # * `Carloanprincipalrepayment` - Transaction is a payment of car loan principal payment.
+    # * `Housingloanrepayment` - Transaction is related to a payment of housing loan.
+    # * `Companysocialloanpaymenttobank` - Transaction is a payment by a company to a bank for financing social loans to employees.
+    # * `Estatetax` - Transaction is related to a payment of estate tax.
+    # * `Housingtax` - Transaction is related to a payment of housing tax.
+    # * `Incometax` - Transaction is related to a payment of income tax.
+    # * `Netincometax` - Transaction is related to a payment of net income tax.
+    # * `Businessexpenses` - Transaction is related to a payment of business expenses.
+    # * `Trustfund` - Transaction is related to a payment of a trust fund.
+    # * `Networkcharge` - Transaction is related to a payment of network charges.
+    # * `Networkcommunication` - Transaction is related to a payment of network communication.
+    # * `Receiptpayment` - Transaction is related to a payment of receipt.
+    # * `Paymentterms` - Transaction is related to payment terms specifications.
+    # * `Other` - Other payment purpose.
+    # * `Withholding` - Transaction is related to a payment of withholding tax.
+    common:Paymentpurposevalues PaymentPurpose?;
+    # Amount of the payment (arranged to be paid)
+    common:Paymentamountandcurrency PaymentAmountAndCurrency?;
+    # >
+    # * `Cheque` - Written order to a bank to pay a certain amount of money from one person to another person.
+    # * `Credittransfer` - Transfer of an amount of money in the books of the account servicer.
+    # * `Directdebit` - Collection of an amount of money from the debtor's bank account by the creditor. The amount of money and dates of collections may vary.
+    # * `Transferadvice` - Transfer of an amount of money in the books of the account servicer. An advice should be sent back to the account owner.
+    # * `Direct` - Direct method.
+    # * `Classical` - Classical method.
+    common:Paymentmethodtypevalues PaymentMethod?;
+    # >
+    # * `Cashtransaction` - Transaction is a withdrawal/deposit of cash.
+    # * `Domesticpayment` - Payment has an origin and a destination in the same country, and is made in the currency of that country.
+    # * `Domestichighvaluepayment` - Transaction is a high value payment that has an origin and a destination in the same country and is made in the currency of that country.
+    # * `Domesticprioritypayment` - Transaction is a priority payment that has an origin and a destination in the same country and is made in the currency of that country.
+    # * `Crossborderpayment` - Payment has an origin in one country, a destination in another, and is made in the currency of either the origin or destination country.
+    # * `Crossborderprioritypayment` - Transaction is a priority payment that has an origin in one country and a destination in another and is made in the currency of either the origin or destination country.
+    # * `Crossborderhighvaluepayment` - Transaction is a high value payment that has an origin in one country and a destination in another country and is made in the currency of either the origin or destination country.
+    # * `Thirdcurrencypayment` - Transaction is a payment that is made in a third currency to the origin and destination countries. The origin and destination countries may be one and the same country.
+    # * `Thirdcurrencyhighvaluepayment` - Transaction is a high value payment that is made in a third currency to the origin and destination countries. The origin and destination countries may be one and the same country.
+    # * `Thirdcurrencyprioritypayment` - Payment is made in a third currency to the origin and destination countries. The origin and destination countries may be the same country.
+    # * `Tradesettlementpayment` - Transaction is the settlement of a trade, eg, a securities transaction.
+    # * `Foreignexchange` - Transaction isthe settlement of a foreign exchange deal.
+    # * `Equivalentamount` - Transaction is an equivalent amount relative to a currency conversion.
+    # * `Loan` - Transaction is the payment of a specific amount of money lent by a creditor/lender.
+    # * `Loanrepayment` - Transaction is an amount of money transferred in repayment of loan.
+    # * `Securities` - Transaction is a payment of securities.
+    # * `Lockbox` - Transaction is a payment(s) resulting from a lock box service.
+    # * `Dividend` - Transaction is a payment of dividends.
+    # * `Crossedcheque` - Transaction is a crossed cheque. A crossed check has two parallel lines across its face, indicating that the cheque must be paid into an account and not cashed over the counter.
+    # * `Opencheque` - Transaction is an uncrossed cheque that can be cashed at the bank of origin.
+    # * `Ordercheque` - Transaction is a cheque made payable to a named recipient 'or order' enabling the creditor to either deposit it in an account or endorse it to a third party, ie, transfer the rights to the cheque by signing it on the reverse.
+    # * `Circularcheque` - Transaction is an instruction from a bank to its correspondent bank to pay the creditor a stated sum of money on presentation of a means of identification.
+    # * `Travellerscheques` - Transaction is a payment resulting from travellers cheques.
+    # * `Bankdraft` - Transaction is a cheque drawn by a bank on itself or its agent. A person who owes money to another buys the draft from a bank for cash and hands it to the creditor who need have no fear that it might be dishonoured.
+    # * `Documentarycredit` - Transaction is a documentary credit from one banker to another, authorising the payment of a specified sum of money to the person named in the document, based on specified conditions.
+    # * `Billofexchange` - Transaction is a written order from a drawer to a drawee to pay a specified sum of money upon demand, or on a specified date, to the drawer or to a third party specified by the drawer. A bill of exchange is also called a draft.
+    # * `Collection` - Transaction is a collection. A collection is the act of sending a cheque, bill of exchange or another financial instrument to the prospective financial institution for payment.
+    # * `Cashmanagementtransfer` - Transaction is a general cash management instruction.
+    # * `Topaccount` - Transaction is a cash management instruction, requesting to top the account of the debtor above a certain floor amount. The floor amount, if not pre-agreed by the parties involved, may be specified.
+    # * `Zerobalanceaccount` - Transaction is a cash management instruction, requesting to zero balance the account of the debtor.
+    # * `Standingfacilities` - Payment is linked to overnight deposits and the marginal lending facility.
+    # * `Standardservicelevelcredit` - Transaction is a credit transfer to be processed according to the Standard Service Level.
+    # * `Liquiditytransfer` - Payment is made to transfer liquidity to/from the settlement account of a member, to/from the current account held at the central institution or any other institution.
+    # * `Advancepayment` - Transaction is a payment made in advance or as an advance.
+    # * `Valuedateadjustment` - Transaction reverses a previously incorrectly value dated entry.
+    # * `Dvpgross` - Gross cash payment offsetting the amount owed/due for a securities transaction settlement.
+    # * `Dvpnet` - Net payment offsetting the cash balance due/owed for a series of securities transactions settlement.
+    # * `Netting` - Transaction is a netting operation.
+    # * `Limitpayment` - Transaction is a payment that is processed when the pool of liquidity exceeds the minimum value reserved for an express payment in the RTGSPlus system.
+    # * `Backup` - Payment is made under the recovery procedure to move liquidity to/from the settlement account of a member according to the specifications of the system.
+    # * `Expresspayment` - Transaction is a payment that is processed whenever liquidity is available on the settlement account of a member of the RTGSPlus system.
+    # * `Centralbankoperation` - Payment is made to settle an operation made with the central bank.
+    # * `Clspayment` - Payment is linked to CLS activities.
+    # * `Eurodomesticpayment` - Transaction is a credit transfer in Euro with its country of origin and country of destination within the European Union. The origin and destination countries may be one and the same country.
+    # * `Agriculturaltransfer` - Transaction is related to the agricultural domain.
+    # * `Alimonypayment` - Transaction is a payment(s) made by one spouse to the other after a separation or divorce. An alimony payment may be applied to other family relationships.
+    # * `Balanceretail` - Transaction is a payment offsetting the net cash balance owed/due in a retail payment system.
+    # * `Bonuspayment.` - Net cash payment offsetting the balance due/owed in a retail payment system.
+    # * `Brokeragefee` - Transaction is charges levied by a broker.
+    # * `Capitalbuilding` - Transaction is payment into a personal pension scheme for retirement.
+    # * `Charitypayment` - Transaction is a payment for charity reasons.
+    # * `Childbenefit` - Transaction is a payment made to a parent/guardian to help maintain a child.
+    # * `Commercialcredit` - Transaction is settlement of a commercial credit.
+    # * `Commission` - Transaction is payment of a fee for executing a transaction.
+    # * `Commoditytransfer` - Transaction is a payment of products traded on a commodity exchange.
+    # * `Costs` - Transaction is apayment of costs.
+    # * `Copyright` - Transaction is a payment of copyright.
+    # * `Governmentpayment` - Transaction is apayment to or from a government department.
+    # * `Instalmenthirepurchaseagreement` - Transaction is a payment of an instalment or to the settlement of a hire-purchase agreement.
+    # * `Insurancepremium` - Transaction is a payment of an insurance premium.
+    # * `Intracompanypayment` - Transaction is an intra-company payment, ie, a payment between two companies belonging to the same group.
+    # * `Interest` - Transaction is a payment of interest.
+    # * `Licensefee` - Transaction is a payment of a license fee.
+    # * `Metals` - Transaction is a purchase or sale of metals.
+    # * `Pensionpayment` - Transaction is a payment of a pension allowance.
+    # * `Purchasesaleofgoods` - Transaction is a payment for the purchase and sale of goods.
+    # * `Refund` - Transaction is a repayment of funds.
+    # * `Rent` - Transaction is a payment of rent.
+    # * `Royalties` - Transaction is a payment of royalties.
+    # * `Purchasesaleofservices` - Transaction is a payment for the purchase and sale of services.
+    # * `Salarypayment` - Transaction is a payment of salaries.
+    # * `Socialsecuritybenefit` - Transaction is a social security benefit, a payment made by a government to support individuals.
+    # * `Standingorder` - Transaction is a standing order. A standing order is an instruction given by a party having explicit authority on the account to debit, ie, either debit account owner or originating party, to a first agent to process cash transfers at specified intervals during an implicit or explicit period of time. It is given once, and is valid for an open or closed period of time.
+    # * `Subscription` - Transaction is a payment of a subscription.
+    # * `Treasurystatepayment` - Payment is linked to the Treasury State.
+    # * `Unemploymentdisabilitybenefit` - Transaction is a payment made to an unemployed/disabled person.
+    # * `Valueaddedtaxpayment` - Transaction is apayment of value added tax.
+    # * `Taxpayment` - Transaction is a payment of taxes.
+    # * `Overnightdeposit` - Transaction is linked to an overnight deposit.
+    # * `Marginallending` - Transaction is linked to the marginal lending facility.
+    # * `Other` - Specifies that a proprietary code must be indicated.
+    # * `Upfront` - Transaction is an initial payment made by one of the counterparties  either to bring a transaction to fair value or for any other reason that may be the cause of an off-market transaction.
+    # * `Unwind` - Transaction is the final settlement payment made when a transaction is unwound prior to its end date or a payment that may result due to the full termination of derivative transaction(s).
+    # * `Principalexchange` - Transaction is an exchange of notional values for cross-currency swaps.
+    common:Paymenttypevalues PaymentType?;
+    # >
+    # * `Paymentondelivery` - Code for payment on delivery.
+    # * `Endofmonthofdelivery` - Code for payment at end of month of delivery.
+    # * `Endofperiodafterdelivery` - Code for payment at end of period after delivery.
+    # * `Endofperiodafterendofdeliverymonth` - Code for payment at end of period after end of month of delivery.
+    # * `Paymentonreceiptofinvoice` - Code for payment on receipt of invoice.
+    # * `Endofperiodafterendofreceiptmonth` - Code for payment at end of period after end of month of receipt of invoice.
+    # * `Endofperiodafterreceipt` - Code for payment at end of period after receipt of invoice.
+    # * `Endofmonthofreceipt` - Code for payment at end of month of receipt of invoice.
+    # * `Endofperiodaftermatch` - Code for payment at end of period after match or mismatch acceptance.
+    # * `Endofperiodaftershipmentdate` - Payment at end of period after shipment date.
+    # * `Endofperiodafterpurchaseorderdate` - Payment at end of period after purchase order date.
+    # * `Endofperiodafterbaselineestablishment` - Payment at end of period after baseline establishment date.
+    # * `Endofperiodafterinvoicedate` - Payment at end of period after invoice date.
+    common:Paymenttimevalues PaymentTime?;
+    # >
+    # * `Fax` - Remittance advice information must be faxed.
+    # * `Electronicdatainterchange` - Remittance advice information must be sent through Electronic Data Interchange (EDI).
+    # * `Uniformresourceidentifier` - Remittance advice information needs to be sent to a Uniform Resource Identifier (URI). URI is a compact string of characters that uniquely identify an abstract or physical resource. URI's are the super-set of identifiers, such as URLs, email addresses, ftp sites, etc, and as such, provide the syntax for all of the identification schemes.
+    # * `Email` - Remittance advice information must be sent through e-mail.
+    # * `Post` - Remittance advice information must be sent through postal services.
+    # * `SMS` - Remittance advice information must be sent through by phone as a short message service (SMS).
+    common:Remittancedeliverymethodtypevalues RemittanceDeliveryMethod?;
+    # Address to which the first agent is to send the remittance information. (ISO20022)
+    common:Contactpoint RemittanceLocation?;
+    # PaymentIdentification
+    common:Paymentidentification PaymentIdentification?;
+    # A schedule which is specified the first payment, last payment, next payment, etc. for a standing orde.
+    common:Schedule PaymentSchedule?;
+    # Frequency at which the fee is charged
+    common:Frequency PaymentFrequency?;
+    # Payment reference (sometimes called remittance information or payment description) can appear at both debtor and creditor levels, but with slightly different roles:
+    #
+    # At the Debtor (Payer) Level 
+    # The debtor provides the reference/narrative when initiating the payment. 
+    # Purpose: to explain what the payment is for (e.g., Invoice 1234, August rent). 
+    # This is usually optional, but very useful for reconciliation.
+    #
+    #
+    # At the Creditor (Payee) Level 
+    # The same reference is transmitted along with the payment message and shown to the creditor when funds are received. 
+    # Purpose: allows the creditor to match the payment to the correct invoice, order, or account.
+    string PaymentDescription?;
+};
+
+# The date time the authorization is obtained
+public type DateTime record {
+    # Expression of the point in time
+    #
+    # is expressed according to "TimeIndicationType"
+    # e.g. period, day, more detailed indication
+    string TimeIndication?;
+    # TimeIndicationType
+    string TimeIndicationType?;
+};
+
+# The collection of operational serivces/functions offered by the operational facility
+#
+# Examples: messages, capture, routines
+public type Capture record {
+    # The account number associated with the card transaction
+    common:ProductAgreement CardTransactionProductInstanceReference?;
+    # Reference to an entity that assigns and manages the identification.
+    # tReference to the organization or agency that issued the identifier (e.g., DMV, Passport Office).
+    common:Involvedparty CardHolderReference?;
+    # Reference to the issued device submitted to authorize the transaction (e.g. card number)
+    IssuedDevice CardTransactionIssuedDeviceReference?;
+    # Reference to the network the card transaction is handled by as recorded with the transaction
+    CardNetwork CardTransactionNetworkReference?;
+    # Reference to an entity that assigns and manages the identification.
+    # tReference to the organization or agency that issued the identifier (e.g., DMV, Passport Office).
+    common:Involvedparty CardTransactionIssuingBankReference?;
+    # Reference to an entity that assigns and manages the identification.
+    # tReference to the organization or agency that issued the identifier (e.g., DMV, Passport Office).
+    common:Involvedparty CardTransactionMerchantAcquiringBankReference?;
+    # >
+    # * `FinancialTransaction` - 
+    # * `BusinessTransaction` - 
+    # * `BankingTransaction` - 
+    # * `AccountingTransaction` - 
+    # * `BookingTransaction` - 
+    # * `AllocationTransaction` - 
+    # * `DeliveryTransaction` - 
+    # * `ProductionTransaction` - 
+    common:Transactiontypevalues CardTransactionType?;
+    # The currency that the transaction is made in
+    common:Currencycode CardTransactionCurrency?;
+    # >
+    # * `Principal` - 
+    # * `Actual` - Actual amount.
+    # * `Estimated` - Estimated amount (the final amount could be above or below).
+    # * `Maximum` - Maximum amount (the final amount must be less or equal).
+    # * `Default` - Default amount.
+    # * `Replacement` - Replacement amount.
+    # * `Incremental` - Incremental amount for reservation.
+    # * `Decremental` - Decremental amount for reservation.
+    # * `Reserved` - Reserved or updated reserved amount for reservation.
+    # * `Available` - 
+    # * `Used` - 
+    # * `DuePayable` - 
+    # * `Minimum` - 
+    # * `Open` - The amount is open.(ISO20022)
+    # * `Unknown` - The amount is unkown.(ISO20022)
+    # * `Fixed` - The amount represents a fixed value.(ISO20022)
+    common:Amounttypevalues CardTransactionAmountType?;
+    # The amount corresponding to the type
+    common:Amount CardTransactionAmount?;
+    # Reference to an entity that assigns and manages the identification.
+    # tReference to the organization or agency that issued the identifier (e.g., DMV, Passport Office).
+    common:Involvedparty CardTransactionMerchantReference?;
+    # Refers to the point of sale location
+    common:Location CardTransactionLocationReference?;
+    # Details of the transaction (e.g. purchased service/product, purpose)
+    common:Product CardTransactionProductandServiceReference?;
+    # The date time the authorization is obtained
+    DateTime CardTransactionDateandTime?;
+    # The applied currency conversion charge
+    FeeArrangement CardTransactionFXConversionCharge?;
+    # The applied currency conversion charge
+    FeeArrangement CardTransactionInterchargeFee?;
+    # The collection of operational serivces/functions offered by the operational facility
+    #
+    # Examples: messages, capture, routines
+    Authorization CardTransactionAuthorizationRecord?;
+};
+
+public type AuthorizationOk record {|
+    *http:Ok;
+    # body
+    Authorization body;
+|};
+
+public type CaptureOk record {|
+    *http:Ok;
+    # body
+    Capture body;
+|};
+
+# >
+# * `CardDesign` - 
+public type Devicecustomizationtypevalues "CardDesign";
+
+# Reference to the issued device submitted to authorize the transaction (e.g. card number)
+public type IssuedDevice record {
+    # >
+    # * `Issued` - 
+    # * `IssuedButNotActivated` - 
+    # * `Activated` - 
+    # * `Suspended` - 
+    # * `Retrieved` - 
+    common:Issueddevicestatustypevalues IssuedDeviceStatus?;
+    # Reference to Party to whom the device is issued
+    string IssuedDevicePartyReference?;
+    # Specific characteristics of an issued device 
+    #
+    # e.g. installed software, number-range of cheques, personification of card lay-ou
+    string IssuedDeviceConfiguration?;
+    # Reference to the device that is issued
+    string IssuedDeviceReference?;
+    # Period during which the agreement is valid
+    common:Datetimeperiod IssuedDeviceValidityPeriod?;
+    # The delivery method. via post, collect at branch, via courier
+    string IssuedDeviceDeliveryMethod?;
+    # The date when the identifier became valid.
+    common:Datetime DeviceIssueDate?;
+    # The name of the branch where the party will collect the device
+    common:Branch IssuedDeviceCollectLocation?;
+    # Reference to the product or service to which the Issued Device will be attached
+    string IssuedDeviceProductReference?;
+    # >
+    # * `CardDesign` - 
+    Devicecustomizationtypevalues IssedDeviceCustomizationType?;
+    # DeviceIdentification
+    common:Deviceidentification DeviceIdentification?;
+    # >
+    # * `Securecardreader` - Secure card reader attached to the customer device
+    # * `Nonsecurecardreader` - Non-secure card reader attached to the customer device.
+    # * `Mobile` - Mobile phone
+    # * `Tablet` - Tablet
+    # * `Personalcomputer` - Personal computer
+    # * `Othernational` - Other device defined at national level
+    # * `Otherprivate` - Other device defined in a private way.
+    # * `Wearable` - Wearable device.
+    # * `Vehicle` - Vehicle.
+    # * `Embedded` - Embedded in a device.
+    # * `Keyfob` - Key Fob
+    # * `Jewellery` - Jewellery
+    # * `Sticker` - Sticker
+    # * `Gamingdevice` - Gaming Device
+    # * `Watch` - Watch
+    # * `Unknown` - Device type unknown
+    # * `BiometricDevice` - A biometric device is a security identification and authentication device. Such devices use automated methods of verifying or recognising the identity of a living person based on a physiological or behavioral characteristic.
+    # https://en.wikipedia.org/wiki/Biometric_device
+    #
+    common:Devicetypevalues DeviceType?;
+    # Property of a device relevant for its use.
+    #
+    # A device has the characteristics of the device type it belongs to,possibly specified
+    # e.g. . a device of the type "cheque book" will have cheques. The device specifies how many and what the number range is.
+    # e.g. an electronic banking app consists of software modules, the device specifies what version 
+    string DeviceProperty?;
+    # An element of the device that can be used independently and is individually identified
+    #
+    # e.g. a cheque in a chequebook
+    string DeviceElement?;
+    # DeviceStatus
+    common:Status DeviceStatus?;
+    # DeviceVersion
+    string DeviceVersion?;
+    # The date when the identifier became valid.
+    common:Datetime DeviceDateTime?;
+    # DeviceDescription
+    string DeviceDescription?;
+    # DeviceName
+    common:Name DeviceName?;
+    # Preferred language set on the device
+    string DeviceLanguage?;
+    # Phone number associated with the device.
+    string DevicePhoneNumber?;
+    # Reference to Geographical Location of the device.
+    string DeviceLocationReference?;
+    # Manufacturer of the device.
+    string DeviceManufacturer?;
+    # Reference to Country of the location.
+    string DeviceCountryReference?;
+    # Reference to the address associated with the device like Internet Protocol address, email Address
+    string DeviceAddressReference?;
+    # >
+    # * `Android` - Android operating system.
+    # * `Ios` - iOS operating system.
+    # * `Windows` - Windows operating system.
+    # * `Blackberry` - Blackberry operating system.
+    # * `Tizen` - Tizen operating system.
+    # * `Othernational` - Other nationally defined code.
+    # * `Otherprivate` - Other privately defined code.
+    common:Deviceoperatingsystemtypevalues DeviceOperatingSystem?;
+};
+
+# The collection of operational serivces/functions offered by the operational facility
+#
+# Examples: messages, capture, routines
+public type Authorization record {
+    # The date time the authorization is obtained
+    DateTime AuthorizationTransactionDateandTime?;
+};
+
+public type CardPOSNetworkOperatingSessionOk record {|
+    *http:Ok;
+    # body
+    CardPOSNetworkOperatingSession body;
+|};
+
+# Reference to the batch of transactions
+public type TransactionBatch record {
+    # BatchTransactionDateTime
+    string BatchTransactionDateTime?;
+};
+
+# Operate equipment and/or a largely automated facility within Card Terminal Operation. 
+public type CardPOSNetworkOperatingSession record {
+    # A schedule which is specified the first payment, last payment, next payment, etc. for a standing orde.
+    common:Schedule CardPOSTerminalOperatingSchedule?;
+};
+
+# The applied currency conversion charge
+public type FeeArrangement record {
+    # >
+    # * `Accountingfee` - Fee paid for accounting services rendered.
+    # * `Adrfee` - Charge linked to an ADR (American Depositary Receipt).
+    # * `Advisoryfee` - Fee paid for advisory services rendered.
+    # * `Airwaybillfee` - Charge is an airway bill fee.
+    # * `Backendload` - Sales charge paid by the investor when redeeming an investment such as an investment fund.
+    # * `Brokeragefee` - Fee paid to a broker for services provided.
+    # * `Clearanceandhandlingatdestination` - Charge is for clearance and handling of goods at destination.
+    # * `Clearanceandhandlingatorigin` - Charge is for clearance and handling of goods at origin.
+    # * `Collectfreight` - Charge is for the collection of the freight.
+    # * `Commission` - Fee paid for services provided.
+    # * `Contingencydeferredsalescharge` - Deferred sales charge.
+    # * `Correspondentbankcharge` - In investment funds, the charge of the correspondent bank for transferring money.
+    # * `Custodyfee` - Fee paid to a custodian in respect of custodial services.
+    # * `Dangerousgoodsfee` - Charge is for dangerous goods.
+    # * `Dilutionlevy` - In investment funds, a charge payable by the investor covering bid-offer spreads and dealing charges for the underlying investments. The dilution levy is paid to the fund for the benefit of other unit holders.
+    # * `Discount` - Charge that has been reduced from the standard initial charge levied by a fund, eg, during a launch period or as negotiated by a funds supermarket / discount broker.
+    # * `Equalisation` - The part of an investor's subscription amount that is held by the fund in order to pay incentive or performance fees at the end of the fiscal year.
+    # * `Frontendload` - Sales charge paid immediately by the investor when subscribing to an investment such as an investment fund.
+    # * `Initial` - Charge paid at the time of the first subscription.
+    # * `Insurancepremium` - Charge is a premium for insurance.
+    # * `Issuancecancellationfee` - Fee linked to the cancellation of an issuance.
+    # * `Issuancefee` - Charge linked to the issuance of security.
+    # * `Managementfee` - Fee paid to an investment manager for services. The fee usually includes fund administration costs and investor relationship management. Typically, the amount paid is a percentage of the assets under management.
+    # * `Matchingfees` - Fee charged for matching and/or confirmation.
+    # * `Miscellaneousfee` - Miscellaneous fee.
+    # * `Other` - Another type of charge.
+    # * `Packaging` - Charge is for packaging of goods.
+    # * `Partacquis` - Portion of charge that the fund is entitled to receive, that cannot be reduced by an intermediary.
+    # * `Penalty` - Fee charged to the investor for early redemption of the fund.
+    # * `Pickup` - Charge is for pick-up of goods.
+    # * `Postagecharge` - Charge paid for the postage.
+    # * `Premium` - In investment funds, pre-arranged addition to the trade amount based on the published net asset value.
+    # * `Publicationfee` - Fee paid in respect of publications made.
+    # * `Regulatoryfee` - Fee charged by a regulatory authority, eg, Securities and Exchange fees.
+    # * `Securitycharge` - Charge is for security.
+    # * `Serviceprovisionfee` - Fee paid for the provision of financial services.
+    # * `Shippingcharge` - Charge for shipping, including the insurance of securities.
+    # * `Signatureservice` - Charge is for signature services.
+    # * `Specialconcessions` - Charges, drawdown, or other reduction from or in addition to the deal price.
+    # * `Speciallyagreedfrontendload` - Specially agreed front-end load.
+    # * `Storageatdestination` - Charge is for storage of goods at destination.
+    # * `Storageatorigin` - Charge is for storage of goods at origin.
+    # * `Switch` - In investment funds, charge related to a switch transaction.
+    # * `Transferfee` - In investment funds, a fee charged for the transfer of ownership of an investment fund.
+    # * `Transportcharges` - Charge is for transport.
+    # * `Ucitscommission` - Charges paid by the investor to the Fund Company for subscription and redemption orders.
+    # * `ChequeRelatedFee` - 
+    common:Feetypevalues FeeType?;
+    # The amount corresponding to the type
+    common:Amount FeeAmount?;
+    # Rate used to calculate the amount of the adjustment, allowance, charge or fee. (ISO20022)
+    common:Rate FeeRate?;
+    # Period during which the agreement is valid
+    common:Datetimeperiod FeeEffectivePeriod?;
+    # The date when the identifier became valid.
+    common:Datetime FeeDueDate?;
+    # An arranged FeeRatePlan
+    common:Feeplan FeePlan?;
+    # >
+    # * `Debit` - Transaction is a debt entry
+    # * `Credit` - Transaction is a credit entry
+    common:Debitcreditindicatortvalues FeeCreditDebitIndicator?;
+    # Reason for the amount adjustment (fee). 
+    string FeeReason?;
+    # >
+    # * `Added` - Adjustment amount must be added to the total amount.
+    # * `Substracted` - Adjustment amount must be substracted from the total amount.
+    common:Adjustmentdirectiontypevalues FeeDirection?;
+    # >
+    # * `Bornebydebtor` - All transaction charges are to be borne by the debtor.
+    # * `Bornebycreditor` - All transaction charges are to be borne by the creditor.
+    # * `Shared` - In a credit transfer context, means that transaction charges on the sender side are to be borne by the debtor, transaction charges on the receiver side are to be borne by the creditor. In a direct debit context, means that transaction charges on the sender side are to be borne by the creditor, transaction charges on the receiver side are to be borne by the debtor.
+    # * `Followingservicelevel` - Charges are to be applied following the rules agreed in the service level and/or scheme.
+    common:Chargebearertypevalues FeeBearerType?;
+    # Frequency at which the fee is charged
+    common:Frequency FeeChargingFrequency?;
+    # >
+    # * `Cash` - Payment is with cash.
+    # * `Unit` - Units are redeemed to cover payment.
+    common:Feepaymentmethodtypevalues FeePaymentMethodType?;
+    # Date on which the agreement was signed by all parties. (ISO20022)
+    common:Date LoanOriginationDate?;
+    # Date on which the agreement was signed by all parties. (ISO20022)
+    common:Date LoanMaturityDate?;
+    # Date on which the agreement was signed by all parties. (ISO20022)
+    common:Date LoanEndDate?;
+    # The amount corresponding to the type
+    common:Amount LoanAmount?;
+    # >
+    # * `SweepArrangement` - An arrangement into which is promised for the set-up and execution of structured sweeps to and from the facility to a linked account.
+    # * `WithdrawalArrangement` - An arrangement into which is promised to deliver Withdraw Service  to take fund out of an account. 
+    # * `DepositArrangement` - An arrangement into which is promised to deliver Deposit Service  to place funds into an account for safekeeping. 
+    # * `InterestArrangement` - An arrangement into which is promised to apply a pricing element expressed in a percentage  to a principal amount.
+    # * `FeeArrangement` - An arrangement into which is promised to apply a charge for services rendered. 
+    # * `LienArrangement` - An arrangement into which is promised for placing a lien or block on the account for a specified purpose, amount, and period. 
+    # * `InformationArrangement` - An arrangement concerning the information the bank will provide about the agreement/account
+    # * `PaymentArrangement` - An arrangement into which is promised to deliver a specific payment service including regular payments, standing orders, direct debits and bill pay instructions. 
+    # * `EntitlementArrangement` - Right or obligation linked to the involvement of a party in an agreement
+    # * `PeriodArrangement` - 
+    # * `CollateralArrangement` - An arrangement into which is promised for handling the oversight of the allocation, valuation and administration of collateral associated with the facility. 
+    # * `LimitArrangement` - An arrangement to limit something
+    # e.g., the number of transaction per week, the amount of money allowed to withdraw per week/day and etc. 
+    # * `AccessArrangement` - An arrangement that allows or restricts the access to a service or product, channel or device through a specific access point
+    # * `CardPaymentArrangement` - An arrangement into which is promised to deliver Card payment Service to execute payment transactions through a payment card, including online payments. 
+    # * `StandingOrderArrangement` - An arrangement into which is promised to deliver Standing Order Service to make regular transfers on given dates to a named beneﬁciary. 
+    # * `OverdraftArrangement` - An arrangement into which is promised to deliver Overdraft Service  that allows fund transfer even if there is no provision on the account. 
+    # * `RepaymentArrangement` - An arrangement into which is promised for paying back money previously borrowed from a lender. 
+    # * `StatementArrangement` - An arrangement into which is promised to deliver a reporting service on payment transactions registered on an account. 
+    # * `CreditTransferArrangement` - An arrangement into which is promised to allow a payer to transfer fund to a beneficiary. 
+    # * `ProductAndServiceArrangement` - 
+    # * `FactoringArrangement` - 
+    # * `RolloverArrangement` - Arrangement stipulating the modalities for an automatic renewal of the agreement
+    #
+    # i.e. the replacement of the agreement with a new one without renewed negociation and witout explicit agreement of the customer 
+    # * `RestructuringArrangement` - 
+    # * `InsuranceArrangement` - 
+    # * `CollectionArrangement` - An arrangement into which is promised to collect past-due debts from borrowers
+    # * `UnderwritingArrangement` - A contractual agreement between parties that commits the underwriter to assuming risk.
+    # * `TerminationArrangement` - 
+    # * `MaturityArrangement` - 
+    # * `AdministrativeArrangement` - 
+    common:Arrangementtypevalues LoanArrangementType?;
+    # ArrangementAction
+    common:Action ArrangementAction?;
+    # The date when the identifier became valid.
+    common:Datetime ArrangementStartDate?;
+    # The date when the identifier became valid.
+    common:Datetime ArrangementEndDate?;
+    # A characteristic of arrangement which refers to the LifecycleStatus of arrangement (e.g., requested, proposed, offered, accepted, cancelled, terminated, fulfilled, etc.)
+    common:Arrangementstatus ArrangementStatus?;
+    # ArrangementSubjectMatter
+    common:Subject ArrangementSubjectMatter?;
+    # >
+    # * `SweepArrangement` - An arrangement into which is promised for the set-up and execution of structured sweeps to and from the facility to a linked account.
+    # * `WithdrawalArrangement` - An arrangement into which is promised to deliver Withdraw Service  to take fund out of an account. 
+    # * `DepositArrangement` - An arrangement into which is promised to deliver Deposit Service  to place funds into an account for safekeeping. 
+    # * `InterestArrangement` - An arrangement into which is promised to apply a pricing element expressed in a percentage  to a principal amount.
+    # * `FeeArrangement` - An arrangement into which is promised to apply a charge for services rendered. 
+    # * `LienArrangement` - An arrangement into which is promised for placing a lien or block on the account for a specified purpose, amount, and period. 
+    # * `InformationArrangement` - An arrangement concerning the information the bank will provide about the agreement/account
+    # * `PaymentArrangement` - An arrangement into which is promised to deliver a specific payment service including regular payments, standing orders, direct debits and bill pay instructions. 
+    # * `EntitlementArrangement` - Right or obligation linked to the involvement of a party in an agreement
+    # * `PeriodArrangement` - 
+    # * `CollateralArrangement` - An arrangement into which is promised for handling the oversight of the allocation, valuation and administration of collateral associated with the facility. 
+    # * `LimitArrangement` - An arrangement to limit something
+    # e.g., the number of transaction per week, the amount of money allowed to withdraw per week/day and etc. 
+    # * `AccessArrangement` - An arrangement that allows or restricts the access to a service or product, channel or device through a specific access point
+    # * `CardPaymentArrangement` - An arrangement into which is promised to deliver Card payment Service to execute payment transactions through a payment card, including online payments. 
+    # * `StandingOrderArrangement` - An arrangement into which is promised to deliver Standing Order Service to make regular transfers on given dates to a named beneﬁciary. 
+    # * `OverdraftArrangement` - An arrangement into which is promised to deliver Overdraft Service  that allows fund transfer even if there is no provision on the account. 
+    # * `RepaymentArrangement` - An arrangement into which is promised for paying back money previously borrowed from a lender. 
+    # * `StatementArrangement` - An arrangement into which is promised to deliver a reporting service on payment transactions registered on an account. 
+    # * `CreditTransferArrangement` - An arrangement into which is promised to allow a payer to transfer fund to a beneficiary. 
+    # * `ProductAndServiceArrangement` - 
+    # * `FactoringArrangement` - 
+    # * `RolloverArrangement` - Arrangement stipulating the modalities for an automatic renewal of the agreement
+    #
+    # i.e. the replacement of the agreement with a new one without renewed negociation and witout explicit agreement of the customer 
+    # * `RestructuringArrangement` - 
+    # * `InsuranceArrangement` - 
+    # * `CollectionArrangement` - An arrangement into which is promised to collect past-due debts from borrowers
+    # * `UnderwritingArrangement` - A contractual agreement between parties that commits the underwriter to assuming risk.
+    # * `TerminationArrangement` - 
+    # * `MaturityArrangement` - 
+    # * `AdministrativeArrangement` - 
+    common:Arrangementtypevalues Arrangementtype?;
+    # A unique reference to product agreement or instance of product
+    common:Identifier ArrangementIdentification?;
+    # A unique reference to product agreement or instance of product
+    common:Identifier PaymentCardArrangementIdentifier?;
+    # >
+    # * `SweepArrangement` - An arrangement into which is promised for the set-up and execution of structured sweeps to and from the facility to a linked account.
+    # * `WithdrawalArrangement` - An arrangement into which is promised to deliver Withdraw Service  to take fund out of an account. 
+    # * `DepositArrangement` - An arrangement into which is promised to deliver Deposit Service  to place funds into an account for safekeeping. 
+    # * `InterestArrangement` - An arrangement into which is promised to apply a pricing element expressed in a percentage  to a principal amount.
+    # * `FeeArrangement` - An arrangement into which is promised to apply a charge for services rendered. 
+    # * `LienArrangement` - An arrangement into which is promised for placing a lien or block on the account for a specified purpose, amount, and period. 
+    # * `InformationArrangement` - An arrangement concerning the information the bank will provide about the agreement/account
+    # * `PaymentArrangement` - An arrangement into which is promised to deliver a specific payment service including regular payments, standing orders, direct debits and bill pay instructions. 
+    # * `EntitlementArrangement` - Right or obligation linked to the involvement of a party in an agreement
+    # * `PeriodArrangement` - 
+    # * `CollateralArrangement` - An arrangement into which is promised for handling the oversight of the allocation, valuation and administration of collateral associated with the facility. 
+    # * `LimitArrangement` - An arrangement to limit something
+    # e.g., the number of transaction per week, the amount of money allowed to withdraw per week/day and etc. 
+    # * `AccessArrangement` - An arrangement that allows or restricts the access to a service or product, channel or device through a specific access point
+    # * `CardPaymentArrangement` - An arrangement into which is promised to deliver Card payment Service to execute payment transactions through a payment card, including online payments. 
+    # * `StandingOrderArrangement` - An arrangement into which is promised to deliver Standing Order Service to make regular transfers on given dates to a named beneﬁciary. 
+    # * `OverdraftArrangement` - An arrangement into which is promised to deliver Overdraft Service  that allows fund transfer even if there is no provision on the account. 
+    # * `RepaymentArrangement` - An arrangement into which is promised for paying back money previously borrowed from a lender. 
+    # * `StatementArrangement` - An arrangement into which is promised to deliver a reporting service on payment transactions registered on an account. 
+    # * `CreditTransferArrangement` - An arrangement into which is promised to allow a payer to transfer fund to a beneficiary. 
+    # * `ProductAndServiceArrangement` - 
+    # * `FactoringArrangement` - 
+    # * `RolloverArrangement` - Arrangement stipulating the modalities for an automatic renewal of the agreement
+    #
+    # i.e. the replacement of the agreement with a new one without renewed negociation and witout explicit agreement of the customer 
+    # * `RestructuringArrangement` - 
+    # * `InsuranceArrangement` - 
+    # * `CollectionArrangement` - An arrangement into which is promised to collect past-due debts from borrowers
+    # * `UnderwritingArrangement` - A contractual agreement between parties that commits the underwriter to assuming risk.
+    # * `TerminationArrangement` - 
+    # * `MaturityArrangement` - 
+    # * `AdministrativeArrangement` - 
+    common:Arrangementtypevalues CardPaymentArrangementType?;
+    # >
+    # * `FeeArrangement` - An arrangement which specifies to charge fees when banking transactions did take place, accompanied by the modalities to calculate and charge the fees and the related terms and conditions. 
+    # * `FinancialPlanningArrangement` - An arrangement that specifies obligations/rights engaged in the financial advisory service agreement to deliver the Financial Planning Advisory Service
+    #
+    # Financial Planning Advisory Service is a financial advisory service that provides basic financial advice for short and long term investment and financing options
+    # * `TaxOptimizationArrangement` - An arrangement that specifies obligations/rights engaged in the financial advisory service agreement for providing a tax related advice like:
+    # - Engaging a product tax specialist to liaise with the customer
+    # -The service charge to be made to the customer for the specialist support
+    #
+    # Tax Optimization Advisory Service is a financial advisory service that provides tax (and compliance) related advice for product and service optimization
+    # * `StrategicFundingArrangement` - 
+    # * `TacticalFundingArrangement` - 
+    # * `CapitalStructuringArrangement` - 
+    # * `ProductGuidanceArrangement` - An arrangement that specifies obligations/rights engaged in the financial advisory service agreement to deliver the ProductGuidanceAdvisoryService
+    #
+    # Product Guidance Advisory Service is a financial advisory service that provides product and service specific guidance and insights
+    common:Financialadvisoryservicearrangementtype FinancialAdvisoryServiceArrangementType?;
+    # >
+    # * `SweepArrangement` - An arrangement into which is promised for the set-up and execution of structured sweeps to and from the facility to a linked account.
+    # * `WithdrawalArrangement` - An arrangement into which is promised to deliver Withdraw Service  to take fund out of an account. 
+    # * `DepositArrangement` - An arrangement into which is promised to deliver Deposit Service  to place funds into an account for safekeeping. 
+    # * `InterestArrangement` - An arrangement into which is promised to apply a pricing element expressed in a percentage  to a principal amount.
+    # * `FeeArrangement` - An arrangement into which is promised to apply a charge for services rendered. 
+    # * `LienArrangement` - An arrangement into which is promised for placing a lien or block on the account for a specified purpose, amount, and period. 
+    # * `InformationArrangement` - An arrangement concerning the information the bank will provide about the agreement/account
+    # * `PaymentArrangement` - An arrangement into which is promised to deliver a specific payment service including regular payments, standing orders, direct debits and bill pay instructions. 
+    # * `EntitlementArrangement` - Right or obligation linked to the involvement of a party in an agreement
+    # * `PeriodArrangement` - 
+    # * `CollateralArrangement` - An arrangement into which is promised for handling the oversight of the allocation, valuation and administration of collateral associated with the facility. 
+    # * `LimitArrangement` - An arrangement to limit something
+    # e.g., the number of transaction per week, the amount of money allowed to withdraw per week/day and etc. 
+    # * `AccessArrangement` - An arrangement that allows or restricts the access to a service or product, channel or device through a specific access point
+    # * `CardPaymentArrangement` - An arrangement into which is promised to deliver Card payment Service to execute payment transactions through a payment card, including online payments. 
+    # * `StandingOrderArrangement` - An arrangement into which is promised to deliver Standing Order Service to make regular transfers on given dates to a named beneﬁciary. 
+    # * `OverdraftArrangement` - An arrangement into which is promised to deliver Overdraft Service  that allows fund transfer even if there is no provision on the account. 
+    # * `RepaymentArrangement` - An arrangement into which is promised for paying back money previously borrowed from a lender. 
+    # * `StatementArrangement` - An arrangement into which is promised to deliver a reporting service on payment transactions registered on an account. 
+    # * `CreditTransferArrangement` - An arrangement into which is promised to allow a payer to transfer fund to a beneficiary. 
+    # * `ProductAndServiceArrangement` - 
+    # * `FactoringArrangement` - 
+    # * `RolloverArrangement` - Arrangement stipulating the modalities for an automatic renewal of the agreement
+    #
+    # i.e. the replacement of the agreement with a new one without renewed negociation and witout explicit agreement of the customer 
+    # * `RestructuringArrangement` - 
+    # * `InsuranceArrangement` - 
+    # * `CollectionArrangement` - An arrangement into which is promised to collect past-due debts from borrowers
+    # * `UnderwritingArrangement` - A contractual agreement between parties that commits the underwriter to assuming risk.
+    # * `TerminationArrangement` - 
+    # * `MaturityArrangement` - 
+    # * `AdministrativeArrangement` - 
+    common:Arrangementtypevalues SavingsAccountArrangementType?;
+    # Reference to the product feature applied in this arrangement 
+    common:Productfeaturetype SavingsAccountArrangementProductFeatureType?;
+    # >
+    # * `SweepArrangement` - An arrangement into which is promised for the set-up and execution of structured sweeps to and from the facility to a linked account.
+    # * `WithdrawalArrangement` - An arrangement into which is promised to deliver Withdraw Service  to take fund out of an account. 
+    # * `DepositArrangement` - An arrangement into which is promised to deliver Deposit Service  to place funds into an account for safekeeping. 
+    # * `InterestArrangement` - An arrangement into which is promised to apply a pricing element expressed in a percentage  to a principal amount.
+    # * `FeeArrangement` - An arrangement into which is promised to apply a charge for services rendered. 
+    # * `LienArrangement` - An arrangement into which is promised for placing a lien or block on the account for a specified purpose, amount, and period. 
+    # * `InformationArrangement` - An arrangement concerning the information the bank will provide about the agreement/account
+    # * `PaymentArrangement` - An arrangement into which is promised to deliver a specific payment service including regular payments, standing orders, direct debits and bill pay instructions. 
+    # * `EntitlementArrangement` - Right or obligation linked to the involvement of a party in an agreement
+    # * `PeriodArrangement` - 
+    # * `CollateralArrangement` - An arrangement into which is promised for handling the oversight of the allocation, valuation and administration of collateral associated with the facility. 
+    # * `LimitArrangement` - An arrangement to limit something
+    # e.g., the number of transaction per week, the amount of money allowed to withdraw per week/day and etc. 
+    # * `AccessArrangement` - An arrangement that allows or restricts the access to a service or product, channel or device through a specific access point
+    # * `CardPaymentArrangement` - An arrangement into which is promised to deliver Card payment Service to execute payment transactions through a payment card, including online payments. 
+    # * `StandingOrderArrangement` - An arrangement into which is promised to deliver Standing Order Service to make regular transfers on given dates to a named beneﬁciary. 
+    # * `OverdraftArrangement` - An arrangement into which is promised to deliver Overdraft Service  that allows fund transfer even if there is no provision on the account. 
+    # * `RepaymentArrangement` - An arrangement into which is promised for paying back money previously borrowed from a lender. 
+    # * `StatementArrangement` - An arrangement into which is promised to deliver a reporting service on payment transactions registered on an account. 
+    # * `CreditTransferArrangement` - An arrangement into which is promised to allow a payer to transfer fund to a beneficiary. 
+    # * `ProductAndServiceArrangement` - 
+    # * `FactoringArrangement` - 
+    # * `RolloverArrangement` - Arrangement stipulating the modalities for an automatic renewal of the agreement
+    #
+    # i.e. the replacement of the agreement with a new one without renewed negociation and witout explicit agreement of the customer 
+    # * `RestructuringArrangement` - 
+    # * `InsuranceArrangement` - 
+    # * `CollectionArrangement` - An arrangement into which is promised to collect past-due debts from borrowers
+    # * `UnderwritingArrangement` - A contractual agreement between parties that commits the underwriter to assuming risk.
+    # * `TerminationArrangement` - 
+    # * `MaturityArrangement` - 
+    # * `AdministrativeArrangement` - 
+    common:Arrangementtypevalues CurrentAccountArrangementType?;
+    # Reference to the product feature applied in this arrangement 
+    common:Productfeaturetype CurrentAccountArrangementProductFeatureType?;
+    # >
+    # * `SweepArrangement` - An arrangement into which is promised for the set-up and execution of structured sweeps to and from the facility to a linked account.
+    # * `WithdrawalArrangement` - An arrangement into which is promised to deliver Withdraw Service  to take fund out of an account. 
+    # * `DepositArrangement` - An arrangement into which is promised to deliver Deposit Service  to place funds into an account for safekeeping. 
+    # * `InterestArrangement` - An arrangement into which is promised to apply a pricing element expressed in a percentage  to a principal amount.
+    # * `FeeArrangement` - An arrangement into which is promised to apply a charge for services rendered. 
+    # * `LienArrangement` - An arrangement into which is promised for placing a lien or block on the account for a specified purpose, amount, and period. 
+    # * `InformationArrangement` - An arrangement concerning the information the bank will provide about the agreement/account
+    # * `PaymentArrangement` - An arrangement into which is promised to deliver a specific payment service including regular payments, standing orders, direct debits and bill pay instructions. 
+    # * `EntitlementArrangement` - Right or obligation linked to the involvement of a party in an agreement
+    # * `PeriodArrangement` - 
+    # * `CollateralArrangement` - An arrangement into which is promised for handling the oversight of the allocation, valuation and administration of collateral associated with the facility. 
+    # * `LimitArrangement` - An arrangement to limit something
+    # e.g., the number of transaction per week, the amount of money allowed to withdraw per week/day and etc. 
+    # * `AccessArrangement` - An arrangement that allows or restricts the access to a service or product, channel or device through a specific access point
+    # * `CardPaymentArrangement` - An arrangement into which is promised to deliver Card payment Service to execute payment transactions through a payment card, including online payments. 
+    # * `StandingOrderArrangement` - An arrangement into which is promised to deliver Standing Order Service to make regular transfers on given dates to a named beneﬁciary. 
+    # * `OverdraftArrangement` - An arrangement into which is promised to deliver Overdraft Service  that allows fund transfer even if there is no provision on the account. 
+    # * `RepaymentArrangement` - An arrangement into which is promised for paying back money previously borrowed from a lender. 
+    # * `StatementArrangement` - An arrangement into which is promised to deliver a reporting service on payment transactions registered on an account. 
+    # * `CreditTransferArrangement` - An arrangement into which is promised to allow a payer to transfer fund to a beneficiary. 
+    # * `ProductAndServiceArrangement` - 
+    # * `FactoringArrangement` - 
+    # * `RolloverArrangement` - Arrangement stipulating the modalities for an automatic renewal of the agreement
+    #
+    # i.e. the replacement of the agreement with a new one without renewed negociation and witout explicit agreement of the customer 
+    # * `RestructuringArrangement` - 
+    # * `InsuranceArrangement` - 
+    # * `CollectionArrangement` - An arrangement into which is promised to collect past-due debts from borrowers
+    # * `UnderwritingArrangement` - A contractual agreement between parties that commits the underwriter to assuming risk.
+    # * `TerminationArrangement` - 
+    # * `MaturityArrangement` - 
+    # * `AdministrativeArrangement` - 
+    common:Arrangementtypevalues ArrangementType?;
+    # >
+    # * `SweepArrangement` - An arrangement into which is promised for the set-up and execution of structured sweeps to and from the facility to a linked account.
+    # * `WithdrawalArrangement` - An arrangement into which is promised to deliver Withdraw Service  to take fund out of an account. 
+    # * `DepositArrangement` - An arrangement into which is promised to deliver Deposit Service  to place funds into an account for safekeeping. 
+    # * `InterestArrangement` - An arrangement into which is promised to apply a pricing element expressed in a percentage  to a principal amount.
+    # * `FeeArrangement` - An arrangement into which is promised to apply a charge for services rendered. 
+    # * `LienArrangement` - An arrangement into which is promised for placing a lien or block on the account for a specified purpose, amount, and period. 
+    # * `InformationArrangement` - An arrangement concerning the information the bank will provide about the agreement/account
+    # * `PaymentArrangement` - An arrangement into which is promised to deliver a specific payment service including regular payments, standing orders, direct debits and bill pay instructions. 
+    # * `EntitlementArrangement` - Right or obligation linked to the involvement of a party in an agreement
+    # * `PeriodArrangement` - 
+    # * `CollateralArrangement` - An arrangement into which is promised for handling the oversight of the allocation, valuation and administration of collateral associated with the facility. 
+    # * `LimitArrangement` - An arrangement to limit something
+    # e.g., the number of transaction per week, the amount of money allowed to withdraw per week/day and etc. 
+    # * `AccessArrangement` - An arrangement that allows or restricts the access to a service or product, channel or device through a specific access point
+    # * `CardPaymentArrangement` - An arrangement into which is promised to deliver Card payment Service to execute payment transactions through a payment card, including online payments. 
+    # * `StandingOrderArrangement` - An arrangement into which is promised to deliver Standing Order Service to make regular transfers on given dates to a named beneﬁciary. 
+    # * `OverdraftArrangement` - An arrangement into which is promised to deliver Overdraft Service  that allows fund transfer even if there is no provision on the account. 
+    # * `RepaymentArrangement` - An arrangement into which is promised for paying back money previously borrowed from a lender. 
+    # * `StatementArrangement` - An arrangement into which is promised to deliver a reporting service on payment transactions registered on an account. 
+    # * `CreditTransferArrangement` - An arrangement into which is promised to allow a payer to transfer fund to a beneficiary. 
+    # * `ProductAndServiceArrangement` - 
+    # * `FactoringArrangement` - 
+    # * `RolloverArrangement` - Arrangement stipulating the modalities for an automatic renewal of the agreement
+    #
+    # i.e. the replacement of the agreement with a new one without renewed negociation and witout explicit agreement of the customer 
+    # * `RestructuringArrangement` - 
+    # * `InsuranceArrangement` - 
+    # * `CollectionArrangement` - An arrangement into which is promised to collect past-due debts from borrowers
+    # * `UnderwritingArrangement` - A contractual agreement between parties that commits the underwriter to assuming risk.
+    # * `TerminationArrangement` - 
+    # * `MaturityArrangement` - 
+    # * `AdministrativeArrangement` - 
+    common:Arrangementtypevalues TermDepositArrangementType?;
+    # Reference to the product feature applied in this arrangement 
+    common:Productfeaturetype TermDepositArrangementProductFeatureType?;
+    # The date when the identifier became valid.
+    common:Datetime TermDepositMaturityDate?;
+    # The date when the identifier became valid.
+    common:Datetime TermDepositOpenDate?;
+    # The amount corresponding to the type
+    common:Amount TermDepositAmount?;
+    # TermDepositDuration
+    common:Duration TermDepositDuration?;
+    # The Period for which the TermDepositAmount needs ti stay deposited with the Bank
+    string DepositTerm?;
+    # VirtualAccountArrangementType
+    string VirtualAccountArrangementType?;
+    # >
+    # * `SweepArrangement` - An arrangement into which is promised for the set-up and execution of structured sweeps to and from the facility to a linked account.
+    # * `WithdrawalArrangement` - An arrangement into which is promised to deliver Withdraw Service  to take fund out of an account. 
+    # * `DepositArrangement` - An arrangement into which is promised to deliver Deposit Service  to place funds into an account for safekeeping. 
+    # * `InterestArrangement` - An arrangement into which is promised to apply a pricing element expressed in a percentage  to a principal amount.
+    # * `FeeArrangement` - An arrangement into which is promised to apply a charge for services rendered. 
+    # * `LienArrangement` - An arrangement into which is promised for placing a lien or block on the account for a specified purpose, amount, and period. 
+    # * `InformationArrangement` - An arrangement concerning the information the bank will provide about the agreement/account
+    # * `PaymentArrangement` - An arrangement into which is promised to deliver a specific payment service including regular payments, standing orders, direct debits and bill pay instructions. 
+    # * `EntitlementArrangement` - Right or obligation linked to the involvement of a party in an agreement
+    # * `PeriodArrangement` - 
+    # * `CollateralArrangement` - An arrangement into which is promised for handling the oversight of the allocation, valuation and administration of collateral associated with the facility. 
+    # * `LimitArrangement` - An arrangement to limit something
+    # e.g., the number of transaction per week, the amount of money allowed to withdraw per week/day and etc. 
+    # * `AccessArrangement` - An arrangement that allows or restricts the access to a service or product, channel or device through a specific access point
+    # * `CardPaymentArrangement` - An arrangement into which is promised to deliver Card payment Service to execute payment transactions through a payment card, including online payments. 
+    # * `StandingOrderArrangement` - An arrangement into which is promised to deliver Standing Order Service to make regular transfers on given dates to a named beneﬁciary. 
+    # * `OverdraftArrangement` - An arrangement into which is promised to deliver Overdraft Service  that allows fund transfer even if there is no provision on the account. 
+    # * `RepaymentArrangement` - An arrangement into which is promised for paying back money previously borrowed from a lender. 
+    # * `StatementArrangement` - An arrangement into which is promised to deliver a reporting service on payment transactions registered on an account. 
+    # * `CreditTransferArrangement` - An arrangement into which is promised to allow a payer to transfer fund to a beneficiary. 
+    # * `ProductAndServiceArrangement` - 
+    # * `FactoringArrangement` - 
+    # * `RolloverArrangement` - Arrangement stipulating the modalities for an automatic renewal of the agreement
+    #
+    # i.e. the replacement of the agreement with a new one without renewed negociation and witout explicit agreement of the customer 
+    # * `RestructuringArrangement` - 
+    # * `InsuranceArrangement` - 
+    # * `CollectionArrangement` - An arrangement into which is promised to collect past-due debts from borrowers
+    # * `UnderwritingArrangement` - A contractual agreement between parties that commits the underwriter to assuming risk.
+    # * `TerminationArrangement` - 
+    # * `MaturityArrangement` - 
+    # * `AdministrativeArrangement` - 
+    common:Arrangementtypevalues BankPlanArrangementType?;
+    # The date when the identifier became valid.
+    common:Datetime CreditFacilityDataTime?;
+    # >
+    # * `Revolving` - 
+    # * `FixedAmount` - 
+    # * `Decreasing` - 
+    common:Creditfacilitytypevalues CreditFacilityType?;
+    # >
+    # * `AvailabilityCommission` - 
+    common:Creditfacilityratetypevalues CreditFacilityRateType?;
+    # A unique reference to product agreement or instance of product
+    common:Identifier CreditFacilityNumber?;
+    # The amount corresponding to the type
+    common:Amount CreditFacilityAmount?;
+    # Frequency at which the fee is charged
+    common:Frequency StandingOrderFrequency?;
+    # The purpose of a standing order
+    string StandingOrderPurpose?;
+    # The amount corresponding to the type
+    common:Amount StandingOrderAmount?;
+    # The currency that the transaction is made in
+    common:Currencycode StandingOrderCurrency?;
+    # Reference to an entity that assigns and manages the identification.
+    # tReference to the organization or agency that issued the identifier (e.g., DMV, Passport Office).
+    common:Involvedparty StandingOrderTargetAccountOwner?;
+    # The identification of the target account of a standing order.
+    common:Accountidentification StandingOrderTargetAccountIdentification?;
+    # Reference to an entity that assigns and manages the identification.
+    # tReference to the organization or agency that issued the identifier (e.g., DMV, Passport Office).
+    common:Involvedparty StandingOrderTargetAccountBank?;
+    # StandingOrderSourceAccount
+    common:Account StandingOrderSourceAccount?;
+    # Period during which the agreement is valid
+    common:Datetimeperiod StandingOrderValidityPeriod?;
+    # The date when the identifier became valid.
+    common:Datetime StandingOrderDay?;
+    # >
+    # * `UserDefinedStandingOrder` - Liquidity transfer standing order type, that has been customised or defined to the specific need of the user.(ISO20022)
+    # * `PredefinedStandingOrder` - Liquidity transfer standing order type, as predefined in the system. (ISO20022)
+    common:Standingordertypevalues StandingOrderType?;
+    # A unique reference to product agreement or instance of product
+    common:Identifier StandingOrderIdentification?;
+    # >
+    # * `SweepArrangement` - An arrangement into which is promised for the set-up and execution of structured sweeps to and from the facility to a linked account.
+    # * `WithdrawalArrangement` - An arrangement into which is promised to deliver Withdraw Service  to take fund out of an account. 
+    # * `DepositArrangement` - An arrangement into which is promised to deliver Deposit Service  to place funds into an account for safekeeping. 
+    # * `InterestArrangement` - An arrangement into which is promised to apply a pricing element expressed in a percentage  to a principal amount.
+    # * `FeeArrangement` - An arrangement into which is promised to apply a charge for services rendered. 
+    # * `LienArrangement` - An arrangement into which is promised for placing a lien or block on the account for a specified purpose, amount, and period. 
+    # * `InformationArrangement` - An arrangement concerning the information the bank will provide about the agreement/account
+    # * `PaymentArrangement` - An arrangement into which is promised to deliver a specific payment service including regular payments, standing orders, direct debits and bill pay instructions. 
+    # * `EntitlementArrangement` - Right or obligation linked to the involvement of a party in an agreement
+    # * `PeriodArrangement` - 
+    # * `CollateralArrangement` - An arrangement into which is promised for handling the oversight of the allocation, valuation and administration of collateral associated with the facility. 
+    # * `LimitArrangement` - An arrangement to limit something
+    # e.g., the number of transaction per week, the amount of money allowed to withdraw per week/day and etc. 
+    # * `AccessArrangement` - An arrangement that allows or restricts the access to a service or product, channel or device through a specific access point
+    # * `CardPaymentArrangement` - An arrangement into which is promised to deliver Card payment Service to execute payment transactions through a payment card, including online payments. 
+    # * `StandingOrderArrangement` - An arrangement into which is promised to deliver Standing Order Service to make regular transfers on given dates to a named beneﬁciary. 
+    # * `OverdraftArrangement` - An arrangement into which is promised to deliver Overdraft Service  that allows fund transfer even if there is no provision on the account. 
+    # * `RepaymentArrangement` - An arrangement into which is promised for paying back money previously borrowed from a lender. 
+    # * `StatementArrangement` - An arrangement into which is promised to deliver a reporting service on payment transactions registered on an account. 
+    # * `CreditTransferArrangement` - An arrangement into which is promised to allow a payer to transfer fund to a beneficiary. 
+    # * `ProductAndServiceArrangement` - 
+    # * `FactoringArrangement` - 
+    # * `RolloverArrangement` - Arrangement stipulating the modalities for an automatic renewal of the agreement
+    #
+    # i.e. the replacement of the agreement with a new one without renewed negociation and witout explicit agreement of the customer 
+    # * `RestructuringArrangement` - 
+    # * `InsuranceArrangement` - 
+    # * `CollectionArrangement` - An arrangement into which is promised to collect past-due debts from borrowers
+    # * `UnderwritingArrangement` - A contractual agreement between parties that commits the underwriter to assuming risk.
+    # * `TerminationArrangement` - 
+    # * `MaturityArrangement` - 
+    # * `AdministrativeArrangement` - 
+    common:Arrangementtypevalues StandingOrderArrangementType?;
+    # >
+    # * `FirstPaymentDateTime` - The date on which the first payment for a Standing Order schedule will be made. (Open Banking)
+    # * `NextPaymentDateTime` - The date on which the next payment for a Standing Order schedule will be made. (Open Banking)
+    # * `LastPaymentDateTime` - The date on which the last (most recent) payment for a Standing Order schedule was made. (Open Banking)
+    # * `FinalPaymentDateTime` - The date on which the final payment for a Standing Order schedule will be made. (Open Banking)
+    common:Standingorderdatetimetypevalues StandingOrderDateType?;
+    # Number of the payments that will be made in completing this frequency sequence including any executed since the sequence start date. (Open Banking)
+    string StandingOrderNumberOfPayments?;
+    # The date when the identifier became valid.
+    common:Datetime StandingOrderDate?;
+    # StandingOrderStatus
+    common:Status StandingOrderStatus?;
+    # A schedule which is specified the first payment, last payment, next payment, etc. for a standing orde.
+    common:Schedule StandingOrderSchedule?;
+    # >
+    # * `CreditTransferService` - A payment service allowing a payer to transfer fund to a beneficiary. (a proposed definition for BIAN BOM adapted from ECB)
+    # * `StandingOrderService` - A credit transfer service to make regular transfers on given dates to a named beneﬁciary. (a proposed definition for BIAN BOM adapted from ISO20022)
+    # * `DirectDebitService` - A payment service for debiting a payer's payment account, where a payment transaction is initiated by the payee on the basis of the payer's consent given to the payee, to the payee's payment service provider or to the payer's own payment service provider. (a proposed definition for BIAN BOM adapted from PSD)
+    # * `CardPaymentService` - A payment service to execute payment transactions through a payment card, including online payments. (a proposed definition for BIAN BOM adapted from PSD)
+    # * `WithdrawService` - A payment service to take fund out of an account. (a proposed definition for BIAN BOM)
+    # * `DepositService` - A payment service to place funds into an account for safekeeping. (a proposed definition for BIAN BOM)
+    # * `OverdraftService` - A payment service that allows fund transfer even if there is no provision on the account. (a proposed definition for BIAN BOM)
+    # * `MoneyRemittanceService` - A payment service where funds are received from a payer, without any payment accounts being created in the name of the payer or the payee, for the sole purpose of transferring a corresponding amount to a payee or to another payment service provider acting on behalf of the payee, and/or where such funds are received on behalf of and made available to the payee. (a proposed definition for BIAN BOM adapted from PSD)
+    # * `StatementService` - A reporting service on payment transactions registered on an account. (a proposed definition for BIAN BOM)
+    common:Paymentservicetypevalues ServiceType?;
+    # Key dates related to the payment. 
+    common:Paymentdatetime PaymentDate?;
+    # Period during which the agreement is valid
+    common:Datetimeperiod PaymentPeriod?;
+    # >
+    # * `Salarypayment` - Transaction is the payment of salaries.
+    # * `Treasurypayment` - Transaction is related to treasury operations.
+    # * `Advancepayment` - Transaction is an advance payment.
+    # * `Agriculturaltransfer` - Transaction is related to the agricultural domain.
+    # * `Alimonypayment` - Transaction is the payment of alimony.
+    # * `Childbenefit` - Transaction is related to a payment made to assist parent/guardian to maintain child.
+    # * `Unemploymentdisabilitybenefit` - Transaction is related to a payment to a person who is unemployed/disabled.
+    # * `Bonuspayment.` - Transaction is related to payment of a bonus.
+    # * `Cashmanagementtransfer` - Transaction is a general cash management instruction.
+    # * `Capitalbuilding` - Transaction is related to capital building fringe fortune, ie capital building for retirement.
+    # * `Charitypayment` - Transaction is a payment for charity reasons.
+    # * `Collectionpayment` - Transaction is a collection of funds initiated via a credit transfer or direct debit.
+    # * `Commoditytransfer` - Transaction is payment of commodities.
+    # * `Commercialpayment` - Transaction is related to a payment of commercial credit or debit. (formerly CommercialCredit).
+    # * `Commission` - Transaction is payment of commission.
+    # * `Costs` - Transaction is related to payment of costs.
+    # * `Copyright` - Transaction is payment of copyright.
+    # * `Dividend` - Transaction is payment of dividends.
+    # * `Foreignexchange` - Transaction is related to a foreign exchange operation.
+    # * `Purchasesaleofgoods` - Transaction is related to purchase and sale of goods.
+    # * `Governmentpayment` - Transaction is a payment to or from a government department.
+    # * `Instalmenthirepurchaseagreement` - Transaction is payment for an installment/hire-purchase agreement.
+    # * `Intracompanypayment` - Transaction is an intra-company payment, ie, a payment between two companies belonging to the same group.
+    # * `Insurancepremium` - Transaction is payment of an insurance premium.
+    # * `Interest` - Transaction is payment of interest.
+    # * `Licensefee` - Transaction is payment of a license fee.
+    # * `Loan` - Transaction is related to transfer of loan to borrower.
+    # * `Loanrepayment` - Transaction is related to repayment of loan to lender.
+    # * `Netting` - Transaction is related to a netting operation.
+    # * `Payroll` - Transaction is related to the payment of payroll.
+    # * `Pensionpayment` - Transaction is the payment of pension.
+    # * `Refund` - Transaction is the payment of a refund.
+    # * `Rent` - Transaction is the payment of rent.
+    # * `Royalties` - Transaction is the payment of royalties.
+    # * `Purchasesaleofservices` - Transaction is related to purchase and sale of services.
+    # * `Securities` - Transaction is the payment of securities.
+    # * `Socialsecuritybenefit` - Transaction is a social security benefit, ie payment made by a government to support individuals.
+    # * `Subscription` - Transaction is related to a payment of information or entertainment services either in printed or electronic form.
+    # * `Taxpayment` - Transaction is the payment of taxes.
+    # * `Valueaddedtaxpayment` - Transaction is the payment of value added tax.
+    # * `Consumerthirdpartyconsolidatedpayment` - Transaction is a payment used by a third party who can collect funds to pay on behalf of consumers, ie credit counseling or bill payment companies.
+    # * `Debitcollectionpayment` - Collection of funds initiated via a debit transfer.
+    # * `Supplierpayment` - Transaction is related to a payment to a supplier.
+    # * `Hedging` - Transaction is related to a hedging operation.
+    # * `Multipleservicetypes` - Transaction is related to a payment for multiple service types.
+    # * `Nototherwisespecified` - Transaction is related to a payment for type of services not specified elsewhere.
+    # * `Cardpayment` - Transaction is related to a payment of credit card account.
+    # * `Creditcardbill` - Transaction is related to a payment of credit card bill.
+    # * `Ferry` - Transaction is a payment for ferry related business.
+    # * `Air` - Transaction is a payment for air transport related business.
+    # * `Bus` - Transaction is a payment for bus transport related business.
+    # * `Railway` - Transaction is a payment for railway transport related business.
+    # * `Convalescentcarefacility` - Transaction is a payment for convalescence care facility services.
+    # * `Dentalservices` - Transaction is a payment for dental services.
+    # * `Anesthesiaservices` - Transaction is a payment for anesthesia services.
+    # * `Homehealthcare` - Transaction is a payment for home health care services.
+    # * `Hospitalcare` - Transaction is a payment for hospital care services.
+    # * `Intermediatecarefacility` - Transaction is a payment for intermediate care facility services.
+    # * `Longtermcarefacility` - Transaction is a payment for long-term care facility services.
+    # * `Medicalservices` - Transaction is a payment for medical care services.
+    # * `Visioncare` - Transaction is a payment for vision care services.
+    # * `Durablemedicaleequipment` - Transaction is a payment is for use of durable medical equipment.
+    # * `Cabletvbill` - Transaction is related to a payment of cable TV bill.
+    # * `Electricitybill` - Transaction is related to a payment of electricity bill.
+    # * `Gasbill` - Transaction is related to a payment of gas bill.
+    # * `Telephonebill` - Transaction is related to a payment of telephone bill.
+    # * `Othertelecomrelatedbill` - Transaction is related to a payment of other telecom related bill.
+    # * `Waterbill` - Transaction is related to a payment of water bill.
+    # * `Study` - Transaction is related to a payment of study/tuition costs.
+    # * `Pricepayment` - Transaction is related to a payment of a price.
+    # * `Installment` - Transaction is related to a payment of an installment.
+    # * `Recurringinstallmentpayment` - Transaction is related to a payment of a recurring installment made at regular intervals.
+    # * `Openingfee` - Transaction is related to a payment of opening fee.
+    # * `Cancellationfee` - Transaction is related to a payment of cancellation fee.
+    # * `Governmentinsurance` - Transaction is related to a payment of government insurance.
+    # * `Insurancepremiumcar` - Transaction is a payment of car insurance premium.
+    # * `Laborinsurance` - Transaction is a payment of labor insurance.
+    # * `Lifeinsurance` - Transaction is a payment of life insurance.
+    # * `Propertyinsurance` - Transaction is a payment of property insurance.
+    # * `Healthinsurance` - Transaction is a payment of health insurance.
+    # * `Carloanprincipalrepayment` - Transaction is a payment of car loan principal payment.
+    # * `Housingloanrepayment` - Transaction is related to a payment of housing loan.
+    # * `Companysocialloanpaymenttobank` - Transaction is a payment by a company to a bank for financing social loans to employees.
+    # * `Estatetax` - Transaction is related to a payment of estate tax.
+    # * `Housingtax` - Transaction is related to a payment of housing tax.
+    # * `Incometax` - Transaction is related to a payment of income tax.
+    # * `Netincometax` - Transaction is related to a payment of net income tax.
+    # * `Businessexpenses` - Transaction is related to a payment of business expenses.
+    # * `Trustfund` - Transaction is related to a payment of a trust fund.
+    # * `Networkcharge` - Transaction is related to a payment of network charges.
+    # * `Networkcommunication` - Transaction is related to a payment of network communication.
+    # * `Receiptpayment` - Transaction is related to a payment of receipt.
+    # * `Paymentterms` - Transaction is related to payment terms specifications.
+    # * `Other` - Other payment purpose.
+    # * `Withholding` - Transaction is related to a payment of withholding tax.
+    common:Paymentpurposevalues PaymentPurpose?;
+    # Amount of the payment (arranged to be paid)
+    common:Paymentamountandcurrency PaymentAmountAndCurrency?;
+    # >
+    # * `Cheque` - Written order to a bank to pay a certain amount of money from one person to another person.
+    # * `Credittransfer` - Transfer of an amount of money in the books of the account servicer.
+    # * `Directdebit` - Collection of an amount of money from the debtor's bank account by the creditor. The amount of money and dates of collections may vary.
+    # * `Transferadvice` - Transfer of an amount of money in the books of the account servicer. An advice should be sent back to the account owner.
+    # * `Direct` - Direct method.
+    # * `Classical` - Classical method.
+    common:Paymentmethodtypevalues PaymentMethod?;
+    # >
+    # * `Cashtransaction` - Transaction is a withdrawal/deposit of cash.
+    # * `Domesticpayment` - Payment has an origin and a destination in the same country, and is made in the currency of that country.
+    # * `Domestichighvaluepayment` - Transaction is a high value payment that has an origin and a destination in the same country and is made in the currency of that country.
+    # * `Domesticprioritypayment` - Transaction is a priority payment that has an origin and a destination in the same country and is made in the currency of that country.
+    # * `Crossborderpayment` - Payment has an origin in one country, a destination in another, and is made in the currency of either the origin or destination country.
+    # * `Crossborderprioritypayment` - Transaction is a priority payment that has an origin in one country and a destination in another and is made in the currency of either the origin or destination country.
+    # * `Crossborderhighvaluepayment` - Transaction is a high value payment that has an origin in one country and a destination in another country and is made in the currency of either the origin or destination country.
+    # * `Thirdcurrencypayment` - Transaction is a payment that is made in a third currency to the origin and destination countries. The origin and destination countries may be one and the same country.
+    # * `Thirdcurrencyhighvaluepayment` - Transaction is a high value payment that is made in a third currency to the origin and destination countries. The origin and destination countries may be one and the same country.
+    # * `Thirdcurrencyprioritypayment` - Payment is made in a third currency to the origin and destination countries. The origin and destination countries may be the same country.
+    # * `Tradesettlementpayment` - Transaction is the settlement of a trade, eg, a securities transaction.
+    # * `Foreignexchange` - Transaction isthe settlement of a foreign exchange deal.
+    # * `Equivalentamount` - Transaction is an equivalent amount relative to a currency conversion.
+    # * `Loan` - Transaction is the payment of a specific amount of money lent by a creditor/lender.
+    # * `Loanrepayment` - Transaction is an amount of money transferred in repayment of loan.
+    # * `Securities` - Transaction is a payment of securities.
+    # * `Lockbox` - Transaction is a payment(s) resulting from a lock box service.
+    # * `Dividend` - Transaction is a payment of dividends.
+    # * `Crossedcheque` - Transaction is a crossed cheque. A crossed check has two parallel lines across its face, indicating that the cheque must be paid into an account and not cashed over the counter.
+    # * `Opencheque` - Transaction is an uncrossed cheque that can be cashed at the bank of origin.
+    # * `Ordercheque` - Transaction is a cheque made payable to a named recipient 'or order' enabling the creditor to either deposit it in an account or endorse it to a third party, ie, transfer the rights to the cheque by signing it on the reverse.
+    # * `Circularcheque` - Transaction is an instruction from a bank to its correspondent bank to pay the creditor a stated sum of money on presentation of a means of identification.
+    # * `Travellerscheques` - Transaction is a payment resulting from travellers cheques.
+    # * `Bankdraft` - Transaction is a cheque drawn by a bank on itself or its agent. A person who owes money to another buys the draft from a bank for cash and hands it to the creditor who need have no fear that it might be dishonoured.
+    # * `Documentarycredit` - Transaction is a documentary credit from one banker to another, authorising the payment of a specified sum of money to the person named in the document, based on specified conditions.
+    # * `Billofexchange` - Transaction is a written order from a drawer to a drawee to pay a specified sum of money upon demand, or on a specified date, to the drawer or to a third party specified by the drawer. A bill of exchange is also called a draft.
+    # * `Collection` - Transaction is a collection. A collection is the act of sending a cheque, bill of exchange or another financial instrument to the prospective financial institution for payment.
+    # * `Cashmanagementtransfer` - Transaction is a general cash management instruction.
+    # * `Topaccount` - Transaction is a cash management instruction, requesting to top the account of the debtor above a certain floor amount. The floor amount, if not pre-agreed by the parties involved, may be specified.
+    # * `Zerobalanceaccount` - Transaction is a cash management instruction, requesting to zero balance the account of the debtor.
+    # * `Standingfacilities` - Payment is linked to overnight deposits and the marginal lending facility.
+    # * `Standardservicelevelcredit` - Transaction is a credit transfer to be processed according to the Standard Service Level.
+    # * `Liquiditytransfer` - Payment is made to transfer liquidity to/from the settlement account of a member, to/from the current account held at the central institution or any other institution.
+    # * `Advancepayment` - Transaction is a payment made in advance or as an advance.
+    # * `Valuedateadjustment` - Transaction reverses a previously incorrectly value dated entry.
+    # * `Dvpgross` - Gross cash payment offsetting the amount owed/due for a securities transaction settlement.
+    # * `Dvpnet` - Net payment offsetting the cash balance due/owed for a series of securities transactions settlement.
+    # * `Netting` - Transaction is a netting operation.
+    # * `Limitpayment` - Transaction is a payment that is processed when the pool of liquidity exceeds the minimum value reserved for an express payment in the RTGSPlus system.
+    # * `Backup` - Payment is made under the recovery procedure to move liquidity to/from the settlement account of a member according to the specifications of the system.
+    # * `Expresspayment` - Transaction is a payment that is processed whenever liquidity is available on the settlement account of a member of the RTGSPlus system.
+    # * `Centralbankoperation` - Payment is made to settle an operation made with the central bank.
+    # * `Clspayment` - Payment is linked to CLS activities.
+    # * `Eurodomesticpayment` - Transaction is a credit transfer in Euro with its country of origin and country of destination within the European Union. The origin and destination countries may be one and the same country.
+    # * `Agriculturaltransfer` - Transaction is related to the agricultural domain.
+    # * `Alimonypayment` - Transaction is a payment(s) made by one spouse to the other after a separation or divorce. An alimony payment may be applied to other family relationships.
+    # * `Balanceretail` - Transaction is a payment offsetting the net cash balance owed/due in a retail payment system.
+    # * `Bonuspayment.` - Net cash payment offsetting the balance due/owed in a retail payment system.
+    # * `Brokeragefee` - Transaction is charges levied by a broker.
+    # * `Capitalbuilding` - Transaction is payment into a personal pension scheme for retirement.
+    # * `Charitypayment` - Transaction is a payment for charity reasons.
+    # * `Childbenefit` - Transaction is a payment made to a parent/guardian to help maintain a child.
+    # * `Commercialcredit` - Transaction is settlement of a commercial credit.
+    # * `Commission` - Transaction is payment of a fee for executing a transaction.
+    # * `Commoditytransfer` - Transaction is a payment of products traded on a commodity exchange.
+    # * `Costs` - Transaction is apayment of costs.
+    # * `Copyright` - Transaction is a payment of copyright.
+    # * `Governmentpayment` - Transaction is apayment to or from a government department.
+    # * `Instalmenthirepurchaseagreement` - Transaction is a payment of an instalment or to the settlement of a hire-purchase agreement.
+    # * `Insurancepremium` - Transaction is a payment of an insurance premium.
+    # * `Intracompanypayment` - Transaction is an intra-company payment, ie, a payment between two companies belonging to the same group.
+    # * `Interest` - Transaction is a payment of interest.
+    # * `Licensefee` - Transaction is a payment of a license fee.
+    # * `Metals` - Transaction is a purchase or sale of metals.
+    # * `Pensionpayment` - Transaction is a payment of a pension allowance.
+    # * `Purchasesaleofgoods` - Transaction is a payment for the purchase and sale of goods.
+    # * `Refund` - Transaction is a repayment of funds.
+    # * `Rent` - Transaction is a payment of rent.
+    # * `Royalties` - Transaction is a payment of royalties.
+    # * `Purchasesaleofservices` - Transaction is a payment for the purchase and sale of services.
+    # * `Salarypayment` - Transaction is a payment of salaries.
+    # * `Socialsecuritybenefit` - Transaction is a social security benefit, a payment made by a government to support individuals.
+    # * `Standingorder` - Transaction is a standing order. A standing order is an instruction given by a party having explicit authority on the account to debit, ie, either debit account owner or originating party, to a first agent to process cash transfers at specified intervals during an implicit or explicit period of time. It is given once, and is valid for an open or closed period of time.
+    # * `Subscription` - Transaction is a payment of a subscription.
+    # * `Treasurystatepayment` - Payment is linked to the Treasury State.
+    # * `Unemploymentdisabilitybenefit` - Transaction is a payment made to an unemployed/disabled person.
+    # * `Valueaddedtaxpayment` - Transaction is apayment of value added tax.
+    # * `Taxpayment` - Transaction is a payment of taxes.
+    # * `Overnightdeposit` - Transaction is linked to an overnight deposit.
+    # * `Marginallending` - Transaction is linked to the marginal lending facility.
+    # * `Other` - Specifies that a proprietary code must be indicated.
+    # * `Upfront` - Transaction is an initial payment made by one of the counterparties  either to bring a transaction to fair value or for any other reason that may be the cause of an off-market transaction.
+    # * `Unwind` - Transaction is the final settlement payment made when a transaction is unwound prior to its end date or a payment that may result due to the full termination of derivative transaction(s).
+    # * `Principalexchange` - Transaction is an exchange of notional values for cross-currency swaps.
+    common:Paymenttypevalues PaymentType?;
+    # >
+    # * `Paymentondelivery` - Code for payment on delivery.
+    # * `Endofmonthofdelivery` - Code for payment at end of month of delivery.
+    # * `Endofperiodafterdelivery` - Code for payment at end of period after delivery.
+    # * `Endofperiodafterendofdeliverymonth` - Code for payment at end of period after end of month of delivery.
+    # * `Paymentonreceiptofinvoice` - Code for payment on receipt of invoice.
+    # * `Endofperiodafterendofreceiptmonth` - Code for payment at end of period after end of month of receipt of invoice.
+    # * `Endofperiodafterreceipt` - Code for payment at end of period after receipt of invoice.
+    # * `Endofmonthofreceipt` - Code for payment at end of month of receipt of invoice.
+    # * `Endofperiodaftermatch` - Code for payment at end of period after match or mismatch acceptance.
+    # * `Endofperiodaftershipmentdate` - Payment at end of period after shipment date.
+    # * `Endofperiodafterpurchaseorderdate` - Payment at end of period after purchase order date.
+    # * `Endofperiodafterbaselineestablishment` - Payment at end of period after baseline establishment date.
+    # * `Endofperiodafterinvoicedate` - Payment at end of period after invoice date.
+    common:Paymenttimevalues PaymentTime?;
+    # >
+    # * `Fax` - Remittance advice information must be faxed.
+    # * `Electronicdatainterchange` - Remittance advice information must be sent through Electronic Data Interchange (EDI).
+    # * `Uniformresourceidentifier` - Remittance advice information needs to be sent to a Uniform Resource Identifier (URI). URI is a compact string of characters that uniquely identify an abstract or physical resource. URI's are the super-set of identifiers, such as URLs, email addresses, ftp sites, etc, and as such, provide the syntax for all of the identification schemes.
+    # * `Email` - Remittance advice information must be sent through e-mail.
+    # * `Post` - Remittance advice information must be sent through postal services.
+    # * `SMS` - Remittance advice information must be sent through by phone as a short message service (SMS).
+    common:Remittancedeliverymethodtypevalues RemittanceDeliveryMethod?;
+    # Address to which the first agent is to send the remittance information. (ISO20022)
+    common:Contactpoint RemittanceLocation?;
+    # PaymentIdentification
+    common:Paymentidentification PaymentIdentification?;
+    # A schedule which is specified the first payment, last payment, next payment, etc. for a standing orde.
+    common:Schedule PaymentSchedule?;
+    # Frequency at which the fee is charged
+    common:Frequency PaymentFrequency?;
+    # Payment reference (sometimes called remittance information or payment description) can appear at both debtor and creditor levels, but with slightly different roles:
+    #
+    # At the Debtor (Payer) Level 
+    # The debtor provides the reference/narrative when initiating the payment. 
+    # Purpose: to explain what the payment is for (e.g., Invoice 1234, August rent). 
+    # This is usually optional, but very useful for reconciliation.
+    #
+    #
+    # At the Creditor (Payee) Level 
+    # The same reference is transmitted along with the payment message and shown to the creditor when funds are received. 
+    # Purpose: allows the creditor to match the payment to the correct invoice, order, or account.
+    string PaymentDescription?;
+};
+
+# The collection of operational serivces/functions offered by the operational facility
+#
+# Examples: messages, capture, routines
+public type Batch record {
+    # Reference to the batch of transactions
+    TransactionBatch CardTransactionBatchReference?;
+};
+
+public type BatchOk record {|
+    *http:Ok;
+    # body
+    Batch body;
+|};
+
+# Reference to the network the card transaction is handled by as recorded with the transaction
+public type CardNetwork record {
+    # Network for handling the card based transaction (e.g. Visa, MC, AMEX, Diners, etc.)
+    #
+    # A card network are networks of issuing and acquiring banks through which payment cards of some certain brand are processed. two types of card networks can be pointed out, namely, credit card associations (Visa, MasterCard, Discover, Amex, etc.) and PINless debit card networks (NYCE, PULSE, Maestro, Interlink, Cirrus, etc.).
+    #
+    # Card networks are financial services companies that enables, processes and settles payments between card issuing banks and merchant banks worldwide. Examples are Visa, MasterCard, Discover, RuPay etc.
+    #
+    # A card network is a system of connecting merchants and card issuers.  A middle person that collects funds from card issuer and pays it to the merchant.  Visa and MasterCard are examples of card networks.
+    string CardNetwork?;
+};
+
+# >
+# * `Suspended` - System is suspended, that is, not operational.
+# * `Active` - System is functioning normally, that is, operational.
+# * `Closed` - System is closed (eg. normal closure of an RTGS).
+# * `Closing` - System needs to wait for completion of intermediate internal activities before going to a status Closed.
+# * `Reservemaintenanceperiodstart` - System is starting a new maintenance period.
+public type Systemstatustypevalues "Suspended"|"Active"|"Closed"|"Closing"|"Reservemaintenanceperiodstart";
+
+public type VoiceChannelOperatingSessionOk record {|
+    *http:Ok;
+    # body
+    VoiceChannelOperatingSession body;
+|};
+
+# Operate equipment and/or a largely automated facility within Advanced Voice Services Operations. 
+public type VoiceChannelOperatingSession record {
+    # Service Domain attribute referenced during the session covering the menu options
+    string AdvancedVoiceServicesOperationsServiceMenu?;
+    # Service activity statistics that are maintained during the session
+    string VChannelServiceSessionStatistics?;
+    # >
+    # * `FinancialReport` - 
+    # * `BusinessReport` - 
+    # * `ManagementReport` - 
+    # * `Statement` - 
+    # * `MaintenanceReport` - 
+    # * `RegulatoryReport` - 
+    # * `TaxReport` - 
+    # * `AnalysisReport` - 
+    common:Reporttypevalues VChannelServiceSessionReportType?;
+    # The session activity report
+    common:Report VChannelServiceSessionReport?;
+    # A record of any production issues arising during the session
+    common:ProductionIssue VChannelProductionIssueRecord?;
+    # The source of the outbound connection request
+    common:BusinessUnit EmployeeBusinessUnitReference?;
+    # Reference to the customer contact record used accessing outbound channel
+    common:CustomerContact CustomerContactRecordReference?;
+    # The type of network event or error being recorded (e.g. device failure)
+    string ProductionIssueType?;
+    # The description of the event error
+    string ProductionIssueDescription?;
+    # Evaluation of the event cause and impact assessment
+    string ProductionIssueDiagnosis?;
+    # Description of corrective action proposed and taken
+    common:Task ProductionIssueResolutionTask?;
+    # The life cycle stage of a device
+    #
+    # e.g. active, defect
+    common:Status ProductionIssueStatus?;
+};
+
+# >
+# * `Model` - Identification of a model for a given manufacturer.
+# * `Serialnumber` - Serial number of a component.
+# * `Approvalnumber` - Unique approval number for a component, delivered by a certification body.
+# * `Systemversion` - Version of the system, eg, "4.0.1" to indicate version 4.0.1.
+# * `Systemname` - Name by which a system is known.
+# * `Identification` - Identification of a system.
+public type Systemidentificationtypevalues "Model"|"Serialnumber"|"Approvalnumber"|"Systemversion"|"Systemname"|"Identification";
+
+# The communication medium through which the party (e.g., customer) interacts with the enterprise during the session. Examples include voice call, chat, email, social media message, or self-service porta
+public type Communicationchannel record {
+    # >
+    # * `CommunicationChannel` - 
+    # * `AuthenticationChannel` - 
+    common:Channeltypevalues ChannelType?;
+    # The schedule of past and planned customer contacts
+    common:Schedule SystemAccessSchedule?;
+    # SystemType
+    string SystemType?;
+    # SystemIdentification
+    common:Identifier SystemIdentification?;
+    # >
+    # * `Model` - Identification of a model for a given manufacturer.
+    # * `Serialnumber` - Serial number of a component.
+    # * `Approvalnumber` - Unique approval number for a component, delivered by a certification body.
+    # * `Systemversion` - Version of the system, eg, "4.0.1" to indicate version 4.0.1.
+    # * `Systemname` - Name by which a system is known.
+    # * `Identification` - Identification of a system.
+    Systemidentificationtypevalues SystemIdentificationType?;
+    # The life cycle stage of a device
+    #
+    # e.g. active, defect
+    common:Status SystemStatus?;
+    # >
+    # * `Suspended` - System is suspended, that is, not operational.
+    # * `Active` - System is functioning normally, that is, operational.
+    # * `Closed` - System is closed (eg. normal closure of an RTGS).
+    # * `Closing` - System needs to wait for completion of intermediate internal activities before going to a status Closed.
+    # * `Reservemaintenanceperiodstart` - System is starting a new maintenance period.
+    Systemstatustypevalues SystemStatusType?;
+    # The date when the identifier became valid.
+    common:Datetime SystemDateTime?;
+    #
+    # Specifies the language used by the system. (ISO20022)
+    string SystemLanguage?;
+};
+
+# Operate equipment and/or a largely automated facility within eBranch Operations. 
+public type eBranchChannelOperatingSession record {
+    # The channel customer selection menu - selection is configurable for the session. This is used optionally to identify the purpose of the connection
+    string EBranchOperationsServiceMenu?;
+    # Service activity statistics that are maintained during the session
+    string EBranchServiceSessionStatistics?;
+    # >
+    # * `FinancialReport` - 
+    # * `BusinessReport` - 
+    # * `ManagementReport` - 
+    # * `Statement` - 
+    # * `MaintenanceReport` - 
+    # * `RegulatoryReport` - 
+    # * `TaxReport` - 
+    # * `AnalysisReport` - 
+    common:Reporttypevalues EBranchServiceSessionReportType?;
+    # The session activity report
+    common:Report EBranchServiceSessionReport?;
+    # A record of any production issues arising during the session
+    common:ProductionIssue EBranchProductionIssueRecord?;
+    # Reference to an entity that assigns and manages the identification.
+    # tReference to the organization or agency that issued the identifier (e.g., DMV, Passport Office).
+    common:Involvedparty EmployeeorBusinessUnitReference?;
+    # The outbound connection will be part of a customer contact to ensure all logging is performed
+    common:CustomerContact CustomerContactRecordReference?;
+    # The type of network event or error being recorded (e.g. device failure)
+    string ProductionIssueType?;
+    # The description of the event error
+    string ProductionIssueDescription?;
+    # Evaluation of the event cause and impact assessment
+    common:Assessment ProductionIssueDiagnosis?;
+    # Description of corrective action proposed and taken
+    common:Task ProductionIssueResolutionTask?;
+    # The life cycle stage of a device
+    #
+    # e.g. active, defect
+    common:Status ProductionIssueStatus?;
+};
+
+public type EBranchChannelOperatingSessionOk record {|
+    *http:Ok;
+    # body
+    eBranchChannelOperatingSession body;
+|};
+
+public type FinancialGatewayOperatingSessionOk record {|
+    *http:Ok;
+    # body
+    FinancialGatewayOperatingSession body;
+|};
+
+# Operate equipment and/or a largely automated facility within Financial Gateway. 
+public type FinancialGatewayOperatingSession record {
+    # >
+    # * `ITService` - 
+    # * `AdministrativeService` - 
+    # * `SystemService` - 
+    # * `FinancialService` - 
+    # * `InformationService` - 
+    # * `BusinessService` - 
+    common:Servicetypevalues FinancialGatewayServiceType?;
+    # Service activity statistics that are maintained during the session
+    string FinancialGatewayServiceSessionStatistics?;
+    # >
+    # * `FinancialReport` - 
+    # * `BusinessReport` - 
+    # * `ManagementReport` - 
+    # * `Statement` - 
+    # * `MaintenanceReport` - 
+    # * `RegulatoryReport` - 
+    # * `TaxReport` - 
+    # * `AnalysisReport` - 
+    common:Reporttypevalues FinancialGatewayServiceSessionReportType?;
+    # The session activity report
+    common:Report FinancialGatewayServiceSessionReport?;
+    # Date and time at which the status was assigned.
+    common:Datetime FinancialGatewayServiceSessionDate?;
+    # A record of any production issues arising during the gateway session
+    SessionIssue FinancialGatewayServiceSessionIssueRecord?;
+    # Reference to a Party who plays a  specific role in the context of assigning a status.
+    common:Involvedparty EmployeeorBusinessUnitReference?;
+    # The message content in any suitable format
+    common:Message MessageReference?;
+    # The type of network event or error being recorded (e.g. device failure)
+    string ProductionIssueType?;
+    # The description of the event error
+    string ProductionIssueDescription?;
+    # Evaluation of the event cause and impact assessment
+    common:Assessment ProductionIssueDiagnosis?;
+    # Description of corrective action proposed and taken
+    common:Task ProductionIssueResolutionTask?;
+    # Details of the issue, response and interested parties logged for reference
+    common:ProductionIssue ProductionIssueRecord?;
+    # ProductionIssueStatus
+    common:Status ProductionIssueStatus?;
+};
+
+# A record of any production issues arising during the gateway session
+public type SessionIssue record {
+    # The kind of event happening during a session
+    #
+    # events are being logged 
+    #
+    # e.g. login, failure...
+    string SessionEventyType?;
+    # Date/Time the event occurred (or was detected/logged)
+    string SessionEventDateTime?;
+};
