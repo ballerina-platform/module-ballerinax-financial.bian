@@ -1,0 +1,224 @@
+import ballerina/http;
+
+# Basic position limits that are maintained as an aspect of the log
+public type LimitArrangement record {
+    # The currency for the logged  transactions
+    Currencycode LimitCurrency?;
+    # Period of time during which the status is valid.
+    Datetimeperiod LimitValidityPeriod?;
+    Amount LimitAmount?;
+    # Current status of the limit.
+    Limitstatus LimitStatus?;
+    # An arranged InterestRate
+    Rate LimitRate?;
+    # Specifies the periodicity linked to a limit for example the periodicity can indicate that the limit can be reached daily or monthly. (ISO20022)
+    Frequency LimitFrequency?;
+    # An identifier that allows to uniquely refer to an instance of a transaction.
+    Identifier LimitIdentification?;
+    # The date when the identifier became valid.
+    Datetime LimitStartDatetime?;
+    # The date of the transaction
+    Date LoanOriginationDate?;
+    # The date of the transaction
+    Date LoanMaturityDate?;
+    # The date of the transaction
+    Date LoanEndDate?;
+    Amount LoanAmount?;
+    Action ArrangementAction?;
+    # The date when the identifier became valid.
+    Datetime ArrangementStartDate?;
+    # The date when the identifier became valid.
+    Datetime ArrangementEndDate?;
+    # A characteristic of arrangement which refers to the LifecycleStatus of arrangement (e.g., requested, proposed, offered, accepted, cancelled, terminated, fulfilled, etc.)
+    Arrangementstatus ArrangementStatus?;
+    Subject ArrangementSubjectMatter?;
+    # An identifier that allows to uniquely refer to an instance of a transaction.
+    Identifier ArrangementIdentification?;
+    Productfeaturetype SavingsAccountArrangementProductFeatureType?;
+    Productfeaturetype CurrentAccountArrangementProductFeatureType?;
+    Productfeaturetype TermDepositArrangementProductFeatureType?;
+    # The date when the identifier became valid.
+    Datetime TermDepositMaturityDate?;
+    # The date when the identifier became valid.
+    Datetime TermDepositOpenDate?;
+    Amount TermDepositAmount?;
+    Duration TermDepositDuration?;
+    # The Period for which the TermDepositAmount needs ti stay deposited with the Bank
+    string DepositTerm?;
+    # A limit imposed to the facility to deposit funds
+    Limitarrangement DepositLimit?;
+    # Type of limit imposed on a deposit facility
+    string DepositLimitType?;
+    Amount DepositAmount?;
+    # The date when the identifier became valid.
+    Datetime DepositDatetime?;
+    string DepositDatetimeType?;
+    Interestarrangement DepositInterest?;
+    Duration DepositDuration?;
+    # An arranged InterestRate
+    Rate DepositRate?;
+    # Key dates related to the payment. 
+    Paymentdatetime PaymentDate?;
+    # Period of time during which the status is valid.
+    Datetimeperiod PaymentPeriod?;
+    # Amount of the payment (arranged to be paid)
+    Paymentamountandcurrency PaymentAmountAndCurrency?;
+    # Address to which the first agent is to send the remittance information. (ISO20022)
+    Contactpoint RemittanceLocation?;
+    Paymentidentification PaymentIdentification?;
+    # An interest schedule is an arranged/planned set of dates at which interest will be claimed.
+    Schedule PaymentSchedule?;
+    # Specifies the periodicity linked to a limit for example the periodicity can indicate that the limit can be reached daily or monthly. (ISO20022)
+    Frequency PaymentFrequency?;
+    # Payment reference
+    string PaymentDescription?;
+    # The date when the identifier became valid.
+    Datetime CreditFacilityDataTime?;
+    # An identifier that allows to uniquely refer to an instance of a transaction.
+    Identifier CreditFacilityNumber?;
+    Amount CreditFacilityAmount?;
+};
+
+# A limit imposed to the facility to deposit funds
+public type Limitarrangement record {
+    # An arrangement to limit something
+    string LimitArrangement?;
+};
+
+# Domain-specific limit status values
+public type Limitstatustypevalues "Enabled"|"Disabled"|"Deleted"|"Requested";
+
+# Priority values for position keeping
+public type Priorityvaluetypes "Urgent"|"High"|"Normal"|"Low";
+
+# A collection of the events/transactions recorded by the log
+public type FinancialTransactionCapture record {
+    # The description of purpose of the financial transaction
+    string PostingDescription?;
+    # The logged financial transaction
+    Transaction PostingTransaction?;
+    # The date of the transaction
+    Date PostingValueDate?;
+};
+
+# Interest transaction type values
+public type Interesttransactiontypevalues "InterestAllocationTransaction"|"InterestPaymentTransaction"|"InterestAdjustmentTransaction";
+
+# The record of applied interest if interest calculations are supported
+public type InterestArrangement record {
+    # An arranged InterestRate
+    Rate InterestRate?;
+    string InterestDefinition?;
+    # Period of time during which the status is valid.
+    Datetimeperiod InterestPeriod?;
+    # An arranged InterestRatePlan
+    Rateplan InterestRatePlan?;
+    # An interest schedule is an arranged/planned set of dates at which interest will be claimed.
+    Schedule InterestSchedule?;
+    # The date of the transaction
+    Date LoanOriginationDate?;
+    # The date of the transaction
+    Date LoanMaturityDate?;
+    # The date of the transaction
+    Date LoanEndDate?;
+    Amount LoanAmount?;
+    Action ArrangementAction?;
+    # The date when the identifier became valid.
+    Datetime ArrangementStartDate?;
+    # The date when the identifier became valid.
+    Datetime ArrangementEndDate?;
+    # A characteristic of arrangement which refers to the LifecycleStatus of arrangement (e.g., requested, proposed, offered, accepted, cancelled, terminated, fulfilled, etc.)
+    Arrangementstatus ArrangementStatus?;
+    Subject ArrangementSubjectMatter?;
+    # An identifier that allows to uniquely refer to an instance of a transaction.
+    Identifier ArrangementIdentification?;
+    # An identifier that allows to uniquely refer to an instance of a transaction.
+    Identifier PaymentCardArrangementIdentifier?;
+    Productfeaturetype SavingsAccountArrangementProductFeatureType?;
+    Productfeaturetype CurrentAccountArrangementProductFeatureType?;
+    Productfeaturetype ProductArrangementProductFeatureType?;
+    Productfeaturetype TermDepositArrangementProductFeatureType?;
+    # The date when the identifier became valid.
+    Datetime TermDepositMaturityDate?;
+    # The date when the identifier became valid.
+    Datetime TermDepositOpenDate?;
+    Amount TermDepositAmount?;
+    Duration TermDepositDuration?;
+    # The Period for which the TermDepositAmount needs ti stay deposited with the Bank
+    string DepositTerm?;
+    string VirtualAccountArrangementType?;
+    # The date when the identifier became valid.
+    Datetime CreditFacilityDataTime?;
+    # An identifier that allows to uniquely refer to an instance of a transaction.
+    Identifier CreditFacilityNumber?;
+    Amount CreditFacilityAmount?;
+};
+
+# Position Keeping response type
+public type FinancialPositionLogOk record {|
+    *http:Ok;
+    FinancialPositionLog body;
+|};
+
+# Maintain a log of transactions or activity, typically a financial account/journal or a log of activity to support behavioral analysis within Position Keeping.
+public type FinancialPositionLog record {
+    # The product/service for which this is a financial transaction log
+    ProductAgreement ProductInstanceReference?;
+    # Reference to an entity that assigns and manages the identification.
+    Involvedparty CustomerReference?;
+    # Reference to an entity that assigns and manages the identification.
+    Involvedparty CounterpartyReference?;
+    # The currency for the logged  transactions
+    Currencycode BaseCurrency?;
+    # The record of applied interest if interest calculations are supported
+    InterestArrangement InterestApplicationRecord?;
+    # A record of applied interest
+    InterestTransaction InterestTransaction?;
+    # General description of the interest transaction
+    string TransactionDescription?;
+    Amount TransactionInterestCharge?;
+    # Basic position limits that are maintained as an aspect of the log
+    LimitArrangement ManagedPositionLimits?;
+    # Basic position limits that are maintained as an aspect of the log
+    LimitArrangement PositionLimitSettings?;
+    # The current calculated position
+    string PositionLimitValue?;
+    Amount AmountBlock?;
+    Amount Amount?;
+    # Value of the specific date type
+    Datetime Date?;
+    # The date of the transaction
+    Date InitiationDate?;
+    Status Status?;
+};
+
+# A record of applied interest
+public type InterestTransaction record {
+    Amount InterestTransactionAmount?;
+    # Description of InterestTransaction
+    string InterestTransactionDescription?;
+    # An arranged InterestRate
+    Rate AppliedInterestRate?;
+    # An identifier that allows to uniquely refer to an instance of a transaction.
+    Identifier TransactionIdentification?;
+    # The Date that the transaction has occurred or is planned to occur.
+    Transactiondatetime TransactionDate?;
+    # A detailed explanation or commentary of transaction.
+    string TransactionDescription?;
+    # A characteristic of transaction which refers to the LifecycleStatus of transaction (e.g., initiated, executed, confirmed, cancelled, etc.) 
+    Transactionstatus TransactionStatus?;
+    # The name of transaction.
+    Name TransactionName?;
+};
+
+# Deposit type values
+public type Deposittypevalues "CashDeposit"|"SecurityDeposit"|"PawnDeposit"|"Call/NoticeDeposit"|"FixedTermDeposit"|"DemandDeposit"|"TimeDeposit"|"CardDeposit";
+
+# Current status of the limit (domain-specific)
+public type Limitstatus record {
+    Status LimitStatus?;
+    Limitstatustypevalues LimitStatusType?;
+};
+
+# Insurance arrangement type values
+public type Insurancearrangementtypevalues "PremiumArrangement"|"CoverageArrangement"|"ExclusionArrangement"|"ClaimArrangement"|"TerminationArrangement"|"RenewalArrangement"|"BenefitArrangement"|"Legal&RegulatoryArrangement"|"PaymentArrangement"|"ServiceArrangement";
