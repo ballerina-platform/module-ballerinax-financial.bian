@@ -8,53 +8,6 @@ dependencies-toml-version = "2"
 distribution-version = "2201.13.1"
 
 [[package]]
-org = "ashirwadadayarathne"
-name = "financial.bian.attribute.groups"
-version = "0.1.0"
-dependencies = [
-	{org = "ballerina", name = "http"},
-	{org = "ballerina", name = "io"},
-	{org = "ballerinai", name = "observe"}
-]
-modules = [
-	{org = "ashirwadadayarathne", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups"},
-	{org = "ashirwadadayarathne", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.business_development_channel_management"},
-	{org = "ashirwadadayarathne", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.business_development_intellectual_property_and_knowledge"},
-	{org = "ashirwadadayarathne", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.business_development_models_and_analytics"},
-	{org = "ashirwadadayarathne", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.business_development_product_management"},
-	{org = "ashirwadadayarathne", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.business_development_solution_development"},
-	{org = "ashirwadadayarathne", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.business_management_business_direction"},
-	{org = "ashirwadadayarathne", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.business_management_corporate_services"},
-	{org = "ashirwadadayarathne", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.channels_channel_specific"},
-	{org = "ashirwadadayarathne", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.channels_cross_channel"},
-	{org = "ashirwadadayarathne", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.channels_distribution"},
-	{org = "ashirwadadayarathne", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.channels_information_provider"},
-	{org = "ashirwadadayarathne", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.channels_servicing"},
-	{org = "ashirwadadayarathne", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.common"},
-	{org = "ashirwadadayarathne", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.customers_customer_care"},
-	{org = "ashirwadadayarathne", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.customers_investment_services"},
-	{org = "ashirwadadayarathne", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.customers_party_reference"},
-	{org = "ashirwadadayarathne", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.customers_relationship_management"},
-	{org = "ashirwadadayarathne", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.customers_sales"},
-	{org = "ashirwadadayarathne", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.finance_risk_management_compliance"},
-	{org = "ashirwadadayarathne", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.operations_accounting_services"},
-	{org = "ashirwadadayarathne", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.operations_clearing_and_settlement"},
-	{org = "ashirwadadayarathne", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.operations_custody_collateral_and_documents"},
-	{org = "ashirwadadayarathne", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.operations_external_agency"},
-	{org = "ashirwadadayarathne", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.operations_operational_services"},
-	{org = "ashirwadadayarathne", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.products_advisory_services"},
-	{org = "ashirwadadayarathne", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.products_cards"},
-	{org = "ashirwadadayarathne", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.products_consumer_banking"},
-	{org = "ashirwadadayarathne", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.products_corporate_banking"},
-	{org = "ashirwadadayarathne", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.products_corporate_finance"},
-	{org = "ashirwadadayarathne", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.products_loans_and_deposits"},
-	{org = "ashirwadadayarathne", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.products_market_operations"},
-	{org = "ashirwadadayarathne", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.products_market_trading"},
-	{org = "ashirwadadayarathne", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.products_trade_banking"},
-	{org = "ashirwadadayarathne", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.resource_management_platform_operations"}
-]
-
-[[package]]
 org = "ballerina"
 name = "auth"
 version = "2.14.0"
@@ -352,5 +305,52 @@ dependencies = [
 ]
 modules = [
 	{org = "ballerinai", packageName = "observe", moduleName = "observe"}
+]
+
+[[package]]
+org = "ballerinax"
+name = "financial.bian.attribute.groups"
+version = "0.1.0"
+dependencies = [
+	{org = "ballerina", name = "http"},
+	{org = "ballerina", name = "io"},
+	{org = "ballerinai", name = "observe"}
+]
+modules = [
+	{org = "ballerinax", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups"},
+	{org = "ballerinax", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.business_development_channel_management"},
+	{org = "ballerinax", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.business_development_intellectual_property_and_knowledge"},
+	{org = "ballerinax", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.business_development_models_and_analytics"},
+	{org = "ballerinax", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.business_development_product_management"},
+	{org = "ballerinax", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.business_development_solution_development"},
+	{org = "ballerinax", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.business_management_business_direction"},
+	{org = "ballerinax", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.business_management_corporate_services"},
+	{org = "ballerinax", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.channels_channel_specific"},
+	{org = "ballerinax", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.channels_cross_channel"},
+	{org = "ballerinax", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.channels_distribution"},
+	{org = "ballerinax", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.channels_information_provider"},
+	{org = "ballerinax", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.channels_servicing"},
+	{org = "ballerinax", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.common"},
+	{org = "ballerinax", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.customers_customer_care"},
+	{org = "ballerinax", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.customers_investment_services"},
+	{org = "ballerinax", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.customers_party_reference"},
+	{org = "ballerinax", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.customers_relationship_management"},
+	{org = "ballerinax", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.customers_sales"},
+	{org = "ballerinax", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.finance_risk_management_compliance"},
+	{org = "ballerinax", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.operations_accounting_services"},
+	{org = "ballerinax", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.operations_clearing_and_settlement"},
+	{org = "ballerinax", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.operations_custody_collateral_and_documents"},
+	{org = "ballerinax", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.operations_external_agency"},
+	{org = "ballerinax", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.operations_operational_services"},
+	{org = "ballerinax", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.products_advisory_services"},
+	{org = "ballerinax", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.products_cards"},
+	{org = "ballerinax", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.products_consumer_banking"},
+	{org = "ballerinax", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.products_corporate_banking"},
+	{org = "ballerinax", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.products_corporate_finance"},
+	{org = "ballerinax", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.products_loans_and_deposits"},
+	{org = "ballerinax", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.products_market_operations"},
+	{org = "ballerinax", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.products_market_trading"},
+	{org = "ballerinax", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.products_trade_banking"},
+	{org = "ballerinax", packageName = "financial.bian.attribute.groups", moduleName = "financial.bian.attribute.groups.resource_management_platform_operations"}
 ]
 

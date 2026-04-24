@@ -1,8 +1,12 @@
 [package]
-org = "ashirwadadayarathne"
+org = "ballerinax"
 name = "financial.bian.attribute.groups"
 version = "0.1.0"
 distribution = "2201.13.1"
+authors = ["Ballerina"]
+keywords = ["Financial", "BIAN"]
+readme = "README.md"
+repository = "https://github.com/ballerina-platform/module-ballerinax-financial.bian"
 
 [build-options]
 observabilityIncluded = true

@@ -1,4 +1,4 @@
-# module-ballerinax-financial.bian
+# Ballerina BIAN Implementation
 
 Ballerina implementation of the [Banking Industry Architecture Network (BIAN)](https://bian.org/) v14 service domain model. This repository provides type libraries and attribute group definitions for use in Ballerina-based financial services integrations.
 
