@@ -1,0 +1,48 @@
+[package]
+org = "ballerinax"
+name = "financial.bian.attribute.groups"
+version = "0.1.0"
+distribution = "2201.13.1"
+authors = ["Ballerina"]
+keywords = ["Financial", "BIAN"]
+readme = "README.md"
+repository = "https://github.com/ballerina-platform/module-ballerinax-financial.bian"
+
+[build-options]
+observabilityIncluded = true
+
+[[package.modules]]
+name = "financial.bian.attribute.groups.common"
+export = true
+
+[[package.modules]]
+name = "financial.bian.attribute.groups.business_development"
+export = true
+
+[[package.modules]]
+name = "financial.bian.attribute.groups.business_management"
+export = true
+
+[[package.modules]]
+name = "financial.bian.attribute.groups.channels"
+export = true
+
+[[package.modules]]
+name = "financial.bian.attribute.groups.customers"
+export = true
+
+[[package.modules]]
+name = "financial.bian.attribute.groups.finance_risk_management"
+export = true
+
+[[package.modules]]
+name = "financial.bian.attribute.groups.operations"
+export = true
+
+[[package.modules]]
+name = "financial.bian.attribute.groups.products"
+export = true
+
+[[package.modules]]
+name = "financial.bian.attribute.groups.resource_management"
+export = true
