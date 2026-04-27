@@ -1747,6 +1747,11 @@ public type Case record {
     common:task CaseTaskResult?;
 };
 
+public type CaseOk record {|
+    *http:Ok;
+    Case body;
+|};
+
 public type ProcessingOrderProcedureOk record {|
     *http:Ok;
     # body
