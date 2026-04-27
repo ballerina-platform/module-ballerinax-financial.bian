@@ -1728,6 +1728,25 @@ public type Transactiontype record {
     common:Transactiontypevalues TransactionType?;
 };
 
+# The main worsteps to be followed in th eexecution of the procedure
+# 
+# Examples: Invoice generation
+public type Case record {
+    # Reference to a specific product instance provided by the customer
+    common:productagreement ProductInstanceReference?;
+    # >
+    # * `Card` - 
+    # * `Loan` - 
+    # * `Fraud` - 
+    # * `Payment` - 
+    # * `Market` - 
+    # * `Security` - 
+    # * `Other` - 
+    common:casetypevalues CustomerCaseType?;
+    # The result of the invoked offer procedure (e.g. abandoned, in process/pending, offer accepted)
+    common:task CaseTaskResult?;
+};
+
 public type ProcessingOrderProcedureOk record {|
     *http:Ok;
     # body

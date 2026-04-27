@@ -7,7 +7,7 @@ import financial.bian.attribute.groups.common as common;
 public type ConsumerAdviceFacility record {
     # Reference to the advisory service session ||
     # |
-    productagreement ProductInstanceReference?;
+    common:productagreement ProductInstanceReference?;
     # Business unit and or employee reference to the source of the financial advice ||
     # |
     common:involvedparty CustomerReference?;
@@ -49,30 +49,6 @@ public type ConsumerAdviceFacility record {
 # * `InformationService` - 
 # * `BusinessService` - 
 public type servicetypevalues "ITService"|"AdministrativeService"|"SystemService"|"FinancialService"|"InformationService"|"BusinessService";
-
-# Reference to the advisory service session ||
-# |
-public type productagreement record {
-    # >
-    # * `CurrentAccountAgreement` - 
-    # * `SavingsAccountAgreement` - 
-    # * `BrokeredProductAgreement` - 
-    # * `ConsumerLoanAgreement` - 
-    # * `MortgageLoanAgreement` - 
-    # * `DirectDebitServiceAgreement` - 
-    # * `TermDepositAgreement` - 
-    productagreementtypevalues ProductAgreementType?;
-};
-
-# >
-# * `CurrentAccountAgreement` - 
-# * `SavingsAccountAgreement` - 
-# * `BrokeredProductAgreement` - 
-# * `ConsumerLoanAgreement` - 
-# * `MortgageLoanAgreement` - 
-# * `DirectDebitServiceAgreement` - 
-# * `TermDepositAgreement` - 
-public type productagreementtypevalues "CurrentAccountAgreement"|"SavingsAccountAgreement"|"BrokeredProductAgreement"|"ConsumerLoanAgreement"|"MortgageLoanAgreement"|"DirectDebitServiceAgreement"|"TermDepositAgreement";
 
 # The product features/services available with a financical facility
 public type FinancialPlanning record {

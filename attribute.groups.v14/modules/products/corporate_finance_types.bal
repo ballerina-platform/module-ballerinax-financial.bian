@@ -68,7 +68,7 @@ public type InstrumentDefinition record {
 # Fulfill any scheduled and ad-hoc obligations under a service arrangement, most typically for a financial product or facility within ECM And DCM.
 public type ECMAndDCMFacility record {
     # Reference to the product instance
-    productagreement ProductInstanceReference?;
+    common:productagreement ProductInstanceReference?;
     # Reference to the customer
     common:involvedparty CustomerReference?;
     # Reference to the bank branch location
