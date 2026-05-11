@@ -1,2 +1,0 @@
-port = 9096
-serverUrl = "http://localhost:9092/backend"
