@@ -1,8 +1,6 @@
 import ballerina/http;
 import financial.bian.attribute.groups.common as common;
 
-// --- commission_agreement_types.bal ---
-
 public type CommissionTermOk record {|
     *http:Ok;
     CommissionTerm body;
@@ -167,8 +165,6 @@ public type CommissionTerm record {
     # The type of Commission Terms
     string CommissionTermsType?;
 };
-
-// --- contractor_and_supplier_agreement_types.bal ---
 
 # Maintain the terms and conditions that apply to a commercial relationship within Contractor and Supplier Agreement.
 public type SupplierAgreement record {
@@ -380,8 +376,6 @@ public type SupplierRegulatoryTermOk record {|
     SupplierRegulatoryTerm body;
 |};
 
-// --- correspondent_bank_relationship_management_types.bal ---
-
 # Reference to Relationship Reciprocity Assessment Duty
 public type PlannedAction record {
     # ArrangementAction
@@ -544,8 +538,6 @@ public type IncidentTroubleshootingOversight record {
     string IncidentTroubleshootingOversightDutyType?;
 };
 
-// --- interbank_relationship_management_types.bal ---
-
 public type ContactOk record {|
     *http:Ok;
     Contact body;
@@ -656,8 +648,6 @@ public type BudgetArrangement record {
     # ArrangementIdentification
     common:Identifier ArrangementIdentification?;
 };
-
-// --- product_service_agency_types.bal ---
 
 # Maintain the terms and conditions that apply to a commercial relationship within Product Service Agency.
 public type ServiceProviderAgreement record {
@@ -911,8 +901,6 @@ public type ServiceProviderRegistrationOperatingSession record {
     common:Involvedparty TPPReference?;
 };
 
-// --- sub_custodian_agreement_types.bal ---
-
 public type SubCustodianAgreementOk record {|
     *http:Ok;
     SubCustodianAgreement body;
@@ -1122,8 +1110,6 @@ public type SubCustodianRegulatoryTermOk record {|
     *http:Ok;
     SubCustodianRegulatoryTerm body;
 |};
-
-// --- syndicate_management_types.bal ---
 
 # The Syndicate Eligibility Clauses defines a particular clause or consideration that is applied to determine eligibility for Syndicate Eligibility Clauses
 public type SyndicateEligibilityClauses record {

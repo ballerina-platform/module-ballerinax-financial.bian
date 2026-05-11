@@ -104,16 +104,6 @@ public type TransactionAlignmentOk record {|
     TransactionAlignment body;
 |};
 
-# Status Attributes
-public type HTTPError record {
-    # status_code
-    string status_code?;
-    # status
-    string status?;
-    # message
-    string message?;
-};
-
 # An analysis of available bank capital covering the required allocations
 public type Allocation record {
     # The overall volume or value of the transaction included projected cash flows over the intended duration
@@ -175,8 +165,6 @@ public type AssetAndLiabilityPortfolioStrategy record {
     # An analysis of the financial risks associated with the transaction (e.g. market scenario based impact on P&L)
     common:Assessment AssetAndLiabilityPolicyTypeSensitivityAssessment?;
 };
-
-// --- internal_audit_types.bal ---
 
 public type InternalAuditAssessmentOk record {|
     *http:Ok;
@@ -258,7 +246,8 @@ public type InternalAuditAssessment record {
     # * `KYCAssessment` - An assessment conducted by businesses and financial institutions to verify and confirm the identity of their customers or clients. The primary purpose of a KYC check is to prevent illegal activities, such as money laundering, terrorist financing, and fraud, by ensuring that customers are who they claim to be.
     # * `PEPAssessment` - A PEP check, or "Politically Exposed Person" check, is an assessment conducted by used by businesses, financial institutions, and government agencies to identify individuals who hold prominent public positions or have significant political influence. The purpose of a PEP check is to assess and manage the potential risks associated with doing business with these individuals, as they may be more susceptible to corruption, money laundering, or other illicit activities.
     # * `AMLAssessment` - An AML (Anti-Money Laundering) check is an assessment conducted by businesses, financial institutions, and other organizations to prevent and detect money laundering and the financing of criminal activities. The main purpose of an AML check is to ensure that financial transactions and business relationships are not being used to disguise the illegal origins of funds.
-    # * `EligibilityCheck` - Determines whether a person or case meets the criteria or preconditions to qualify for a benefit, service, or action.
+    # * `EligibilityCheck` 
+    # - Determines whether a person or case meets the criteria or preconditions to qualify for a benefit, service, or action.
     # * `ExternalAgencyCheck` - 
     # * `EntitlementCheck` - Determines what benefit, amount, or service the person is actually entitled to receive once eligibility is confirmed.
     common:Assessmenttypevalues InternalAuditAssessmentType?;
@@ -279,15 +268,13 @@ public type InternalAuditAssessment record {
     string InternalAuditAssessmentRequesterReference?;
 };
 
-// --- legal_compliance_types.bal ---
-
 public type LegalComplianceAssessmentOk record {|
     *http:Ok;
     # body
     LegalComplianceAssessment body;
 |};
 
-# Outline of the possible implications of breaking the law
+# A charge arrangement covering fees, loan, account, payment and standing-order terms applied to a banking service.
 public type FeeArrangement record {
     # >
     # * `Accountingfee` - Fee paid for accounting services rendered.

@@ -1,8 +1,6 @@
 import ballerina/http;
 import financial.bian.attribute.groups.common as common;
 
-// --- correspondent_bank_directory_types.bal ---
-
 # Reference to the recording of the correspondent bank in the Legal Entity Directory
 public type LegalEntityDirectory record {
     # DirectoryVersion
@@ -22,7 +20,7 @@ public type CorrespondentBankDirectoryEntryOk record {|
 
 # Reference to the agreement with the correspondent bank as recorded by Party Reference Data Directory
 public type CorrespondentBankingAgreement record {
-    # common:Date on which the agreement was signed by all parties. (ISO20022)
+    # Date on which the agreement was signed by all parties. (ISO20022)
     common:Date AgreementSignedDate?;
     # >
     # * `CustomerAgreement` - 

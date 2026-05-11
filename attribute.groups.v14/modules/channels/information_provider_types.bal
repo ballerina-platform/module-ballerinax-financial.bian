@@ -34,7 +34,7 @@ public type Currency record {
     common:Name CurrencyName?;
     # Alphabetic code according to ISO 4217 that is used to refer to a currency, e.g. USD
     common:Currencycode CurrencyAlphabeticCode?;
-    # Alphabetic code according to ISO 4217 that is used to refer to a currency, e.g. USD
+    # Numeric code according to ISO 4217 that is used to refer to a currency, e.g. 840 for USD
     common:Currencycode CurrencyNumericalCode?;
     # Symbol that is used to refer to a currency, e.g. $
     string CurrencySymbol?;
@@ -98,7 +98,7 @@ public type DebtInstrumentOk record {|
     DebtInstrument body;
 |};
 
-# Name of the country that is using the currency as its official currency
+#A nation with its own government, identified by ISO 3166.
 public type Country record {
     # Reference to an entity that assigns and manages the identification.
     # tReference to the organization or agency that issued the identifier (e.g., DMV, Passport Office).
@@ -221,7 +221,7 @@ public type EquityOk record {|
     Equity body;
 |};
 
-# Capture and maintain reference information about some type of entitity within Financial Instrument Reference Data Management.
+# Capture and maintain reference information about some type of entity within Financial Instrument Reference Data Management.
 public type FinancialInstrumentDirectoryEntry record {
     # Documentation of Financial Instrument Directory Entry
     string FinancialInstrumentDirectoryEntryDescription?;
@@ -231,9 +231,9 @@ public type FinancialInstrumentDirectoryEntry record {
     string FinancialInstrumentDirectoryEntryVersion?;
     # FinancialInstrumentDirectoryEntryStatus
     common:Status FinancialInstrumentDirectoryEntryStatus?;
-    # Reference to the log of (usage) ativities/events  of Financial Instrument Directory Entry
+    # Reference to the log of (usage) activities/events  of Financial Instrument Directory Entry
     common:Log FinancialInstrumentDirectoryEntryUsageLog?;
-    # Reference to the log of (usage) ativities/events  of Financial Instrument Directory Entry
+    # Reference to the log of (usage) activities/events  of Financial Instrument Directory Entry
     common:Log FinancialInstrumentDirectoryEntryUpdateLog?;
     # The configuration of Financial Instrument Directory Entry
     string FinancialInstrumentDirectoryEntryServiceConfiguration?;
@@ -350,7 +350,7 @@ public type FinancialMarketAnalysisOk record {|
     FinancialMarketAnalysis body;
 |};
 
-# A collection of models/calculations/algoritms that can be applied to a subject or activity
+# A collection of models/calculations/algorithms that can be applied to a subject or activity
 #
 # Examples: Average balance calculation, Propensity to buy
 public type FinancialMarketInsight record {
@@ -411,7 +411,7 @@ public type FinancialMarketResearchDirectoryEntryOk record {|
     FinancialMarketResearchDirectoryEntry body;
 |};
 
-# Capture and maintain reference information about some type of entitity within Financial Market Research.
+# Capture and maintain reference information about some type of entity within Financial Market Research.
 public type FinancialMarketResearchDirectoryEntry record {
     # >
     # * `CustomerViewpoint` - 
@@ -575,7 +575,7 @@ public type InformationFeedOperatingSession record {
     common:Schedule InformationFeedOperatingSessionSchedule?;
     # The tracked status (e.g. under construction or repair, inhabited, vacant).
     common:Status InformationFeedOperatingSessionStatus?;
-    # Reference to the log of (usage) ativities/events  of Information Feed Operating Session
+    # Reference to the log of (usage) activities/events  of Information Feed Operating Session
     common:Log InformationFeedOperatingSessionUsageLog?;
     # Reference to a Party who plays a  specific role in the context of assigning a status.
     common:Involvedparty InformationFeedOperatingSessionAssociatedPartyReference?;
@@ -601,7 +601,7 @@ public type InformationFeedSwitchOperatingSession record {
     common:Profile MarketInformationFeedServiceProfile?;
 };
 
-# The collection of operational serivces/functions offered by the operational facility
+# The collection of operational services/functions offered by the operational facility
 #
 # Examples: messages, capture, routines
 public type InternalPublication record {
@@ -621,7 +621,7 @@ public type InformationFeedSwitchOperatingSessionOk record {|
     InformationFeedSwitchOperatingSession body;
 |};
 
-# The collection of operational serivces/functions offered by the operational facility
+# The collection of operational services/functions offered by the operational facility
 #
 # Examples: messages, capture, routines
 public type FeedUpload record {
@@ -913,7 +913,7 @@ public type GlobalStandardSpecification record {
     string GlobalStandardSpecificationVersion?;
     # A characteristic of service which refers to the lifecycle of service (e.g., initiated, active, de-active, etc.) 
     common:Status GlobalStandardSpecificationStatus?;
-    # Reference to the log of (usage) ativities/events of Global Standard Specification
+    # Reference to the log of (usage) activities/events of Global Standard Specification
     common:Log GlobalStandardSpecificationUsageLog?;
     # Information about reactions to a design which is used as a basis for improvement for the Global Standard Specification.
     string GlobalStandardSpecificationFeedback?;

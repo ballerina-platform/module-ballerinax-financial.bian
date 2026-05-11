@@ -20,15 +20,15 @@ module-ballerinax-financial.bian/
     ├── Ballerina.toml
     ├── main.bal
     └── modules/
-        ├── common/              # Shared attribute group types
-        ├── business_development_*/
-        ├── business_management_*/
-        ├── channels_*/
-        ├── customers_*/
-        ├── finance_risk_management_*/
-        ├── operations_*/
-        ├── products_*/
-        └── resource_management_*/
+        ├── common/                    # Shared attribute group types
+        ├── business_development/
+        ├── business_management/
+        ├── channels/
+        ├── customers/
+        ├── finance_risk_management/
+        ├── operations/
+        ├── products/
+        └── resource_management/
 ```
 
 ---
@@ -47,7 +47,7 @@ bal build
 ### Import a Module
 ```ballerina
 import financial.bian.attribute.groups.common as common;
-import financial.bian.attribute.groups.products_loans_and_deposits as loans;
+import financial.bian.attribute.groups.products as products;
 ```
 
 See the [`attribute.groups.v14` README](./attribute.groups.v14/README.md) for the full module listing and usage examples.

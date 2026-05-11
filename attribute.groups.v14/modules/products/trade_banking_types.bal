@@ -101,8 +101,6 @@ public type BearerDocumentCreationandRegistration record {
     common:text BearerDocumentCreationandRegistrationTaskType?;
 };
 
-// --- bank_guarantee_types.bal ---
-
 # The Customer Collateral Allocation Task is a discrete action or task that is required in the execution of the Customer Collateral Allocation Task
 public type BankGuaranteeDefinitionandPricing record {
     # The required status/situation prior to the execution of the task
@@ -306,8 +304,6 @@ public type documentdirectory record {
     # A directory to record the document. 
     string DocumentDirectory?;
 };
-
-// --- letter_of_credit_types.bal ---
 
 # UndertakingPartyRole|UndertakingPartyRole (https://www.iso20022.org/standardsrepository/type/UndertakingPartyRole)|Standard|ISO20022 BM ()
 public type undertakinginvolvement record {

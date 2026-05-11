@@ -1,8 +1,6 @@
 import ballerina/http;
 import financial.bian.attribute.groups.common as common;
 
-// --- operational_gateway_types.bal ---
-
 # A Classification value that distinguishes between the type of services within Operational Gateway Operating Session
 public type Servicetype record {
     # The name of Condition
@@ -116,8 +114,6 @@ public type OutboundMessage record {
     # The type of Outbound Message Function
     string OutboundMessageFunctionType?;
 };
-
-// --- system_development_types.bal ---
 
 # To build or enhance something, typically an IT production systems  within System Development. Includes development, Assessment and deployment activities.
 # Example: Build, enhance, test and deploy a major enhancement to a production product processing system.

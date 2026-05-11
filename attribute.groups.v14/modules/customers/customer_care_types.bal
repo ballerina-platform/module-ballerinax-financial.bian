@@ -1,8 +1,6 @@
 import ballerina/http;
 import financial.bian.attribute.groups.common as common;
 
-// --- card_case_types.bal ---
-
 # >
 # * `RegistrationDate` - Date and time at which a given organisation was officially registered. (ISO20022)
 # * `EstablishmentDate` - Date when the organisation was established. ISO20022
@@ -1642,8 +1640,6 @@ public type Transactionenvironmenttypevalues "Merchant"|"Private"|"Public"|"Bran
 # * `Booktransfer` -
 public type Clearingchanneltypevalues "Realtimegrosssettlementsystem"|"Realtimenetsettlementsystem"|"Masspaymentnetsystem"|"Booktransfer";
 
-// --- customer_case_management_types.bal ---
-
 # >
 # * `Principal` - 
 # * `Actual` - Actual amount.
@@ -1844,8 +1840,6 @@ public type CustomerCaseManagementPlanOk record {|
     # body
     CustomerCaseManagementPlan body;
 |};
-
-// --- customer_case_types.bal ---
 
 # The outcome of the case root cause analysis
 # >
@@ -2435,8 +2429,6 @@ public type CustomerCaseProcedureOk record {|
     CustomerCaseProcedure body;
 |};
 
-// --- servicing_mandate_types.bal ---
-
 # >
 # * `PartyWhoGivesThePermissionToParty` - 
 # * `PartyWhoTakesThePermissionFromParty` - 
@@ -2800,8 +2792,6 @@ public type CustomerMandate record {
     ServicingMandateArrangement ServicingMandateAgreementCustomerProductandServiceTypeUsage?;
 };
 
-// --- servicing_order_types.bal ---
-
 # >
 # * `RegistrationDate` - Date and time at which a given organisation was officially registered. (ISO20022)
 # * `EstablishmentDate` - Date when the organisation was established. ISO20022
@@ -2820,21 +2810,21 @@ public type CustomerMandate record {
 # * `Financialinstitution` - Legal structure is a financial institution.
 # * `National` - Legal structure is a state.
 # >
-# * `Individual` - 
-# * `CommunityInterestCompany` - 
-# * `CharitableIncorporatedOrganisation` - 
-# * `Co-Operative` - 
-# * `Charity` - 
-# * `GeneralPartnership` - 
-# * `LimitedLiabilityPartnership` - 
-# * `ScottishLimitedPartnership` - 
-# * `LimitedPartnership` - 
-# * `PrivateLimitedCompany` - 
-# * `PublicLimitedCompany` - 
-# * `Sole(SoleTrader)` - 
+# * `Individual` -
+# * `CommunityInterestCompany` -
+# * `CharitableIncorporatedOrganisation` -
+# * `Co-Operative` -
+# * `Charity` -
+# * `GeneralPartnership` -
+# * `LimitedLiabilityPartnership` -
+# * `ScottishLimitedPartnership` -
+# * `LimitedPartnership` -
+# * `PrivateLimitedCompany` -
+# * `PublicLimitedCompany` -
+# * `Sole(SoleTrader)` -
 # >
 # * `LEI` - Legal Entity Identifier is a code allocated to a party as described in ISO 17442 "Financial Services - Legal Entity Identifier (LEI)".
-# * `ELF` - Entity Legal Forms is a code allocated to a party as described in ISO 20275 "Financial services  Entity legal forms (ELF)". 
+# * `ELF` - Entity Legal Forms is a code allocated to a party as described in ISO 20275 "Financial services  Entity legal forms (ELF)".
 # * `MIC` - Market Identifier Code. Identification of a financial market, as stipulated in the norm ISO 10383 "Codes for exchanges and market identifications".
 # * `BICFI` - Code allocated to a financial institution by the ISO 9362 Registration Authority as described in ISO 9362 "Banking - Banking telecommunication messages - Business identifier code (BIC)".
 # * `Bankpartyidentification` - Unique and unambiguous assignment made by a specific bank or similar financial institution to identify a relationship as defined between the bank and its client.
@@ -2852,38 +2842,51 @@ public type CustomerMandate record {
 # * `Taxidentificationnumber` - Number assigned by a tax authority to identify an organisation.
 # * `EANGLN` - Global Location Number. A non-significant reference number used to identify legal entities, functional entities, or physical entities according to the European Association for Numbering (EAN) numbering scheme rules. The number is used to retrieve detailed information that is linked to it. (iso20022)
 # >
-# * `MaturityDate` - 
-# * `InitiatedDate` - 
-# * `RequestedDate` - 
-# * `ExecutedDate` - 
-# * `OpenDate` - 
-# * `CloseDate` - 
-# * `ExpiryDate` - 
-# * `EffectiveDate` - 
-# * `CreatingDate` - 
-# * `ActivationDate` - 
-# * `DeactivationDate` - 
-# * `BlockingDate` - 
-# * `SendingDate` - 
-# * `ValidFromDate` - 
-# * `ValidToDate` - 
-# * `ReceivingDate` - 
-# * `SigningDate` - 
-# * `DueDate` - 
-# * `ValueDate` - 
-# * `FulfillmentDate` - 
-# * `EntryDate` - 
+# * `MaturityDate` -
+# * `InitiatedDate` -
+# * `RequestedDate` -
+# * `ExecutedDate` -
+# * `OpenDate` -
+# * `CloseDate` -
+# * `ExpiryDate` -
+# * `EffectiveDate` -
+# * `CreatingDate` -
+# * `ActivationDate` -
+# * `DeactivationDate` -
+# * `BlockingDate` -
+# * `SendingDate` -
+# * `ValidFromDate` -
+# * `ValidToDate` -
+# * `ReceivingDate` -
+# * `SigningDate` -
+# * `DueDate` -
+# * `ValueDate` -
+# * `FulfillmentDate` -
+# * `EntryDate` -
 # >
 # * `Person` - Human entity, as distinguished from a corporate entity (which is sometimes referred to as an 'artificial person'). ISO20022
 # * `Organisation` - Organised structure that is set up for a particular purpose. For example, a business, government body, department, charity, or financial institution. ISO20022
 # >
-# * `ShortName` - 
-# * `TradingName` - 
-# * `LegalName` - 
+# * `ShortName` -
+# * `TradingName` -
+# * `LegalName` -
 # Name by which a party is known and which is usually used to identify that party. (ISO20022)
 # Status Attributes
 # Reference to a third party service provider that handles some aspect of customer servicing access with the bank
-# Complete work tasks following a defined procedure in support of general office activities and product and service delivery within Servicing Order. 
+# Complete work tasks following a defined procedure in support of general office activities and product and service delivery within Servicing Order.
+#
+# + ThirdPartyReference - field description  
+# + ThirdPartyServicingMandateReference - field description  
+# + ThirdPartyServicingMandate - field description  
+# + CustomerReference - field description  
+# + CustomerEligibilityAssessmentInstanceReference - field description  
+# + ServicingOrderType - field description  
+# + ServicingOrderTaskRecord - field description  
+# + ServicingOrderDescription - field description  
+# + Date - field description  
+# + EmployeeBusinessUnitReference - field description  
+# + ServicingOrderWorkProduct - field description  
+# + ServicingOrderWorkTaskResult - field description
 public type ServicingOrderProcedure record {
     # Reference to a third party service provider that handles some aspect of customer servicing access with the bank
     common:Party ThirdPartyReference?;

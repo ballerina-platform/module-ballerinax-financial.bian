@@ -1,8 +1,6 @@
 import ballerina/http;
 import financial.bian.attribute.groups.common as common;
 
-// --- guideline_compliance_types.bal ---
-
 public type GuidelineComplianceAssessmentOk record {|
     *http:Ok;
     # body
@@ -58,8 +56,6 @@ public type GuidelineComplianceAssessment record {
     # Outcome/result of the assessment, can include remedial actions
     common:Assessment GuidelineComplianceAssessmentResult?;
 };
-
-// --- regulatory_compliance_types.bal ---
 
 # To test or assess an entity, possibly against some formal qualification or certification requirement within Regulatory Compliance. 
 public type RegulatoryComplianceAssessment record {
@@ -171,8 +167,6 @@ public type Guideline record {
     # RuleSetLifecycleStatus
     common:Status RuleSetLifecycleStatus?;
 };
-
-// --- regulatory_reporting_types.bal ---
 
 public type RegulatoryComplianceAdministrativePlanOk record {|
     *http:Ok;

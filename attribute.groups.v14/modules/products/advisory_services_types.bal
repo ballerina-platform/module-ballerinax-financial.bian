@@ -1,8 +1,6 @@
 import ballerina/http;
 import financial.bian.attribute.groups.common as common;
 
-// --- consumer_advisory_services_types.bal ---
-
 # Fulfill any scheduled and ad-hoc obligations under a service arrangement, most typically for a financial product or facility within Consumer Advisory Services. 
 public type ConsumerAdviceFacility record {
     # Reference to the advisory service session ||
@@ -112,8 +110,6 @@ public type ConsumerAdviceFacilityOk record {|
     *http:Ok;
     ConsumerAdviceFacility body;
 |};
-
-// --- corporate_finance_types.bal ---
 
 # A Classification value that distinguishes between the type of actions undertaken within Corporate Finance Services Advice ||
 # |
@@ -502,8 +498,6 @@ public type StrategicFunding record {
     common:schedule Schedule?;
 };
 
-// --- corporate_tax_advisory_types.bal ---
-
 # Reference to the collection of advisory service sessions underlying the service Loan|Loan (https://www.iso20022.org/standardsrepository/type/Loan)|Standard|ISO20022 ()
 public type loanagreement record {
     # Term and condition to govern the use of loan product and the loan agreement in general.
@@ -546,8 +540,6 @@ public type CorporateTaxAdvisoryFacility record {
     # Value of the date type ISODateTime|ISODateTime (https://www.iso20022.org/standardsrepository/type/ISODateTime)|Standard|ISO20022 BM ()
     common:datetime Date?;
 };
-
-// --- legal_advisory_types.bal ---
 
 # >
 # * `BaseCurrency` - Base currency of the account. (ISO20022)
