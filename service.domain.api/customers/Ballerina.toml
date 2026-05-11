@@ -12,3 +12,4 @@ org = "ballerinax"
 name = "financial.bian.attribute.groups"
 version = "0.1.0"
 repository = "local"
+
