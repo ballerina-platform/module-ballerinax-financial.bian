@@ -1,3 +1,19 @@
+// Copyright (c) 2026, WSO2 LLC. (https://www.wso2.com).
+//
+// WSO2 LLC. licenses this file to you under the Apache License,
+// Version 2.0 (the "License"); you may not use this file except
+// in compliance with the License.
+// You may obtain a copy of the License at
+//
+//    http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing,
+// software distributed under the License is distributed on an
+// "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+// KIND, either express or implied. See the License for the
+// specific language governing permissions and limitations
+// under the License.
+
 import financial.bian.attribute.groups.common as common;
 
 import ballerina/http;
@@ -46,9 +62,6 @@ public type VoiceChannelManagementPlanOk record {|
     VoiceChannelManagementPlan body;
 |};
 
-# A collection of one or more responsibilities or tasks under management
-#
-# Examples: Relationship development, Troubleshooting
 public type CapacityPlanning record {
     # Record of the channel resource utilization and loading
     string VChannelPlatformUtilization?;
@@ -819,7 +832,6 @@ public type ModelUsageRuleSet record {
     # Lifecycle status of the rule set
     common:Status RuleSetLifecycleStatus?;
 };
-
 
 public type CustomerBehaviorModelSpecificationOk record {|
     *http:Ok;
@@ -1835,29 +1847,6 @@ public type ProductorServiceSpecification record {
     # The deployable product or service specification in any appropriate form (including historical versions as appropriate). Note supporting systems and production/operations facilities are handled in parallel as part of a broader deployment
     string ProductandServiceSpecification?;
 };
-
-# >
-# * `MaturityDate` - 
-# * `InitiatedDate` - 
-# * `RequestedDate` - 
-# * `ExecutedDate` - 
-# * `OpenDate` - 
-# * `CloseDate` - 
-# * `ExpiryDate` - 
-# * `EffectiveDate` - 
-# * `CreatingDate` - 
-# * `ActivationDate` - 
-# * `DeactivationDate` - 
-# * `BlockingDate` - 
-# * `SendingDate` - 
-# * `ValidFromDate` - 
-# * `ValidToDate` - 
-# * `ReceivingDate` - 
-# * `SigningDate` - 
-# * `DueDate` - 
-# * `ValueDate` - 
-# * `FulfillmentDate` - 
-# * `EntryDate` - 
 
 # Any configuration settings for the directory entry (e.g. generally available, provisional)
 public type ProductDirectoryEntry record {
