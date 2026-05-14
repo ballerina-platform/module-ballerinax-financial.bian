@@ -193,42 +193,11 @@ public type Productserviceagreementinvolvementtypevalues "Principal"|"SecondaryO
 # * `PersonalDocument` - 
 public type Partydocumenttypevalues "WorkDocument"|"CertificationDocument"|"PersonalDocument";
 
-# >
-# * `PartyIsParentOfParty` - 
-# * `PartyIsSubsidiaryOfParty` - 
-# * `PartyIsCertifiedByParty` - 
-# * `PartyIsMarriedToParty` - 
-# * `PartyActsOnBehalfOfParty` - 
-# * `PartyIsContactPointForParty` - 
-# * `PartyIsTrustedByParty` - 
-# * `PartyIsThePowerOfAttorneyForParty` - 
-# * `PartyReceivesBenefitsFromAParty` - 
-public type Party_Partyrelationshiptypevalues "PartyIsParentOfParty"|"PartyIsSubsidiaryOfParty"|"PartyIsCertifiedByParty"|"PartyIsMarriedToParty"|"PartyActsOnBehalfOfParty"|"PartyIsContactPointForParty"|"PartyIsTrustedByParty"|"PartyIsThePowerOfAttorneyForParty"|"PartyReceivesBenefitsFromAParty";
-
 public type AssociationsOk record {|
     *http:Ok;
     # body
-    common:Associations body;
+    Associations body;
 |};
-
-# Reference to individuals with specific representation rights (e.g. a lawyer with power of attorney)
-public type Party_PartyRelationship record {
-    # >
-    # * `PartyIsParentOfParty` - 
-    # * `PartyIsSubsidiaryOfParty` - 
-    # * `PartyIsCertifiedByParty` - 
-    # * `PartyIsMarriedToParty` - 
-    # * `PartyActsOnBehalfOfParty` - 
-    # * `PartyIsContactPointForParty` - 
-    # * `PartyIsTrustedByParty` - 
-    # * `PartyIsThePowerOfAttorneyForParty` - 
-    # * `PartyReceivesBenefitsFromAParty` - 
-    Party_Partyrelationshiptypevalues RelationshipType?;
-    # FromParty
-    common:Party FromParty?;
-    # ToParty
-    common:Party ToParty?;
-};
 
 # The specific role played by the identified officer/employee
 public type PartyRole record {
@@ -593,6 +562,74 @@ public type Demographics record {
     # Description of any known constraints on servicing the customer (sight, hearing, religious considerations)
     string ServicingConstraints?;
 };
+
+# "An assertion or statement with regard to a concept, a characteristic.
+#
+# Examples: Product pricing rules, Customer reference details
+#
+# A descriptor can be atomic or composed."
+# Prospect Management
+public type Associations record {
+    # Reference to the customer's employer (company name)
+    common:Involvedparty EmployeeReference?;
+    # Reference to the customer's employer (company name)
+    common:Involvedparty AssociateReference?;
+    # >
+    # * `PartyIsParentOfParty` - 
+    # * `PartyIsSubsidiaryOfParty` - 
+    # * `PartyIsCertifiedByParty` - 
+    # * `PartyIsMarriedToParty` - 
+    # * `PartyActsOnBehalfOfParty` - 
+    # * `PartyIsContactPointForParty` - 
+    # * `PartyIsTrustedByParty` - 
+    # * `PartyIsThePowerOfAttorneyForParty` - 
+    # * `PartyReceivesBenefitsFromAParty` - 
+    Party_Partyrelationshiptypevalues AssociateType?;
+    # Description of the rights or obligations granted to the associate
+    common:partyobligationorentitlement AssociateObligationorDependencyDescription?;
+    # Validity period for the association
+    common:datetimeperiod AssociationValidFromToDate?;
+    # Reference to a product or service where the association is linked in some manner (e.g. guarantor)
+    common:productagreement ProductInstanceReference?;
+    # Reference to the customer's employer (company name)
+    common:involvedparty PreferredBeneficiary?;
+    # Reference to individuals with specific representation rights (e.g. a lawyer with power of attorney)
+    Party_PartyRelationship ProxyRepresentativePowerofAttorneyReference?;
+    # Reference to product agreement involvement
+    ProductAgreementInvolvement ProductInstanseInvolvementReference?;
+};
+
+# Reference to individuals with specific representation rights (e.g. a lawyer with power of attorney)
+public type Party_PartyRelationship record {
+    # >
+    # * `PartyIsParentOfParty` - 
+    # * `PartyIsSubsidiaryOfParty` - 
+    # * `PartyIsCertifiedByParty` - 
+    # * `PartyIsMarriedToParty` - 
+    # * `PartyActsOnBehalfOfParty` - 
+    # * `PartyIsContactPointForParty` - 
+    # * `PartyIsTrustedByParty` - 
+    # * `PartyIsThePowerOfAttorneyForParty` - 
+    # * `PartyReceivesBenefitsFromAParty` - 
+    Party_Partyrelationshiptypevalues RelationshipType?;
+    # FromParty
+    common:Party FromParty?;
+    # ToParty
+    common:Party ToParty?;
+};
+
+# >
+# * `PartyIsParentOfParty` - 
+# * `PartyIsSubsidiaryOfParty` - 
+# * `PartyIsCertifiedByParty` - 
+# * `PartyIsMarriedToParty` - 
+# * `PartyActsOnBehalfOfParty` - 
+# * `PartyIsContactPointForParty` - 
+# * `PartyIsTrustedByParty` - 
+# * `PartyIsThePowerOfAttorneyForParty` - 
+# * `PartyReceivesBenefitsFromAParty` - 
+public type Party_Partyrelationshiptypevalues "PartyIsParentOfParty"|"PartyIsSubsidiaryOfParty"|"PartyIsCertifiedByParty"|"PartyIsMarriedToParty"|"PartyActsOnBehalfOfParty"|"PartyIsContactPointForParty"|"PartyIsTrustedByParty"|"PartyIsThePowerOfAttorneyForParty"|"PartyReceivesBenefitsFromAParty";
+
 
 public type ProductAgreementInvolvement record {
     # >
