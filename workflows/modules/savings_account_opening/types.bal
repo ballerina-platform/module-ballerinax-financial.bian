@@ -55,3 +55,4 @@ public type AccountOpeningResponse record {
     // Human-readable summary message confirming the outcome.
     string message;
 };
+

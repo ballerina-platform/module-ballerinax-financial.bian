@@ -19,3 +19,4 @@ public type HTTPError record {
     # Error message
     string message?;
 };
+    
