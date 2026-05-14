@@ -1,0 +1,22 @@
+[package]
+org = "ballerinax"
+name = "financial.bian.business.workflows"
+version = "0.1.0"
+distribution = "2201.13.1"
+
+[build-options]
+sticky = true
+
+[[package.modules]]
+name = "financial.bian.business.workflows.common"
+export = true
+
+[[package.modules]]
+name = "financial.bian.business.workflows.savings_account_opening"
+export = true
+
+[[dependency]]
+org = "ballerinax"
+name = "financial.bian.attribute.groups"
+version = "0.1.0"
+repository = "local"
