@@ -15,6 +15,18 @@ export = true
 name = "financial.bian.business.workflows.savings_account_opening"
 export = true
 
+[[package.modules]]
+name = "financial.bian.business.workflows.outgoing_credit_transfer"
+export = true
+
+[[package.modules]]
+name = "financial.bian.business.workflows.corporate_customer_onboarding"
+export = true
+
+[[package.modules]]
+name = "financial.bian.business.workflows.corporate_payroll_service_agreement"
+export = true
+
 [[dependency]]
 org = "ballerinax"
 name = "financial.bian.attribute.groups"
