@@ -1,3 +1,19 @@
+// Copyright (c) 2026, WSO2 LLC. (https://www.wso2.com).
+//
+// WSO2 LLC. licenses this file to you under the Apache License,
+// Version 2.0 (the "License"); you may not use this file except
+// in compliance with the License.
+// You may obtain a copy of the License at
+//
+//    http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing,
+// software distributed under the License is distributed on an
+// "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+// KIND, either express or implied. See the License for the
+// specific language governing permissions and limitations
+// under the License.
+
 import ballerinax/financial.bian.attribute.groups.customers as customers;
 import ballerinax/financial.bian.attribute.groups.common as common;
 import ballerina/http;
@@ -67,7 +83,7 @@ http:Service partyLifecycleManagementService =  service object {
 	            responseFromServer = check externalClient->get("/PartyLifecycleManagement/" + partylifecyclemanagementid + "/Qualification/" + qualificationid + "/Retrieve");
             }
             io:println("-----------------------------------------------------------------------------------------------");
-            io:println("Received response from backends API: /PartyLifecycleManagement/" + partylifecyclemanagementid + "/Qualification/" + qualificationid + "/Retrieve");
+            io:println("Received response from backends API: /PartyLifecycleManagement/Qualification/Retrieve");
             io:println("{\n" +
                 "    CustomerReference: {...},\n" +
                 "    PartyReference: {...},\n" +
@@ -238,7 +254,75 @@ http:Service partyLifecycleManagementService =  service object {
     # http:TooManyRequests (TooManyRequests)
     # http:InternalServerError (InternalServerError)
     isolated resource function put PartyLifecycleManagement/[string partylifecyclemanagementid]/Control(@http:Payload customers:PartyRelationshipAdministrativePlan payload) returns customers:PartyRelationshipAdministrativePlan|common:HTTPErrorBadRequest|common:HTTPErrorUnauthorized|common:HTTPErrorForbidden|common:HTTPErrorNotFound|common:HTTPErrorTooManyRequests|common:HTTPErrorInternalServerError {
-        return <customers:PartyRelationshipAdministrativePlan>{};
+        do {
+            json|http:ClientError responseFromServer;
+            lock {
+	            // Invoking the configured backend service
+                // TODO: Update the endpoint URL as per the actual backend API contract
+	            responseFromServer = check externalClient->get("/PartyLifecycleManagement/" + partylifecyclemanagementid + "/Control");
+            }
+            io:println("-----------------------------------------------------------------------------------------------");
+            io:println("Received response from backends API: /PartyLifecycleManagement/Control");
+            io:println("{\n" +
+                "    CustomerReference: {...},\n" +
+                "    PartyReference: {...},\n" +
+                "    PartyRelationshipType: \"PartyIsParentOfParty\",\n" +
+                "    PartyLife-cycleMaintenanceSchedule: {...},\n" +
+                "    PartyLife-cycleMaintenanceTask: {...},\n" +
+                "    PartyLife-cycleMaintenanceTaskType: {...},\n" +
+                "    PartyLife-cycleMaintenanceWorkProducts: {...},\n" +
+                "    PartyLife-cycleMaintenanceTaskResult: {...},\n" +
+                "    CustomerPrecedentProfileUpdateLog: {...},\n" +
+                "    PartyRelationshipLifecycleStatus: {...},\n" +
+                "    PartyRelationshipLifecyclePhase: {...}\n" +
+            "}");
+            io:println("-----------------------------------------------------------------------------------------------");
+            io:println(" ");
+        
+            if (responseFromServer is http:ClientError) {
+                // Handle the error response
+                io:println("Error response received from backend:", responseFromServer);
+                common:HTTPErrorInternalServerError httpError = {
+                    body:{
+                        status_code : "500",
+                        status: "Internal Server Error",
+                        message : "An error occurred while processing the request."
+                    }
+                };
+                return httpError;
+            }
+            // Transform the response from backend to match the defined return type.
+            // TODO: Implement the custom transformation logic in the data mapper module            
+            // This is a sample mapping function. The transformation logic will depend on the actual response structure from the backend API and 
+            // the defined BIAN data model for product_management:Operations.
+            customers:PartyRelationshipAdministrativePlan|error partyRelationshipAdministrativePlan = transformPartyRelationshipPlan(responseFromServer);
+
+            // Check if the transformation was successful
+            if (partyRelationshipAdministrativePlan is error) {
+                // Handle the error response
+                io:println("Error response received from backend:", partyRelationshipAdministrativePlan);
+                common:HTTPErrorBadRequest httpError = {
+                    body:{
+                        status_code : "400",
+                        status: "Bad Request",
+                        message : partyRelationshipAdministrativePlan.message()
+                    }
+                };
+                return httpError;
+            }
+            return partyRelationshipAdministrativePlan;
+        } on fail error err {
+        	io:println(err.message());
+            common:HTTPError httpError = {
+                status_code: "500",
+                status: "Internal Server Error",
+                message: "An error occurred while processing the request."
+            };
+            common:HTTPErrorInternalServerError errorResponse = {
+                body: httpError
+            };
+            return errorResponse;
+        }
     }
 
     # ExBQ Execute an automated action (e.g. input data about a document)

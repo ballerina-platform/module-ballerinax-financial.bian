@@ -1,3 +1,19 @@
+// Copyright (c) 2026, WSO2 LLC. (https://www.wso2.com).
+//
+// WSO2 LLC. licenses this file to you under the Apache License,
+// Version 2.0 (the "License"); you may not use this file except
+// in compliance with the License.
+// You may obtain a copy of the License at
+//
+//    http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing,
+// software distributed under the License is distributed on an
+// "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+// KIND, either express or implied. See the License for the
+// specific language governing permissions and limitations
+// under the License.
+
 import ballerinax/financial.bian.attribute.groups.customers as customers;
 
 isolated function transfromSalesProductAgreementEvaluateResponse(json response) returns customers:SalesProductAgreement|error => {
@@ -281,54 +297,54 @@ isolated function transfromSalesProductAgreementEvaluateResponse(json response) 
         },
         "AgreementDescription": check response?.CustomerAgreementReference?.AgreementDescription
     },
-    "PartyLife-cycleManagementReference": {
-        "Description": check response?.PartyLife\-cycleManagementReference?.Description,
-        "IsCurrentPhase": check response?.PartyLife\-cycleManagementReference?.IsCurrentPhase,
-        "PhaseName": {
-            "Name": check response?.PartyLife\-cycleManagementReference?.PhaseName?.Name
-        },
-        "PhaseStatus": {
-            "StatusReason": check response?.PartyLife\-cycleManagementReference?.PhaseStatus?.StatusReason,
-            "StatusDateTime": {
-                "DateTimeContent": check response?.PartyLife\-cycleManagementReference?.PhaseStatus?.StatusDateTime?.DateTimeContent,
-                "TimeZoneCode": check response?.PartyLife\-cycleManagementReference?.PhaseStatus?.StatusDateTime?.TimeZoneCode,
-                "DaylightSavingIndicator": check response?.PartyLife\-cycleManagementReference?.PhaseStatus?.StatusDateTime?.DaylightSavingIndicator,
-                "DateTimeType": check response?.PartyLife\-cycleManagementReference?.PhaseStatus?.StatusDateTime?.DateTimeType
-            },
-            "StatusValidityPeriod": {
-                "FromDateTime": {
-                    "DateTimeContent": check response?.PartyLife\-cycleManagementReference?.PhaseStatus?.StatusValidityPeriod?.FromDateTime?.DateTimeContent,
-                    "TimeZoneCode": check response?.PartyLife\-cycleManagementReference?.PhaseStatus?.StatusValidityPeriod?.FromDateTime?.TimeZoneCode,
-                    "DaylightSavingIndicator": check response?.PartyLife\-cycleManagementReference?.PhaseStatus?.StatusValidityPeriod?.FromDateTime?.DaylightSavingIndicator,
-                    "DateTimeType": check response?.PartyLife\-cycleManagementReference?.PhaseStatus?.StatusValidityPeriod?.FromDateTime?.DateTimeType
-                },
-                "ToDateTime": {
-                    "DateTimeContent": check response?.PartyLife\-cycleManagementReference?.PhaseStatus?.StatusValidityPeriod?.ToDateTime?.DateTimeContent,
-                    "TimeZoneCode": check response?.PartyLife\-cycleManagementReference?.PhaseStatus?.StatusValidityPeriod?.ToDateTime?.TimeZoneCode,
-                    "DaylightSavingIndicator": check response?.PartyLife\-cycleManagementReference?.PhaseStatus?.StatusValidityPeriod?.ToDateTime?.DaylightSavingIndicator,
-                    "DateTimeType": check response?.PartyLife\-cycleManagementReference?.PhaseStatus?.StatusValidityPeriod?.ToDateTime?.DateTimeType
-                }
-            },
-            "StatusInvolvedPartyReference": {
-                "PartyReference": check response?.PartyLife\-cycleManagementReference?.PhaseStatus?.StatusInvolvedPartyReference?.PartyReference,
-                "InvolvementReference": check response?.PartyLife\-cycleManagementReference?.PhaseStatus?.StatusInvolvedPartyReference?.InvolvementReference
-            }
-        },
-        "PhasePeriod": {
-            "FromDateTime": {
-                "DateTimeContent": check response?.PartyLife\-cycleManagementReference?.PhasePeriod?.FromDateTime?.DateTimeContent,
-                "TimeZoneCode": check response?.PartyLife\-cycleManagementReference?.PhasePeriod?.FromDateTime?.TimeZoneCode,
-                "DaylightSavingIndicator": check response?.PartyLife\-cycleManagementReference?.PhasePeriod?.FromDateTime?.DaylightSavingIndicator,
-                "DateTimeType": check response?.PartyLife\-cycleManagementReference?.PhasePeriod?.FromDateTime?.DateTimeType
-            },
-            "ToDateTime": {
-                "DateTimeContent": check response?.PartyLife\-cycleManagementReference?.PhasePeriod?.ToDateTime?.DateTimeContent,
-                "TimeZoneCode": check response?.PartyLife\-cycleManagementReference?.PhasePeriod?.ToDateTime?.TimeZoneCode,
-                "DaylightSavingIndicator": check response?.PartyLife\-cycleManagementReference?.PhasePeriod?.ToDateTime?.DaylightSavingIndicator,
-                "DateTimeType": check response?.PartyLife\-cycleManagementReference?.PhasePeriod?.ToDateTime?.DateTimeType
-            }
-        }
-    },
+    // "PartyLife-cycleManagementReference": {
+    //     "Description": check response?.PartyLife\-cycleManagementReference?.Description,
+    //     "IsCurrentPhase": check response?.PartyLife\-cycleManagementReference?.IsCurrentPhase,
+    //     "PhaseName": {
+    //         "Name": check response?.PartyLife\-cycleManagementReference?.PhaseName?.Name
+    //     },
+    //     "PhaseStatus": {
+    //         "StatusReason": check response?.PartyLife\-cycleManagementReference?.PhaseStatus?.StatusReason,
+    //         "StatusDateTime": {
+    //             "DateTimeContent": check response?.PartyLife\-cycleManagementReference?.PhaseStatus?.StatusDateTime?.DateTimeContent,
+    //             "TimeZoneCode": check response?.PartyLife\-cycleManagementReference?.PhaseStatus?.StatusDateTime?.TimeZoneCode,
+    //             "DaylightSavingIndicator": check response?.PartyLife\-cycleManagementReference?.PhaseStatus?.StatusDateTime?.DaylightSavingIndicator,
+    //             "DateTimeType": check response?.PartyLife\-cycleManagementReference?.PhaseStatus?.StatusDateTime?.DateTimeType
+    //         },
+    //         "StatusValidityPeriod": {
+    //             "FromDateTime": {
+    //                 "DateTimeContent": check response?.PartyLife\-cycleManagementReference?.PhaseStatus?.StatusValidityPeriod?.FromDateTime?.DateTimeContent,
+    //                 "TimeZoneCode": check response?.PartyLife\-cycleManagementReference?.PhaseStatus?.StatusValidityPeriod?.FromDateTime?.TimeZoneCode,
+    //                 "DaylightSavingIndicator": check response?.PartyLife\-cycleManagementReference?.PhaseStatus?.StatusValidityPeriod?.FromDateTime?.DaylightSavingIndicator,
+    //                 "DateTimeType": check response?.PartyLife\-cycleManagementReference?.PhaseStatus?.StatusValidityPeriod?.FromDateTime?.DateTimeType
+    //             },
+    //             "ToDateTime": {
+    //                 "DateTimeContent": check response?.PartyLife\-cycleManagementReference?.PhaseStatus?.StatusValidityPeriod?.ToDateTime?.DateTimeContent,
+    //                 "TimeZoneCode": check response?.PartyLife\-cycleManagementReference?.PhaseStatus?.StatusValidityPeriod?.ToDateTime?.TimeZoneCode,
+    //                 "DaylightSavingIndicator": check response?.PartyLife\-cycleManagementReference?.PhaseStatus?.StatusValidityPeriod?.ToDateTime?.DaylightSavingIndicator,
+    //                 "DateTimeType": check response?.PartyLife\-cycleManagementReference?.PhaseStatus?.StatusValidityPeriod?.ToDateTime?.DateTimeType
+    //             }
+    //         },
+    //         "StatusInvolvedPartyReference": {
+    //             "PartyReference": check response?.PartyLife\-cycleManagementReference?.PhaseStatus?.StatusInvolvedPartyReference?.PartyReference,
+    //             "InvolvementReference": check response?.PartyLife\-cycleManagementReference?.PhaseStatus?.StatusInvolvedPartyReference?.InvolvementReference
+    //         }
+    //     },
+    //     "PhasePeriod": {
+    //         "FromDateTime": {
+    //             "DateTimeContent": check response?.PartyLife\-cycleManagementReference?.PhasePeriod?.FromDateTime?.DateTimeContent,
+    //             "TimeZoneCode": check response?.PartyLife\-cycleManagementReference?.PhasePeriod?.FromDateTime?.TimeZoneCode,
+    //             "DaylightSavingIndicator": check response?.PartyLife\-cycleManagementReference?.PhasePeriod?.FromDateTime?.DaylightSavingIndicator,
+    //             "DateTimeType": check response?.PartyLife\-cycleManagementReference?.PhasePeriod?.FromDateTime?.DateTimeType
+    //         },
+    //         "ToDateTime": {
+    //             "DateTimeContent": check response?.PartyLife\-cycleManagementReference?.PhasePeriod?.ToDateTime?.DateTimeContent,
+    //             "TimeZoneCode": check response?.PartyLife\-cycleManagementReference?.PhasePeriod?.ToDateTime?.TimeZoneCode,
+    //             "DaylightSavingIndicator": check response?.PartyLife\-cycleManagementReference?.PhasePeriod?.ToDateTime?.DaylightSavingIndicator,
+    //             "DateTimeType": check response?.PartyLife\-cycleManagementReference?.PhasePeriod?.ToDateTime?.DateTimeType
+    //         }
+    //     }
+    // },
     "BankingProductReference": {
         "ProductIdentification": {
             "ProductIdentification": {

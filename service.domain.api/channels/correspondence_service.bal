@@ -1,3 +1,19 @@
+// Copyright (c) 2026, WSO2 LLC. (https://www.wso2.com).
+//
+// WSO2 LLC. licenses this file to you under the Apache License,
+// Version 2.0 (the "License"); you may not use this file except
+// in compliance with the License.
+// You may obtain a copy of the License at
+//
+//    http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing,
+// software distributed under the License is distributed on an
+// "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+// KIND, either express or implied. See the License for the
+// specific language governing permissions and limitations
+// under the License.
+
 import ballerinax/financial.bian.attribute.groups.channels as channels;
 import ballerinax/financial.bian.attribute.groups.common as common;
 import ballerina/http;
@@ -134,10 +150,10 @@ http:Service correspondenceService =  service object {
             lock {
 	            // Invoking the configured backend service
                 // TODO: Update the endpoint URL as per the actual backend API contract
-	            responseFromServer = check externalClient->get("Correspondence/" + correspondenceid + "/Outbound/Initiate");
+	            responseFromServer = check externalClient->get("/Correspondence/Outbound/Initiate");
             }
             io:println("-----------------------------------------------------------------------------------------------");
-            io:println("Received response from backends API: Correspondence/" + correspondenceid + "/Outbound/Initiate");
+            io:println("Received response from backends API: Correspondence/Outbound/Initiate");
             io:println("{\n"+
                 "   CorrespondenceSourceReference: \"Ref124\",\n"+
                 "   CorrespondenceRecord: {...},\n"+
@@ -223,7 +239,7 @@ http:Service correspondenceService =  service object {
             lock {
 	            // Invoking the configured backend service
                 // TODO: Update the endpoint URL as per the actual backend API contract
-	            responseFromServer = check externalClient->get("Correspondence/" + correspondenceid + "/OutboundWithResponse/Initiate");
+	            responseFromServer = check externalClient->get("/Correspondence/OutboundWithResponse/Initiate");
             }
             io:println("-----------------------------------------------------------------------------------------------");
             io:println("Received response from backends API: Correspondence/" + correspondenceid + "/OutboundWithResponse/Initiate");

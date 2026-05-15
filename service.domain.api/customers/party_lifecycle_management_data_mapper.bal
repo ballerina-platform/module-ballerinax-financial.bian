@@ -1,3 +1,19 @@
+// Copyright (c) 2026, WSO2 LLC. (https://www.wso2.com).
+//
+// WSO2 LLC. licenses this file to you under the Apache License,
+// Version 2.0 (the "License"); you may not use this file except
+// in compliance with the License.
+// You may obtain a copy of the License at
+//
+//    http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing,
+// software distributed under the License is distributed on an
+// "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+// KIND, either express or implied. See the License for the
+// specific language governing permissions and limitations
+// under the License.
+
 import ballerinax/financial.bian.attribute.groups.customers as customers;
 
 isolated function transformPartyRelationshipPlan(json response) returns customers:PartyRelationshipAdministrativePlan|error => {
@@ -44,36 +60,36 @@ isolated function transformPartyRelationshipPlan(json response) returns customer
         }
     },
     "PartyRelationshipType": check response?.PartyRelationshipType,
-    "PartyLife-cycleMaintenanceSchedule": {
-        "ScheduleType": check response?.PartyLife\-cycleMaintenanceSchedule?.ScheduleType
-    },
-    "PartyLife-cycleMaintenanceTask": {
-        "Task": check response?.PartyLife\-cycleMaintenanceTask?.Task
-    },
-    "PartyLife-cycleMaintenanceTaskType": check response?.PartyLife\-cycleMaintenanceTaskType,
-    "PartyLife-cycleMaintenanceWorkProducts": {
-        "WorkProductType": check response?.PartyLife\-cycleMaintenanceWorkProducts?.WorkProductType,
-        "WorkProductIdentifoication": {
-            "IdentifierValue": check response?.PartyLife\-cycleMaintenanceWorkProducts?.WorkProductIdentifoication?.IdentifierValue,
-            "IdentifierIssuerReference": {
-                "PartyReference": check response?.PartyLife\-cycleMaintenanceWorkProducts?.WorkProductIdentifoication?.IdentifierIssuerReference?.PartyReference,
-                "InvolvementReference": check response?.PartyLife\-cycleMaintenanceWorkProducts?.WorkProductIdentifoication?.IdentifierIssuerReference?.InvolvementReference
-            },
-            "IdentifierStartDate": {
-                "DateTimeContent": check response?.PartyLife\-cycleMaintenanceWorkProducts?.WorkProductIdentifoication?.IdentifierStartDate?.DateTimeContent,
-                "TimeZoneCode": check response?.PartyLife\-cycleMaintenanceWorkProducts?.WorkProductIdentifoication?.IdentifierStartDate?.TimeZoneCode,
-                "DaylightSavingIndicator": check response?.PartyLife\-cycleMaintenanceWorkProducts?.WorkProductIdentifoication?.IdentifierStartDate?.DaylightSavingIndicator,
-                "DateTimeType": check response?.PartyLife\-cycleMaintenanceWorkProducts?.WorkProductIdentifoication?.IdentifierStartDate?.DateTimeType
-            },
-            "IdentifierEndDate": {
-                "DateTimeContent": check response?.PartyLife\-cycleMaintenanceWorkProducts?.WorkProductIdentifoication?.IdentifierEndDate?.DateTimeContent,
-                "TimeZoneCode": check response?.PartyLife\-cycleMaintenanceWorkProducts?.WorkProductIdentifoication?.IdentifierEndDate?.TimeZoneCode,
-                "DaylightSavingIndicator": check response?.PartyLife\-cycleMaintenanceWorkProducts?.WorkProductIdentifoication?.IdentifierEndDate?.DaylightSavingIndicator,
-                "DateTimeType": check response?.PartyLife\-cycleMaintenanceWorkProducts?.WorkProductIdentifoication?.IdentifierEndDate?.DateTimeType
-            }
-        }
-    },
-    "PartyLife-cycleMaintenanceTaskResult": check response?.PartyLife\-cycleMaintenanceTaskResult,
+    // "PartyLife-cycleMaintenanceSchedule": {
+    //     "ScheduleType": check response?.PartyLife\-cycleMaintenanceSchedule?.ScheduleType
+    // },
+    // "PartyLife-cycleMaintenanceTask": {
+    //     "Task": check response?.PartyLife\-cycleMaintenanceTask?.Task
+    // },
+    // "PartyLife-cycleMaintenanceTaskType": check response?.PartyLife\-cycleMaintenanceTaskType,
+    // "PartyLife-cycleMaintenanceWorkProducts": {
+    //     "WorkProductType": check response?.PartyLife\-cycleMaintenanceWorkProducts?.WorkProductType,
+    //     "WorkProductIdentifoication": {
+    //         "IdentifierValue": check response?.PartyLife\-cycleMaintenanceWorkProducts?.WorkProductIdentifoication?.IdentifierValue,
+    //         "IdentifierIssuerReference": {
+    //             "PartyReference": check response?.PartyLife\-cycleMaintenanceWorkProducts?.WorkProductIdentifoication?.IdentifierIssuerReference?.PartyReference,
+    //             "InvolvementReference": check response?.PartyLife\-cycleMaintenanceWorkProducts?.WorkProductIdentifoication?.IdentifierIssuerReference?.InvolvementReference
+    //         },
+    //         "IdentifierStartDate": {
+    //             "DateTimeContent": check response?.PartyLife\-cycleMaintenanceWorkProducts?.WorkProductIdentifoication?.IdentifierStartDate?.DateTimeContent,
+    //             "TimeZoneCode": check response?.PartyLife\-cycleMaintenanceWorkProducts?.WorkProductIdentifoication?.IdentifierStartDate?.TimeZoneCode,
+    //             "DaylightSavingIndicator": check response?.PartyLife\-cycleMaintenanceWorkProducts?.WorkProductIdentifoication?.IdentifierStartDate?.DaylightSavingIndicator,
+    //             "DateTimeType": check response?.PartyLife\-cycleMaintenanceWorkProducts?.WorkProductIdentifoication?.IdentifierStartDate?.DateTimeType
+    //         },
+    //         "IdentifierEndDate": {
+    //             "DateTimeContent": check response?.PartyLife\-cycleMaintenanceWorkProducts?.WorkProductIdentifoication?.IdentifierEndDate?.DateTimeContent,
+    //             "TimeZoneCode": check response?.PartyLife\-cycleMaintenanceWorkProducts?.WorkProductIdentifoication?.IdentifierEndDate?.TimeZoneCode,
+    //             "DaylightSavingIndicator": check response?.PartyLife\-cycleMaintenanceWorkProducts?.WorkProductIdentifoication?.IdentifierEndDate?.DaylightSavingIndicator,
+    //             "DateTimeType": check response?.PartyLife\-cycleMaintenanceWorkProducts?.WorkProductIdentifoication?.IdentifierEndDate?.DateTimeType
+    //         }
+    //     }
+    // },
+    // "PartyLife-cycleMaintenanceTaskResult": check response?.PartyLife\-cycleMaintenanceTaskResult,
     "CustomerPrecedentProfileUpdateLog": {
         "LogType": check response?.CustomerPrecedentProfileUpdateLog?.LogType,
         "LogPeriod": {
@@ -237,36 +253,36 @@ isolated function transformPartyRelationshipPlanUpdate(json response) returns cu
         }
     },
     "PartyRelationshipType": check response?.PartyRelationshipType,
-    "PartyLife-cycleMaintenanceSchedule": {
-        "ScheduleType": check response?.PartyLife\-cycleMaintenanceSchedule?.ScheduleType
-    },
-    "PartyLife-cycleMaintenanceTask": {
-        "Task": check response?.PartyLife\-cycleMaintenanceTask?.Task
-    },
-    "PartyLife-cycleMaintenanceTaskType": check response?.PartyLife\-cycleMaintenanceTaskType,
-    "PartyLife-cycleMaintenanceWorkProducts": {
-        "WorkProductType": check response?.PartyLife\-cycleMaintenanceWorkProducts?.WorkProductType,
-        "WorkProductIdentifoication": {
-            "IdentifierValue": check response?.PartyLife\-cycleMaintenanceWorkProducts?.WorkProductIdentifoication?.IdentifierValue,
-            "IdentifierIssuerReference": {
-                "PartyReference": check response?.PartyLife\-cycleMaintenanceWorkProducts?.WorkProductIdentifoication?.IdentifierIssuerReference?.PartyReference,
-                "InvolvementReference": check response?.PartyLife\-cycleMaintenanceWorkProducts?.WorkProductIdentifoication?.IdentifierIssuerReference?.InvolvementReference
-            },
-            "IdentifierStartDate": {
-                "DateTimeContent": check response?.PartyLife\-cycleMaintenanceWorkProducts?.WorkProductIdentifoication?.IdentifierStartDate?.DateTimeContent,
-                "TimeZoneCode": check response?.PartyLife\-cycleMaintenanceWorkProducts?.WorkProductIdentifoication?.IdentifierStartDate?.TimeZoneCode,
-                "DaylightSavingIndicator": check response?.PartyLife\-cycleMaintenanceWorkProducts?.WorkProductIdentifoication?.IdentifierStartDate?.DaylightSavingIndicator,
-                "DateTimeType": check response?.PartyLife\-cycleMaintenanceWorkProducts?.WorkProductIdentifoication?.IdentifierStartDate?.DateTimeType
-            },
-            "IdentifierEndDate": {
-                "DateTimeContent": check response?.PartyLife\-cycleMaintenanceWorkProducts?.WorkProductIdentifoication?.IdentifierEndDate?.DateTimeContent,
-                "TimeZoneCode": check response?.PartyLife\-cycleMaintenanceWorkProducts?.WorkProductIdentifoication?.IdentifierEndDate?.TimeZoneCode,
-                "DaylightSavingIndicator": check response?.PartyLife\-cycleMaintenanceWorkProducts?.WorkProductIdentifoication?.IdentifierEndDate?.DaylightSavingIndicator,
-                "DateTimeType": check response?.PartyLife\-cycleMaintenanceWorkProducts?.WorkProductIdentifoication?.IdentifierEndDate?.DateTimeType
-            }
-        }
-    },
-    "PartyLife-cycleMaintenanceTaskResult": check response?.PartyLife\-cycleMaintenanceTaskResult,
+    // "PartyLife-cycleMaintenanceSchedule": {
+    //     "ScheduleType": check response?.PartyLife\-cycleMaintenanceSchedule?.ScheduleType
+    // },
+    // "PartyLife-cycleMaintenanceTask": {
+    //     "Task": check response?.PartyLife\-cycleMaintenanceTask?.Task
+    // },
+    // "PartyLife-cycleMaintenanceTaskType": check response?.PartyLife\-cycleMaintenanceTaskType,
+    // "PartyLife-cycleMaintenanceWorkProducts": {
+    //     "WorkProductType": check response?.PartyLife\-cycleMaintenanceWorkProducts?.WorkProductType,
+    //     "WorkProductIdentifoication": {
+    //         "IdentifierValue": check response?.PartyLife\-cycleMaintenanceWorkProducts?.WorkProductIdentifoication?.IdentifierValue,
+    //         "IdentifierIssuerReference": {
+    //             "PartyReference": check response?.PartyLife\-cycleMaintenanceWorkProducts?.WorkProductIdentifoication?.IdentifierIssuerReference?.PartyReference,
+    //             "InvolvementReference": check response?.PartyLife\-cycleMaintenanceWorkProducts?.WorkProductIdentifoication?.IdentifierIssuerReference?.InvolvementReference
+    //         },
+    //         "IdentifierStartDate": {
+    //             "DateTimeContent": check response?.PartyLife\-cycleMaintenanceWorkProducts?.WorkProductIdentifoication?.IdentifierStartDate?.DateTimeContent,
+    //             "TimeZoneCode": check response?.PartyLife\-cycleMaintenanceWorkProducts?.WorkProductIdentifoication?.IdentifierStartDate?.TimeZoneCode,
+    //             "DaylightSavingIndicator": check response?.PartyLife\-cycleMaintenanceWorkProducts?.WorkProductIdentifoication?.IdentifierStartDate?.DaylightSavingIndicator,
+    //             "DateTimeType": check response?.PartyLife\-cycleMaintenanceWorkProducts?.WorkProductIdentifoication?.IdentifierStartDate?.DateTimeType
+    //         },
+    //         "IdentifierEndDate": {
+    //             "DateTimeContent": check response?.PartyLife\-cycleMaintenanceWorkProducts?.WorkProductIdentifoication?.IdentifierEndDate?.DateTimeContent,
+    //             "TimeZoneCode": check response?.PartyLife\-cycleMaintenanceWorkProducts?.WorkProductIdentifoication?.IdentifierEndDate?.TimeZoneCode,
+    //             "DaylightSavingIndicator": check response?.PartyLife\-cycleMaintenanceWorkProducts?.WorkProductIdentifoication?.IdentifierEndDate?.DaylightSavingIndicator,
+    //             "DateTimeType": check response?.PartyLife\-cycleMaintenanceWorkProducts?.WorkProductIdentifoication?.IdentifierEndDate?.DateTimeType
+    //         }
+    //     }
+    // },
+    // "PartyLife-cycleMaintenanceTaskResult": check response?.PartyLife\-cycleMaintenanceTaskResult,
     "CustomerPrecedentProfileUpdateLog": {
         "LogType": check response?.CustomerPrecedentProfileUpdateLog?.LogType,
         "LogPeriod": {
