@@ -1985,3 +1985,26 @@ public type VirtualAccountFacility record {
     # |
     virtualaccount VirtualAccountFacilityAccountReference?;
 };
+
+public type IssueResolutionOk record {|
+    *http:Ok;
+    IssueResolution body;
+|};
+
+public type IssueResolution record {
+    # The required status/situation prior to the implementation of the feature
+    common:Condition Preconditions?;
+    # The timing and key actions/milestones involved in completing the fulfillment feature instance
+    common:Schedule Schedule?;
+    # The Lock Box Reporting and Issue Resolution Fulfillment specific Business Service
+    common:BusinessService BusinessService?;
+    # The required status/situation prior to the implementation of the feature
+    common:Condition Postconditions?;
+    # An unique reference to an item or an occurrence of Employee Payment Services Facility ||
+    # |
+    financialfacility LockBoxFacilityReference?;
+    # Reference to Lock Box Reporting and Issue Resolution Fulfillment
+    string IssueResolutionReference?;
+    # The particular date and time point in the progression of time
+    string IssueResolutionType?;
+};
