@@ -1,0 +1,8 @@
+port = 9095
+serverUrl = "http://localhost:9191/backend"
+positionKeepingUrl = "/PositionKeeping"
+correspondentBankDirectoryUrl = "/CorrespondentBankDirectory"
+documentDirectoryRegisterUrl = "/DocumentDirectory/Register"
+documentServicesInitiateUrl = "/DocumentServices/Initiate"
+issuedDeviceAdministrationDeviceAssignmentUpdateUrl = "/IssuedDeviceAdministration/DeviceAssignment/Update"
+financialAccountingInitiateUrl = "/FinancialAccounting/Initiate"
