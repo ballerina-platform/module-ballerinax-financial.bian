@@ -1,2 +1,6 @@
 port = 9096
 serverUrl = "http://localhost:9191/backend"
+currentAccountUrl = "/CurrentAccount"
+paymentInitiationUrl = "/PaymentInitiation"
+corporatePayrollServicesUrl = "/CorporatePayrollServices"
+savingsAccountInitiateUrl = "/SavingsAccount/Initiate"

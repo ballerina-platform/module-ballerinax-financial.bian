@@ -19,6 +19,8 @@ import ballerinax/financial.bian.attribute.groups.products as products;
 import ballerina/http;
 import ballerina/io;
 
+configurable string currentAccountUrl = ?;
+
 http:Service currentAccountService =  service object {
 
     # Retrieve details about an amount block
@@ -111,11 +113,10 @@ http:Service currentAccountService =  service object {
         do {
             json|http:ClientError responseFromServer;
             lock {
-	            // Invoking the configured backend service
-	            responseFromServer = check externalClient->get("/CurrentAccount/" + currentaccountid + "/Retrieve");
+	            responseFromServer = check externalClient->get(currentAccountUrl + "/" + currentaccountid + "/Retrieve");
             }
             io:println("-----------------------------------------------------------------------------------------------");
-            io:println("Received response from backends API:", "/CurrentAccount/" + currentaccountid + "/Retrieve");
+            io:println("Received response from backends API:", currentAccountUrl + "/" + currentaccountid + "/Retrieve");
             io:println("{\n" + 
                 "   ProductInstanceReference: {...},\n" + 
                 "   CurrentAccountNumber: {...},\n" + 

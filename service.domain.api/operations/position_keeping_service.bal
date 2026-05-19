@@ -19,6 +19,8 @@ import ballerinax/financial.bian.attribute.groups.common as common;
 import ballerina/http;
 import ballerina/io;
 
+configurable string positionKeepingUrl = ?;
+
 http:Service positionKeepingService =  service object {
     
     # ReBQ Retrieve details of financial transactions captured in the log
@@ -64,9 +66,7 @@ http:Service positionKeepingService =  service object {
         do {
             json|http:ClientError responseFromServer;
             lock {
-	            // Invoking the configured backend service
-                // TODO: Update the endpoint URL as per the actual backend API contract
-	            responseFromServer = check externalClient->get("/PositionKeeping/Initiate");
+	            responseFromServer = check externalClient->get(positionKeepingUrl + "/Initiate");
             }
             io:println("-----------------------------------------------------------------------------------------------");
             io:println("Received response from backends API: /PositionKeeping/Initiate");
@@ -198,9 +198,7 @@ http:Service positionKeepingService =  service object {
         do {
             json|http:ClientError responseFromServer;
             lock {
-	            // Invoking the configured backend service
-                // TODO: Update the endpoint URL as per the actual backend API contract
-	            responseFromServer = externalClient->get("/PositionKeeping/"+ positionkeepingid +"/Update");
+	            responseFromServer = externalClient->get(positionKeepingUrl + "/" + positionkeepingid + "/Update");
             }
             io:println("-----------------------------------------------------------------------------------------------");
             io:println("Received response from backends API: PositionKeeping/[string positionkeepingid]/Update");

@@ -19,6 +19,8 @@ import ballerinax/financial.bian.attribute.groups.common as common;
 import ballerina/http;
 import ballerina/io;
 
+configurable string financialAccountingInitiateUrl = ?;
+
 http:Service financialAccountingService =  service object {
 
     # ReBQ Retrieve details of postings from the account
@@ -64,9 +66,7 @@ http:Service financialAccountingService =  service object {
         do {
             json|http:ClientError responseFromServer;
             lock {
-	            // Invoking the configured backend service
-                // TODO: Update the endpoint URL as per the actual backend API contract
-	            responseFromServer = check externalClient->get("/FinancialAccounting/Initiate");
+	            responseFromServer = check externalClient->get(financialAccountingInitiateUrl);
             }
             io:println("-----------------------------------------------------------------------------------------------");
             io:println("Received response from backends API: /FinancialAccounting/Initiate");

@@ -19,6 +19,8 @@ import ballerinax/financial.bian.attribute.groups.products as products;
 import ballerina/http;
 import ballerina/io;
 
+configurable string paymentInitiationUrl = ?;
+
 http:Service paymentInitiationService =  service object {
 
     # ReBQ Retrieve details about a payment transaction compliance check
@@ -96,8 +98,7 @@ http:Service paymentInitiationService =  service object {
             // Invoking the configured backend service
             json|http:ClientError responseFromServer;
             lock {
-	            // Invoking the configured backend service
-	            responseFromServer = check externalClient->get("/PaymentInitiation/Initiate");
+	            responseFromServer = check externalClient->get(paymentInitiationUrl + "/Initiate");
             }
             if (responseFromServer is http:ClientError) {
                 io:println("Error response received from backend for API: /PaymentInitiation/Initiate");
@@ -184,8 +185,7 @@ http:Service paymentInitiationService =  service object {
             // Invoking the configured backend service
             json|http:ClientError responseFromServer;
             lock {
-	            // Invoking the configured backend service
-	            responseFromServer = check externalClient->get("/PaymentInitiation/" + paymentinitiationid + "/Update");
+	            responseFromServer = check externalClient->get(paymentInitiationUrl + "/" + paymentinitiationid + "/Update");
             }
             io:println("-----------------------------------------------------------------------------------------------");
             io:println("Received response from backends API: /PaymentInitiation/[string paymentinitiationid]/Update");

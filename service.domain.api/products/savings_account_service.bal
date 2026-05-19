@@ -19,6 +19,8 @@ import ballerinax/financial.bian.attribute.groups.products as products;
 import ballerina/http;
 import ballerina/io;
 
+configurable string savingsAccountInitiateUrl = ?;
+
 http:Service savingsAccountService =  service object {
 
     # Retrieve details about an amount block
@@ -162,8 +164,7 @@ http:Service savingsAccountService =  service object {
         do {
             json|http:ClientError responseFromServer;
             lock {
-	            // Invoking the configured backend service
-	            responseFromServer = check externalClient->get("/SavingsAccount/Initiate");
+	            responseFromServer = check externalClient->get(savingsAccountInitiateUrl);
             }
             io:println("-----------------------------------------------------------------------------------------------");
             io:println("Received response from backends API: /SavingsAccount/Initiate");

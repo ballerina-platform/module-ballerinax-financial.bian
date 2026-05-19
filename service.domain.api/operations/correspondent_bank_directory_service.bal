@@ -19,6 +19,8 @@ import ballerinax/financial.bian.attribute.groups.common as common;
 import ballerina/http;
 import ballerina/io;
 
+configurable string correspondentBankDirectoryUrl = ?;
+
 http:Service correspondentBankDirectoryService =  service object {
 
     # Retrieve Details about Correspondent Bank
@@ -35,9 +37,7 @@ http:Service correspondentBankDirectoryService =  service object {
         do {
             json|http:ClientError responseFromServer;
             lock {
-	            // Invoking the configured backend service
-                // TODO: Update the endpoint URL as per the actual backend API contract
-	            responseFromServer = externalClient->get("/CorrespondentBankDirectory/" + correspondentbankdirectoryid + "/Retrieve");
+	            responseFromServer = externalClient->get(correspondentBankDirectoryUrl + "/" + correspondentbankdirectoryid + "/Retrieve");
             }
             io:println("-----------------------------------------------------------------------------------------------");
             io:println("Received response from backends API: CorrespondentBankDirectory/[string correspondentbankdirectoryid]/Retrieve");

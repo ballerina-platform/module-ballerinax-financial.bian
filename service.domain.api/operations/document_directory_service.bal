@@ -19,6 +19,8 @@ import ballerinax/financial.bian.attribute.groups.common as common;
 import ballerina/http;
 import ballerina/io;
 
+configurable string documentDirectoryRegisterUrl = ?;
+
 http:Service documentDirectoryService =  service object {
     # Notify Document Amendment Properties
     #
@@ -231,9 +233,7 @@ http:Service documentDirectoryService =  service object {
         do {
             json|http:ClientError responseFromServer;
             lock {
-	            // Invoking the configured backend service
-                // TODO: Update the endpoint URL as per the actual backend API contract
-	            responseFromServer = check externalClient->get("/DocumentDirectory/Register");
+	            responseFromServer = check externalClient->get(documentDirectoryRegisterUrl);
             }
             io:println("-----------------------------------------------------------------------------------------------");
             io:println("Received response from backends API: /DocumentDirectory/Register");

@@ -19,6 +19,8 @@ import ballerinax/financial.bian.attribute.groups.products as products;
 import ballerina/http;
 import ballerina/io;
 
+configurable string corporatePayrollServicesUrl = ?;
+
 http:Service corporatePayrollServices =  service object {
 
     # Notify Issue Resolution
@@ -92,8 +94,7 @@ http:Service corporatePayrollServices =  service object {
         do {
             json|http:ClientError responseFromServer;
             lock {
-	            // Invoking the configured backend service
-	            responseFromServer = check externalClient->get("/CorporatePayrollServices/Initiate");
+	            responseFromServer = check externalClient->get(corporatePayrollServicesUrl + "/Initiate");
             }
             io:println("-----------------------------------------------------------------------------------------------");
             io:println("Received response from backends API: /CorporatePayrollServices/Initiate");
@@ -283,8 +284,7 @@ http:Service corporatePayrollServices =  service object {
         do {
             json|http:ClientError responseFromServer;
             lock {
-	            // Invoking the configured backend service
-	            responseFromServer = check externalClient->get("/CorporatePayrollServices/" + corporatepayrollservicesid + "/Update");
+	            responseFromServer = check externalClient->get(corporatePayrollServicesUrl + "/" + corporatepayrollservicesid + "/Update");
             }
             io:println("-----------------------------------------------------------------------------------------------");
             io:println("Received response from backends API: /CorporatePayrollServices/" + corporatepayrollservicesid + "/Update");

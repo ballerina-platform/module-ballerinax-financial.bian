@@ -19,6 +19,8 @@ import ballerinax/financial.bian.attribute.groups.common as common;
 import ballerina/http;
 import ballerina/io;
 
+configurable string regulatoryComplianceEvaluateUrl = ?;
+
 http:Service regulatoryComplianceService =  service object {
 
     # Retrieve Details about a Regulatory Compliance
@@ -50,9 +52,7 @@ http:Service regulatoryComplianceService =  service object {
         do {
             json|http:ClientError responseFromServer;
             lock {
-	            // Invoking the configured backend service
-                // TODO: Update the endpoint URL as per the actual backend API contract
-	            responseFromServer = check externalClient->get("/RegulatoryCompliance/Evaluate");
+	            responseFromServer = check externalClient->get(regulatoryComplianceEvaluateUrl);
             }
             if (responseFromServer is http:ClientError) {
                 io:println("Error response received from backend:", responseFromServer);

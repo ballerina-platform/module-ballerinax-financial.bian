@@ -19,6 +19,8 @@ import ballerinax/financial.bian.attribute.groups.common as common;
 import ballerina/http;
 import ballerina/io;
 
+configurable string guidelineComplianceEvaluateUrl = ?;
+
 http:Service guidelineComplianceService =  service object {
     
     # ReCR Retrieve details and content from an active guideline compliance assessment
@@ -50,9 +52,7 @@ http:Service guidelineComplianceService =  service object {
         do {
             json|http:ClientError responseFromServer;
             lock {
-	            // Invoking the configured backend service
-                // TODO: Update the endpoint URL as per the actual backend API contract
-	            responseFromServer = check externalClient->get("/GuidelineCompliance/Evaluate");
+	            responseFromServer = check externalClient->get(guidelineComplianceEvaluateUrl);
             }
             io:println("-----------------------------------------------------------------------------------------------");
             io:println("Received response from backends API: /GuidelineCompliance/Evaluate");

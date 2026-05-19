@@ -19,6 +19,8 @@ import ballerinax/financial.bian.attribute.groups.common as common;
 import ballerina/http;
 import ballerina/io;
 
+configurable string issuedDeviceAdministrationDeviceAssignmentUpdateUrl = ?;
+
 http:Service issuedDeviceAdministrationService =  service object {
 
     # ReBQ Retrieve details about an assigned biometric
@@ -345,9 +347,7 @@ http:Service issuedDeviceAdministrationService =  service object {
         do {
             json|http:ClientError responseFromServer;
             lock {
-	            // Invoking the configured backend service
-                // TODO: Update the endpoint URL as per the actual backend API contract
-	            responseFromServer = check externalClient->get("/IssuedDeviceAdministration/DeviceAssignment/Update");
+	            responseFromServer = check externalClient->get(issuedDeviceAdministrationDeviceAssignmentUpdateUrl);
             }
             io:println("-----------------------------------------------------------------------------------------------");
             io:println("Received response from backends API: /IssuedDeviceAdministration/DeviceAssignment/Update");

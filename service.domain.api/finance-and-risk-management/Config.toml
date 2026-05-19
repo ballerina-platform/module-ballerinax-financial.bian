@@ -1,2 +1,4 @@
 port = 9094
 serverUrl = "http://localhost:9191/backend"
+regulatoryComplianceEvaluateUrl = "/RegulatoryCompliance/Evaluate"
+guidelineComplianceEvaluateUrl = "/GuidelineCompliance/Evaluate"

@@ -19,6 +19,8 @@ import ballerinax/financial.bian.attribute.groups.common as common;
 import ballerina/http;
 import ballerina/io;
 
+configurable string documentServicesInitiateUrl = ?;
+
 http:Service documentServicesService =  service object {
 
     # Notify Document Service Procedure
@@ -50,9 +52,7 @@ http:Service documentServicesService =  service object {
         do {
             json|http:ClientError responseFromServer;
             lock {
-	            // Invoking the configured backend service
-                // TODO: Update the endpoint URL as per the actual backend API contract
-	            responseFromServer = check externalClient->get("/DocumentServices/Initiate");
+	            responseFromServer = check externalClient->get(documentServicesInitiateUrl);
             }
             io:println("-----------------------------------------------------------------------------------------------");
             io:println("Received response from backends API: /DocumentServices/Initiate");
