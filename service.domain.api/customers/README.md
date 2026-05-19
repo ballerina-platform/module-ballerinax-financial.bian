@@ -23,6 +23,7 @@ Ballerina package implementing the BIAN **Customers** service domain.
 | PartyReferenceDataDirectory | `/bian/PartyReferenceDataDirectory/v14` |
 | LegalEntityDirectory | `/bian/LegalEntityDirectory/v14` |
 | CustomerCreditRating | `/bian/CustomerCreditRating/v14` |
+| SalesProductAgreement | `/bian/SalesProductAgreement/v14` |
 
 ## Configuration
 

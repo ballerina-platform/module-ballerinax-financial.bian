@@ -27,7 +27,7 @@ service.domain.api/
 | [business-development](service.domain.api/business-development/) | 9090 | ProductDirectory/v14 |
 | [business-management](service.domain.api/business-management/) | 9091 | LegalCompliance/v14 |
 | [channels](service.domain.api/channels/) | 9092 | FinancialGateway/v14, SessionDialogue/v14, Correspondence/v14 |
-| [customers](service.domain.api/customers/) | 9093 | CustomerOffer/v14, CustomerProductAndServiceDirectory/v14, CustomerProductAndServiceEligibility/v14, PartyLifecycleManagement/v14, PartyReferenceDataDirectory/v14, LegalEntityDirectory/v14, CustomerCreditRating/v14 |
+| [customers](service.domain.api/customers/) | 9093 | CustomerOffer/v14, CustomerProductAndServiceDirectory/v14, CustomerProductAndServiceEligibility/v14, PartyLifecycleManagement/v14, PartyReferenceDataDirectory/v14, LegalEntityDirectory/v14, CustomerCreditRating/v14, SalesProductAgreement/v14 |
 | [finance-and-risk-management](service.domain.api/finance-and-risk-management/) | 9094 | RegulatoryCompliance/v14, GuidelineCompliance/v14 |
 | [operations](service.domain.api/operations/) | 9095 | PositionKeeping/v14, CorrespondentBankDirectory/v14, InternalBankAccount/v14, IssuedDeviceAdministration/v14, FinancialAccounting/v14, DocumentDirectory/v14, DocumentServices/v14 |
 | [products](service.domain.api/products/) | 9096 | PaymentInitiation/v14, CurrentAccount/v14, SavingsAccount/v14, CorporatePayrollServices/v14 |
