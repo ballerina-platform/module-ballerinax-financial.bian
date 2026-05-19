@@ -19,6 +19,9 @@ import ballerinax/financial.bian.attribute.groups.common as common;
 import ballerina/http;
 import ballerina/io;
 
+configurable string partyReferenceDataDirectoryAssociationsRetrieveUrl = ?;
+configurable string partyReferenceDataDirectoryUrl = ?;
+
 http:Service partyReferenceDataDirectoryService =  service object {
 
     # ReBQ Retrieve details about association entries in the directory record
@@ -36,8 +39,7 @@ http:Service partyReferenceDataDirectoryService =  service object {
         do {
             json|http:ClientError responseFromServer;
             lock {
-	            // Invoking the configured backend service
-	            responseFromServer = check externalClient->get("/PartyReferenceDataDirectory/Associations/Retrieve");
+	            responseFromServer = check externalClient->get(partyReferenceDataDirectoryAssociationsRetrieveUrl);
             }
             io:println("-----------------------------------------------------------------------------------------------");
             io:println("Received response from backends API: PartyReferenceDataDirectory/" + partyreferencedatadirectoryid + "/Associations/" + associationsid + "/Retrieve");
@@ -159,8 +161,7 @@ http:Service partyReferenceDataDirectoryService =  service object {
         do {
             json|http:ClientError responseFromServer;
             lock {
-	            // Invoking the configured backend service
-	            responseFromServer = check externalClient->get("/PartyReferenceDataDirectory/" + partyreferencedatadirectoryid + "/Retrieve");
+	            responseFromServer = check externalClient->get(partyReferenceDataDirectoryUrl + "/" + partyreferencedatadirectoryid + "/Retrieve");
             }
             io:println("-----------------------------------------------------------------------------------------------");
             io:println("Received response from backends API: PartyReferenceDataDirectory/" + partyreferencedatadirectoryid + "/Retrieve");

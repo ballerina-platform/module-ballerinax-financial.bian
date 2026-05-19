@@ -19,6 +19,9 @@ import ballerinax/financial.bian.attribute.groups.common as common;
 import ballerina/http;
 import ballerina/io;
 
+configurable string correspondenceOutboundInitiateUrl = ?;
+configurable string correspondenceOutboundWithResponseInitiateUrl = ?;
+
 http:Service correspondenceService =  service object {
 
     # ReBQ Retrieve details about an outbound correspondence block
@@ -148,9 +151,7 @@ http:Service correspondenceService =  service object {
         do {
             json|http:ClientError responseFromServer;
             lock {
-	            // Invoking the configured backend service
-                // TODO: Update the endpoint URL as per the actual backend API contract
-	            responseFromServer = check externalClient->get("/Correspondence/Outbound/Initiate");
+	            responseFromServer = check externalClient->get(correspondenceOutboundInitiateUrl);
             }
             io:println("-----------------------------------------------------------------------------------------------");
             io:println("Received response from backends API: Correspondence/Outbound/Initiate");
@@ -237,9 +238,7 @@ http:Service correspondenceService =  service object {
         do {
             json|http:ClientError responseFromServer;
             lock {
-	            // Invoking the configured backend service
-                // TODO: Update the endpoint URL as per the actual backend API contract
-	            responseFromServer = check externalClient->get("/Correspondence/OutboundWithResponse/Initiate");
+	            responseFromServer = check externalClient->get(correspondenceOutboundWithResponseInitiateUrl);
             }
             io:println("-----------------------------------------------------------------------------------------------");
             io:println("Received response from backends API: Correspondence/" + correspondenceid + "/OutboundWithResponse/Initiate");

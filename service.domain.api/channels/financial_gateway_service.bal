@@ -19,6 +19,8 @@ import ballerinax/financial.bian.attribute.groups.common as common;
 import ballerina/http;
 import ballerina/io;
 
+configurable string financialGatewayOutboundInitiateUrl = ?;
+
 http:Service financialGatewayService =  service object {
 
     # ReBQ Retrieve details about an inbound financial message
@@ -105,12 +107,10 @@ http:Service financialGatewayService =  service object {
         do {
             json|http:ClientError responseFromServer;
             lock {
-	            // Invoking the configured backend service
-                // TODO: Update the endpoint URL as per the actual backend API contract
-	            responseFromServer = externalClient->get("/FinancialGateway/" + financialgatewayid + "/Outbound/Initiate");
+	            responseFromServer = externalClient->get(financialGatewayOutboundInitiateUrl + "/" + financialgatewayid + "/Outbound/Initiate");
             }
             io:println("-----------------------------------------------------------------------------------------------");
-            io:println("Received response from backends API:", "/FinancialGateway/" + financialgatewayid + "/Outbound/Initiate");
+            io:println("Received response from backends API:", financialGatewayOutboundInitiateUrl + "/" + financialgatewayid + "/Outbound/Initiate");
             io:println("{\n" + 
                 "   FinancialGatewayOutboundMessageType: \"FinancialMessage\",\n" + 
                 "   FinancialGatewayOutboundMessageRecord: {...},\n" + 

@@ -19,6 +19,8 @@ import ballerinax/financial.bian.attribute.groups.common as common;
 import ballerina/http;
 import ballerina/io;
 
+configurable string partyLifecycleManagementUrl = ?;
+
 http:Service partyLifecycleManagementService =  service object {
 
     # ReBQ Retrieve details about document processing for a party life-cycle administration
@@ -78,9 +80,7 @@ http:Service partyLifecycleManagementService =  service object {
        do {
             json|http:ClientError responseFromServer;
             lock {
-	            // Invoking the configured backend service
-                // TODO: Update the endpoint URL as per the actual backend API contract
-	            responseFromServer = check externalClient->get("/PartyLifecycleManagement/" + partylifecyclemanagementid + "/Qualification/" + qualificationid + "/Retrieve");
+	            responseFromServer = check externalClient->get(partyLifecycleManagementUrl + "/" + partylifecyclemanagementid + "/Qualification/" + qualificationid + "/Retrieve");
             }
             io:println("-----------------------------------------------------------------------------------------------");
             io:println("Received response from backends API: /PartyLifecycleManagement/Qualification/Retrieve");
@@ -175,9 +175,7 @@ http:Service partyLifecycleManagementService =  service object {
         do {
             json|http:ClientError responseFromServer;
             lock {
-	            // Invoking the configured backend service
-                // TODO: Update the endpoint URL as per the actual backend API contract
-	            responseFromServer = check externalClient->get("/PartyLifecycleManagement/Initiate");
+	            responseFromServer = check externalClient->get(partyLifecycleManagementUrl + "/Initiate");
             }
             io:println("-----------------------------------------------------------------------------------------------");
             io:println("Received response from backends API: /PartyLifecycleManagement/Initiate");
@@ -257,9 +255,7 @@ http:Service partyLifecycleManagementService =  service object {
         do {
             json|http:ClientError responseFromServer;
             lock {
-	            // Invoking the configured backend service
-                // TODO: Update the endpoint URL as per the actual backend API contract
-	            responseFromServer = check externalClient->get("/PartyLifecycleManagement/" + partylifecyclemanagementid + "/Control");
+	            responseFromServer = check externalClient->get(partyLifecycleManagementUrl + "/" + partylifecyclemanagementid + "/Control");
             }
             io:println("-----------------------------------------------------------------------------------------------");
             io:println("Received response from backends API: /PartyLifecycleManagement/Control");
@@ -438,9 +434,7 @@ http:Service partyLifecycleManagementService =  service object {
        do {
             json|http:ClientError responseFromServer;
             lock {
-	            // Invoking the configured backend service
-                // TODO: Update the endpoint URL as per the actual backend API contract
-	            responseFromServer = check externalClient->get("/PartyLifecycleManagement/" + partylifecyclemanagementid + "/Update");
+	            responseFromServer = check externalClient->get(partyLifecycleManagementUrl + "/" + partylifecyclemanagementid + "/Update");
             }
             io:println("-----------------------------------------------------------------------------------------------");
             io:println("Received response from backends API: /PartyLifecycleManagement/" + partylifecyclemanagementid + "/Update");

@@ -19,6 +19,8 @@ import ballerinax/financial.bian.attribute.groups.common as common;
 import ballerina/http;
 import ballerina/io;
 
+configurable string legalComplianceEvaluateUrl = ?;
+
 http:Service legalComplianceService =  service object {
 
     # ReCR Retrieve details and content from a legal assessment action
@@ -50,9 +52,7 @@ http:Service legalComplianceService =  service object {
         do {
             json|http:ClientError responseFromServer;
             lock {
-	            // Invoking the configured backend service
-                // TODO: Update the endpoint URL as per the actual backend API contract
-	            responseFromServer = check externalClient->get("/LegalCompliance/Evaluate");
+	            responseFromServer = check externalClient->get(legalComplianceEvaluateUrl);
             }
             io:println("-----------------------------------------------------------------------------------------------");
             io:println("Received response from backends API: LegalCompliance/Evaluate");

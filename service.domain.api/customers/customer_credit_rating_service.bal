@@ -19,6 +19,8 @@ import ballerinax/financial.bian.attribute.groups.common as common;
 import ballerina/http;
 import ballerina/io;
 
+configurable string customerCreditRatingInitiateUrl = ?;
+
 http:Service customerCreditRatingService =  service object {
 
     # ReBQ Retrieve details about a credit alert
@@ -92,9 +94,7 @@ http:Service customerCreditRatingService =  service object {
         do {
             json|http:ClientError responseFromServer;
             lock {
-                // Invoking the configured backend service
-                // TODO: Update the endpoint URL as per the actual backend API contract
-                responseFromServer = check externalClient->get("/CustomerCreditRating/Initiate");
+                responseFromServer = check externalClient->get(customerCreditRatingInitiateUrl);
             }
             io:println("-----------------------------------------------------------------------------------------------");
             io:println("Received response from backends API: /CustomerCreditRating/Initiate");

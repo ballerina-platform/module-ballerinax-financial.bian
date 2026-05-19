@@ -1,2 +1,4 @@
 port = 9090
 serverUrl = "http://localhost:9191/backend"
+productDirectoryOperationRetrieveUrl = "/ProductDirectory/Operations/Retrieve"
+productDirectorySalesMArketingRetrieveUrl = "/ProductDirectory/SalesandMarketing/Retrieve"

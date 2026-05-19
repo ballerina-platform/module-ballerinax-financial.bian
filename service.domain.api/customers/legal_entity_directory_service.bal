@@ -19,6 +19,8 @@ import ballerinax/financial.bian.attribute.groups.common as common;
 import ballerina/http;
 import ballerina/io;
 
+configurable string legalEntityDirectoryUrl = ?;
+
 http:Service legalEntityDirectoryService =  service object {
 
     # ReBQ Retrieve details about association entries in the directory record
@@ -77,8 +79,7 @@ http:Service legalEntityDirectoryService =  service object {
         do {
             json|http:ClientError responseFromServer;
             lock {
-                // Invoking the configured backend service
-                responseFromServer = check externalClient->get("/LegalEntityDirectory/" + legalentitydirectoryid + "/Retrieve");
+                responseFromServer = check externalClient->get(legalEntityDirectoryUrl + "/" + legalentitydirectoryid + "/Retrieve");
             }
 
             io:println("-------------------------------------------------------------------------------------------------------");

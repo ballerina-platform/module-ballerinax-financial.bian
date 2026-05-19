@@ -1,2 +1,12 @@
 port = 9093
 serverUrl = "http://localhost:9191/backend"
+customerCreditRatingInitiateUrl = "/CustomerCreditRating/Initiate"
+customerOfferInitiateUrl = "/CustomerOffer/Initiate"
+customerProductAndServiceDirectoryRetrieveUrl = "/CustomerProductandServiceDirectory/Retrieve"
+customerProductAndServiceDirectoryRegisterUrl = "/CustomerProductandServiceDirectory/Register"
+customerProductAndServiceEligibilityUrl = "/CustomerProductAndServiceEligibility"
+legalEntityDirectoryUrl = "/LegalEntityDirectory"
+partyLifecycleManagementUrl = "/PartyLifecycleManagement"
+partyReferenceDataDirectoryAssociationsRetrieveUrl = "/PartyReferenceDataDirectory/Associations/Retrieve"
+partyReferenceDataDirectoryUrl = "/PartyReferenceDataDirectory"
+salesProductAgreementEvaluateUrl = "/SalesProductAgreement/Evaluate"

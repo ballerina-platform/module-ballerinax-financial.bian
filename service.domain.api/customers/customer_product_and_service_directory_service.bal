@@ -19,6 +19,9 @@ import ballerinax/financial.bian.attribute.groups.common as common;
 import ballerina/http;
 import ballerina/io;
 
+configurable string customerProductAndServiceDirectoryRetrieveUrl = ?;
+configurable string customerProductAndServiceDirectoryRegisterUrl = ?;
+
 http:Service customerProductAndServiceDirectoryService =  service object {
 
     # Notify Customer Product And Service Directory Entry
@@ -78,8 +81,7 @@ http:Service customerProductAndServiceDirectoryService =  service object {
         do {
             json|http:ClientError responseFromServer;
             lock {
-	            // Invoking the configured backend service
-	            responseFromServer = check externalClient->get("/CustomerProductandServiceDirectory/Retrieve");
+	            responseFromServer = check externalClient->get(customerProductAndServiceDirectoryRetrieveUrl);
             }
             io:println("----------------------------------------------------------------------------------------------");
             io:println("Received response from backends API: /CustomerProductandServiceDirectory/Retrieve");
@@ -186,9 +188,7 @@ http:Service customerProductAndServiceDirectoryService =  service object {
         do {
             json|http:ClientError responseFromServer;
             lock {
-	            // Invoking the configured backend service
-                // TODO: Update the endpoint URL as per the actual backend API contract
-	            responseFromServer = check externalClient->get("/CustomerProductandServiceDirectory/Register");
+	            responseFromServer = check externalClient->get(customerProductAndServiceDirectoryRegisterUrl);
             }
             io:println("-----------------------------------------------------------------------------------------------");
             io:println("Received response from backends API: /CustomerProductandServiceDirectory/Register");

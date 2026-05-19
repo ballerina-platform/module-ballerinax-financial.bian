@@ -20,6 +20,9 @@ import ballerinax/financial.bian.attribute.groups.common as common;
 import ballerina/http;
 import ballerina/io;
 
+configurable string productDirectoryOperationRetrieveUrl = ?;
+configurable string productDirectorySalesMArketingRetrieveUrl = ?;
+
 http:Service productDirectoryService =  service object {
 
     # ReBQ Retrieve product or service operations details from the catalog
@@ -37,9 +40,7 @@ http:Service productDirectoryService =  service object {
         do {
             json|http:ClientError responseFromServer;
             lock {
-	            // Invoking the configured backend service
-                // TODO: Update the endpoint URL as per the actual backend API contract
-	            responseFromServer = check externalClient->get("/ProductDirectory/Operations/Retrieve");
+	            responseFromServer = check externalClient->get(productDirectoryOperationRetrieveUrl);
             }
             io:println("-----------------------------------------------------------------------------------------------");
             io:println("Received response from backends API: ProductDirectory/Operations/Retrieve");
@@ -142,9 +143,7 @@ http:Service productDirectoryService =  service object {
         do {
             json|http:ClientError responseFromServer;
             lock {
-	            // Invoking the configured backend service
-                // TODO: Update the endpoint URL as per the actual backend API contract
-	            responseFromServer = check externalClient->get("/ProductDirectory/SalesandMarketing/Retrieve");
+	            responseFromServer = check externalClient->get(productDirectorySalesMArketingRetrieveUrl);
             }
             io:println("-----------------------------------------------------------------------------------------------");
             io:println("Received response from backends API: ProductDirectory/SalesandMarketing/Retrieve");
