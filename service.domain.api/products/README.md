@@ -27,7 +27,7 @@ Edit `Config.toml` to point at your backend:
 
 ```toml
 port = 9096
-serverUrl = "http://localhost:9092/backend"
+serverUrl = "http://localhost:9191/backend"
 ```
 
 ## Running

@@ -10,6 +10,7 @@ Ballerina package implementing the BIAN **Resource Management** service domain.
 | Name | `resource.management` |
 | Version | `0.1.0` |
 | Default port | `9097` |
+| BIAN version | v14 |
 
 ## Services
 
